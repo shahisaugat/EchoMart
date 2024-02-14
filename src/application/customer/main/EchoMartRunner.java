@@ -4,6 +4,7 @@ import application.customer.forms.LoginForm;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Dimension;
+import javax.swing.JFrame;
 
 /**
  *
@@ -21,6 +22,8 @@ public class EchoMartRunner extends javax.swing.JFrame {
         
         loginForm = new LoginForm();
         setContentPane(loginForm);
+        
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     @SuppressWarnings("unchecked")
@@ -28,6 +31,7 @@ public class EchoMartRunner extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -41,6 +45,7 @@ public class EchoMartRunner extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     public static void main(String args[]) {
@@ -53,7 +58,6 @@ public class EchoMartRunner extends javax.swing.JFrame {
             application.setVisible(true);
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }
