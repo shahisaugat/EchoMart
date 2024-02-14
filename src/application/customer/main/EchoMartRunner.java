@@ -13,6 +13,7 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import raven.glasspanepopup.GlassPanePopup;
+import raven.toast.Notifications;
 
 /**
  *
@@ -47,6 +48,7 @@ public class EchoMartRunner extends javax.swing.JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         
         GlassPanePopup.install(this);
+        Notifications.getInstance().setJFrame(this);
     }
 
     public static void openAboutUsForm() {
