@@ -1,11 +1,15 @@
 package application.customer.forms;
 
+import authentication.app.popup.AdminAuthenticator;
 import application.customer.main.EchoMartRunner;
 import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
 import java.io.IOException;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -13,8 +17,18 @@ import java.io.IOException;
  */
 public class LoginForm extends javax.swing.JPanel {
     
+    private static JDialog authenticateDialog;
+    private AdminAuthenticator authenticator;
+    
     public LoginForm() {
         initComponents();
+        
+        authenticator = new AdminAuthenticator();
+        
+        authenticateDialog = new JDialog((JFrame) SwingUtilities.getWindowAncestor(this), "Profile Setup", true);
+        authenticateDialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
+        authenticateDialog.getContentPane().add(authenticator);
+        authenticateDialog.pack();
         
         Cursor defaultCursor = new Cursor(Cursor.HAND_CURSOR);
         
@@ -361,7 +375,9 @@ public class LoginForm extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginButtonMouseClicked
-        
+        if (emailTextField.getText().equals("admin") && passwordTextField.getText().equals("admin")) {
+            showAuthenticationDialog();
+        }
     }//GEN-LAST:event_loginButtonMouseClicked
 
     private void aboutUsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutUsButtonMouseClicked
@@ -384,6 +400,20 @@ public class LoginForm extends javax.swing.JPanel {
         EchoMartRunner.openSignUpForm();
     }//GEN-LAST:event_signupButtonMouseClicked
 
+    private void showAuthenticationDialog() {
+        
+        int centerX = (int) (this.getTopLevelAncestor().getLocationOnScreen().getX() + this.getTopLevelAncestor().getSize().getWidth() / 2 - authenticateDialog.getWidth() / 2);
+        int centerY = (int) (this.getTopLevelAncestor().getLocationOnScreen().getY() + this.getTopLevelAncestor().getSize().getHeight() / 2 - authenticateDialog.getHeight() / 2);
+
+        authenticateDialog.setLocation(centerX, centerY);
+        
+        authenticateDialog.setVisible(true);
+    }
+    
+    public static void destroyDialog() {
+        authenticateDialog.dispose();
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel aboutUsButton;
