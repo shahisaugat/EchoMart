@@ -55,28 +55,28 @@
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="imageAvatar1" min="-2" pref="92" max="-2" attributes="0"/>
+                          <Component id="userProfilePicture" min="-2" pref="92" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                              <Component id="userEmailLabel" min="-2" max="-2" attributes="0"/>
+                              <Component id="userNameLabel" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabel2" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
-                              <Component id="jTextField1" alignment="0" pref="276" max="32767" attributes="0"/>
-                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField3" alignment="0" max="32767" attributes="0"/>
+                              <Component id="skipPID1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="dateOfBirthLabel" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
+                              <Component id="birthDateField" alignment="0" pref="276" max="32767" attributes="0"/>
+                              <Component id="provinceLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="provinceField" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextField4" min="-2" pref="276" max="-2" attributes="0"/>
-                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField2" min="-2" pref="276" max="-2" attributes="0"/>
-                              <Component id="jLabel3" min="-2" pref="171" max="-2" attributes="0"/>
-                              <Component id="jButton2" max="32767" attributes="0"/>
+                              <Component id="shippingField" min="-2" pref="276" max="-2" attributes="0"/>
+                              <Component id="shippingLabel" min="-2" max="-2" attributes="0"/>
+                              <Component id="contactField" min="-2" pref="276" max="-2" attributes="0"/>
+                              <Component id="contactLabel" min="-2" pref="171" max="-2" attributes="0"/>
+                              <Component id="continueSignupBtn" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -90,39 +90,39 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="imageAvatar1" min="-2" pref="92" max="-2" attributes="0"/>
+                          <Component id="userProfilePicture" min="-2" pref="92" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                          <Component id="userNameLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                          <Component id="userEmailLabel" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="dateOfBirthLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="contactLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField2" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="jTextField1" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="contactField" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="birthDateField" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="provinceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="shippingLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField3" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="jTextField4" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="provinceField" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="shippingField" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="63" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButton1" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="jButton2" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="skipPID1" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="continueSignupBtn" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
               </Group>
@@ -130,7 +130,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="application.customer.design.ImageAvatar" name="imageAvatar1">
+        <Container class="application.customer.design.ImageAvatar" name="userProfilePicture">
           <Properties>
             <Property name="borderSize" type="int" value="3"/>
             <Property name="borderSpace" type="int" value="3"/>
@@ -149,7 +149,7 @@
             <Property name="useNullLayout" type="boolean" value="true"/>
           </Layout>
         </Container>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="provinceLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="15" style="0"/>
@@ -157,7 +157,7 @@
             <Property name="text" type="java.lang.String" value="Province"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
+        <Component class="javax.swing.JLabel" name="dateOfBirthLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="15" style="0"/>
@@ -165,7 +165,7 @@
             <Property name="text" type="java.lang.String" value="Date of Birth"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel3">
+        <Component class="javax.swing.JLabel" name="contactLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="15" style="0"/>
@@ -173,7 +173,7 @@
             <Property name="text" type="java.lang.String" value="Contact Number"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel5">
+        <Component class="javax.swing.JLabel" name="userEmailLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="15" style="0"/>
@@ -181,7 +181,7 @@
             <Property name="text" type="java.lang.String" value="shahisaugat2022@gmail.com"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel6">
+        <Component class="javax.swing.JLabel" name="userNameLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="15" style="0"/>
@@ -189,31 +189,28 @@
             <Property name="text" type="java.lang.String" value="Saugat Shahi Thakuri"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="birthDateField">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="15" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField2">
+        <Component class="javax.swing.JTextField" name="contactField">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="15" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField3">
+        <Component class="javax.swing.JTextField" name="provinceField">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="15" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel7">
+        <Component class="javax.swing.JLabel" name="shippingLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="15" style="0"/>
@@ -221,15 +218,14 @@
             <Property name="text" type="java.lang.String" value="Shipping Address"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField4">
+        <Component class="javax.swing.JTextField" name="shippingField">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="15" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="skipPID1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="13" style="1"/>
@@ -247,8 +243,11 @@
             </Property>
             <Property name="focusable" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="skipPID1MouseClicked"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="continueSignupBtn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="5c" red="ff" type="rgb"/>
@@ -261,6 +260,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="CONTINUE"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="continueSignupBtnMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
