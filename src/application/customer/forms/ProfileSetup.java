@@ -4,6 +4,8 @@
  */
 package application.customer.forms;
 
+import application.customer.main.EchoMartRunner;
+
 /**
  *
  * @author shahi
@@ -27,19 +29,19 @@ public class ProfileSetup extends javax.swing.JPanel {
     private void initComponents() {
 
         panelRound1 = new application.customer.design.PanelRound();
-        imageAvatar1 = new application.customer.design.ImageAvatar();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        userProfilePicture = new application.customer.design.ImageAvatar();
+        provinceLabel = new javax.swing.JLabel();
+        dateOfBirthLabel = new javax.swing.JLabel();
+        contactLabel = new javax.swing.JLabel();
+        userEmailLabel = new javax.swing.JLabel();
+        userNameLabel = new javax.swing.JLabel();
+        birthDateField = new javax.swing.JTextField();
+        contactField = new javax.swing.JTextField();
+        provinceField = new javax.swing.JTextField();
+        shippingLabel = new javax.swing.JLabel();
+        shippingField = new javax.swing.JTextField();
+        skipPID1 = new javax.swing.JButton();
+        continueSignupBtn = new javax.swing.JButton();
 
         setOpaque(false);
 
@@ -49,52 +51,58 @@ public class ProfileSetup extends javax.swing.JPanel {
         panelRound1.setRoundTopLeft(20);
         panelRound1.setRoundTopRight(20);
 
-        imageAvatar1.setBorderSize(3);
-        imageAvatar1.setBorderSpace(3);
-        imageAvatar1.setGradientColor1(new java.awt.Color(255, 154, 27));
-        imageAvatar1.setGradientColor2(new java.awt.Color(255, 92, 0));
-        imageAvatar1.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/full-shot-woman-online-shopping__2_-removebg-preview.png"))); // NOI18N
+        userProfilePicture.setBorderSize(3);
+        userProfilePicture.setBorderSpace(3);
+        userProfilePicture.setGradientColor1(new java.awt.Color(255, 154, 27));
+        userProfilePicture.setGradientColor2(new java.awt.Color(255, 92, 0));
+        userProfilePicture.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/full-shot-woman-online-shopping__2_-removebg-preview.png"))); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jLabel1.setText("Province");
+        provinceLabel.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        provinceLabel.setText("Province");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jLabel2.setText("Date of Birth");
+        dateOfBirthLabel.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        dateOfBirthLabel.setText("Date of Birth");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jLabel3.setText("Contact Number");
+        contactLabel.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        contactLabel.setText("Contact Number");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jLabel5.setText("shahisaugat2022@gmail.com");
+        userEmailLabel.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        userEmailLabel.setText("shahisaugat2022@gmail.com");
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jLabel6.setText("Saugat Shahi Thakuri");
+        userNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        userNameLabel.setText("Saugat Shahi Thakuri");
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jTextField1.setText("jTextField1");
+        birthDateField.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
 
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jTextField2.setText("jTextField1");
+        contactField.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
 
-        jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jTextField3.setText("jTextField1");
+        provinceField.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jLabel7.setText("Shipping Address");
+        shippingLabel.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        shippingLabel.setText("Shipping Address");
 
-        jTextField4.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jTextField4.setText("jTextField1");
+        shippingField.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 92, 0));
-        jButton1.setText("SKIP");
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 92, 0)));
-        jButton1.setFocusable(false);
+        skipPID1.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        skipPID1.setForeground(new java.awt.Color(255, 92, 0));
+        skipPID1.setText("SKIP");
+        skipPID1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 92, 0)));
+        skipPID1.setFocusable(false);
+        skipPID1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                skipPID1MouseClicked(evt);
+            }
+        });
 
-        jButton2.setBackground(new java.awt.Color(255, 92, 0));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("CONTINUE");
+        continueSignupBtn.setBackground(new java.awt.Color(255, 92, 0));
+        continueSignupBtn.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        continueSignupBtn.setForeground(new java.awt.Color(255, 255, 255));
+        continueSignupBtn.setText("CONTINUE");
+        continueSignupBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                continueSignupBtnMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
         panelRound1.setLayout(panelRound1Layout);
@@ -104,25 +112,25 @@ public class ProfileSetup extends javax.swing.JPanel {
                 .addGap(37, 37, 37)
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelRound1Layout.createSequentialGroup()
-                        .addComponent(imageAvatar1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(userProfilePicture, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)))
+                            .addComponent(userEmailLabel)
+                            .addComponent(userNameLabel)))
                     .addGroup(panelRound1Layout.createSequentialGroup()
                         .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(skipPID1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(dateOfBirthLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(birthDateField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+                            .addComponent(provinceLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(provinceField, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(27, 27, 27)
                         .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(shippingField, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(shippingLabel)
+                            .addComponent(contactField, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(contactLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(continueSignupBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
         panelRound1Layout.setVerticalGroup(
@@ -131,32 +139,32 @@ public class ProfileSetup extends javax.swing.JPanel {
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelRound1Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(imageAvatar1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(userProfilePicture, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelRound1Layout.createSequentialGroup()
                         .addGap(45, 45, 45)
-                        .addComponent(jLabel6)
+                        .addComponent(userNameLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel5)))
+                        .addComponent(userEmailLabel)))
                 .addGap(45, 45, 45)
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                    .addComponent(dateOfBirthLabel)
+                    .addComponent(contactLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(contactField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(birthDateField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel7))
+                    .addComponent(provinceLabel)
+                    .addComponent(shippingLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(provinceField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(shippingField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(skipPID1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(continueSignupBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45))
         );
 
@@ -178,21 +186,31 @@ public class ProfileSetup extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void skipPID1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_skipPID1MouseClicked
+        SignupForm.destroyDialog();
+        EchoMartRunner.openSignUpForm();
+    }//GEN-LAST:event_skipPID1MouseClicked
+
+    private void continueSignupBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continueSignupBtnMouseClicked
+        SignupForm.destroyDialog();
+        EchoMartRunner.openLoginForm();
+    }//GEN-LAST:event_continueSignupBtnMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private application.customer.design.ImageAvatar imageAvatar1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField birthDateField;
+    private javax.swing.JTextField contactField;
+    private javax.swing.JLabel contactLabel;
+    private javax.swing.JButton continueSignupBtn;
+    private javax.swing.JLabel dateOfBirthLabel;
     private application.customer.design.PanelRound panelRound1;
+    private javax.swing.JTextField provinceField;
+    private javax.swing.JLabel provinceLabel;
+    private javax.swing.JTextField shippingField;
+    private javax.swing.JLabel shippingLabel;
+    private javax.swing.JButton skipPID1;
+    private javax.swing.JLabel userEmailLabel;
+    private javax.swing.JLabel userNameLabel;
+    private application.customer.design.ImageAvatar userProfilePicture;
     // End of variables declaration//GEN-END:variables
 }
