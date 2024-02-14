@@ -16,6 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+import raven.toast.Notifications;
 
 /**
  *
@@ -24,7 +25,7 @@ import javax.swing.UIManager;
 public class SignupForm extends javax.swing.JPanel {
     
     private ProfileSetup profile;
-    private JDialog profileDialog;
+    private static JDialog profileDialog;
 
     public SignupForm() {
         initComponents();
@@ -379,12 +380,17 @@ public class SignupForm extends javax.swing.JPanel {
     }//GEN-LAST:event_backToLoginMouseClicked
 
     private void createAccountBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createAccountBtnMouseClicked
-        if (termsCheckBox.isSelected()) {
-            SaveAndFetch.registerAccount(this);
-            showProfileDialog();
+        if (getFNameTextField().isEmpty() || getLNameTextField().isEmpty() || getEmailTextField().isEmpty() || getPwdTextField().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please fill in all the credentials and proceed!");
+        } else if (!isStrongPassword(pwdTextField.getText())) {
+            JOptionPane.showMessageDialog(this, "Password must be strong");
+        } else if (!termsCheckBox.isSelected()) {
+            JOptionPane.showMessageDialog(this, "Please, Agree to our terms and conditions then continue!");
         } else {
-            JOptionPane.showMessageDialog(this, "You have to agree to our terms and conditions first!");
-        } 
+            SaveAndFetch.registerAccount(this);
+            Notifications.getInstance().show(Notifications.Type.INFO, Notifications.Location.TOP_CENTER, "Customer Details Saved Successfully!");
+            showProfileDialog();
+        }
     }//GEN-LAST:event_createAccountBtnMouseClicked
 
     private void showProfileDialog() {
@@ -395,6 +401,10 @@ public class SignupForm extends javax.swing.JPanel {
         profileDialog.setLocation(centerX, centerY);
         
         profileDialog.setVisible(true);
+    }
+    
+    public static void destroyDialog() {
+        profileDialog.dispose();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
