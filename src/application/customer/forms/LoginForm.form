@@ -160,6 +160,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="LOGIN"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="loginButtonMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="noAccountText">
       <Properties>
@@ -179,6 +182,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="SignUp"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="signupButtonMouseClicked"/>
+      </Events>
     </Component>
     <Container class="application.customer.design.PanelRound" name="brandBackground">
       <Properties>
@@ -285,6 +291,9 @@
             <Property name="text" type="java.lang.String" value="ABOUT US"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="aboutUsButtonMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="contactButton">
           <Properties>
@@ -297,6 +306,9 @@
             <Property name="text" type="java.lang.String" value="CONTACT"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="contactButtonMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="afilliateButton">
           <Properties>
@@ -309,6 +321,9 @@
             <Property name="text" type="java.lang.String" value="AFILLIATE PROGRAM"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="afilliateButtonMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="termsButton">
           <Properties>
@@ -321,6 +336,9 @@
             <Property name="text" type="java.lang.String" value="TERMS AND POLICIES"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="termsButtonMouseClicked"/>
+          </Events>
         </Component>
         <Container class="application.customer.design.PictureHolder" name="brandPicture">
           <Properties>

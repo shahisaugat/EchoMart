@@ -1,5 +1,6 @@
 package application.customer.forms;
 
+import application.customer.main.EchoMartRunner;
 import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.FontFormatException;
@@ -28,7 +29,7 @@ public class LoginForm extends javax.swing.JPanel {
         
         copyrightText.setCursor(new Cursor(Cursor.TEXT_CURSOR));
         
-        String fontFilePath = "/application/customer/forms/Lato-Regular.ttf/";
+        String fontFilePath = "/application/customer/fonts/Lato-Regular.ttf/";
         try {
             Font customFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream(fontFilePath));
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
@@ -102,6 +103,11 @@ public class LoginForm extends javax.swing.JPanel {
         loginButton.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         loginButton.setForeground(new java.awt.Color(255, 255, 255));
         loginButton.setText("LOGIN");
+        loginButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loginButtonMouseClicked(evt);
+            }
+        });
 
         noAccountText.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         noAccountText.setText("Don't have an account?");
@@ -109,6 +115,11 @@ public class LoginForm extends javax.swing.JPanel {
         signupButton.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         signupButton.setForeground(new java.awt.Color(255, 92, 0));
         signupButton.setText("SignUp");
+        signupButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                signupButtonMouseClicked(evt);
+            }
+        });
 
         brandBackground.setBackground(new java.awt.Color(255, 92, 0));
         brandBackground.setRoundBottomLeft(800);
@@ -117,21 +128,41 @@ public class LoginForm extends javax.swing.JPanel {
         aboutUsButton.setForeground(new java.awt.Color(255, 255, 255));
         aboutUsButton.setText("ABOUT US");
         aboutUsButton.setToolTipText("");
+        aboutUsButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                aboutUsButtonMouseClicked(evt);
+            }
+        });
 
         contactButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         contactButton.setForeground(new java.awt.Color(255, 255, 255));
         contactButton.setText("CONTACT");
         contactButton.setToolTipText("");
+        contactButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                contactButtonMouseClicked(evt);
+            }
+        });
 
         afilliateButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         afilliateButton.setForeground(new java.awt.Color(255, 255, 255));
         afilliateButton.setText("AFILLIATE PROGRAM");
         afilliateButton.setToolTipText("");
+        afilliateButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                afilliateButtonMouseClicked(evt);
+            }
+        });
 
         termsButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         termsButton.setForeground(new java.awt.Color(255, 255, 255));
         termsButton.setText("TERMS AND POLICIES");
         termsButton.setToolTipText("");
+        termsButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                termsButtonMouseClicked(evt);
+            }
+        });
 
         brandPicture.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/full-shot-woman-online-shopping__1_-removebg-preview.png"))); // NOI18N
 
@@ -328,6 +359,30 @@ public class LoginForm extends javax.swing.JPanel {
             .addComponent(brandBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void loginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginButtonMouseClicked
+        
+    }//GEN-LAST:event_loginButtonMouseClicked
+
+    private void aboutUsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutUsButtonMouseClicked
+        EchoMartRunner.openAboutUsForm();
+    }//GEN-LAST:event_aboutUsButtonMouseClicked
+
+    private void contactButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contactButtonMouseClicked
+        EchoMartRunner.openContactForm();
+    }//GEN-LAST:event_contactButtonMouseClicked
+
+    private void afilliateButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_afilliateButtonMouseClicked
+        EchoMartRunner.openAfilliateForm();
+    }//GEN-LAST:event_afilliateButtonMouseClicked
+
+    private void termsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_termsButtonMouseClicked
+        EchoMartRunner.openTermsForm();
+    }//GEN-LAST:event_termsButtonMouseClicked
+
+    private void signupButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupButtonMouseClicked
+        EchoMartRunner.openSignUpForm();
+    }//GEN-LAST:event_signupButtonMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
