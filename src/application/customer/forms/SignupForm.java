@@ -2,6 +2,7 @@ package application.customer.forms;
 
 import application.customer.main.EchoMartRunner;
 import application.customer.methods.SaveAndFetch;
+import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.FontFormatException;
@@ -10,19 +11,32 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Formatter;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 
 /**
  *
  * @author shahi
  */
 public class SignupForm extends javax.swing.JPanel {
+    
+    private ProfileSetup profile;
+    private JDialog profileDialog;
 
-    /**
-     * Creates new form SignupForm
-     */
     public SignupForm() {
         initComponents();
+        
+        profile = new ProfileSetup();
+        
+        UIManager.put("DialogTitle.background", Color.decode("#FF5C00"));
+        
+        profileDialog = new JDialog((JFrame) SwingUtilities.getWindowAncestor(this), "Profile Setup", true);
+        profileDialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
+        profileDialog.getContentPane().add(profile);
+        profileDialog.pack();
         
         Cursor defaultCursor = new Cursor(Cursor.HAND_CURSOR);
         
@@ -311,12 +325,14 @@ public class SignupForm extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addComponent(headerText)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(96, 96, 96)
-                        .addComponent(headerText)
-                        .addGap(71, 71, 71)
+                        .addGap(566, 566, 566)
+                        .addComponent(panelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(fNameLabel)
                             .addComponent(lNameLabel))
@@ -343,16 +359,13 @@ public class SignupForm extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(274, 274, 274)
                                 .addComponent(createAccountBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(40, 40, 40)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(accountExists)
-                                            .addComponent(backToLogin)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(panelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(11, 11, 11)))))))
+                                .addGap(40, 40, 40)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(accountExists)
+                                    .addComponent(backToLogin))))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -368,11 +381,21 @@ public class SignupForm extends javax.swing.JPanel {
     private void createAccountBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createAccountBtnMouseClicked
         if (termsCheckBox.isSelected()) {
             SaveAndFetch.registerAccount(this);
+            showProfileDialog();
         } else {
             JOptionPane.showMessageDialog(this, "You have to agree to our terms and conditions first!");
         } 
     }//GEN-LAST:event_createAccountBtnMouseClicked
 
+    private void showProfileDialog() {
+        
+        int centerX = (int) (this.getTopLevelAncestor().getLocationOnScreen().getX() + this.getTopLevelAncestor().getSize().getWidth() / 2 - profileDialog.getWidth() / 2);
+        int centerY = (int) (this.getTopLevelAncestor().getLocationOnScreen().getY() + this.getTopLevelAncestor().getSize().getHeight() / 2 - profileDialog.getHeight() / 2);
+
+        profileDialog.setLocation(centerX, centerY);
+        
+        profileDialog.setVisible(true);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel accountExists;

@@ -12,6 +12,7 @@ import com.formdev.flatlaf.extras.FlatAnimatedLafChange;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
+import raven.glasspanepopup.GlassPanePopup;
 
 /**
  *
@@ -44,6 +45,8 @@ public class EchoMartRunner extends javax.swing.JFrame {
         setContentPane(loginForm);
         
         setExtendedState(JFrame.MAXIMIZED_BOTH);
+        
+        GlassPanePopup.install(this);
     }
 
     public static void openAboutUsForm() {
