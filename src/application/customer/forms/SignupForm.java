@@ -1,11 +1,16 @@
 package application.customer.forms;
 
 import application.customer.main.EchoMartRunner;
+import application.customer.methods.SaveAndFetch;
 import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Formatter;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -37,6 +42,52 @@ public class SignupForm extends javax.swing.JPanel {
         } catch (IOException | FontFormatException e) {
             System.out.println(e);
         }
+    }
+    
+    public String getFNameTextField() {
+        String fullName = fNameTextField.getText();
+        return fullName;
+    }
+    
+    public String getLNameTextField() {
+        String fullName = lNameTextField.getText();
+        return fullName;
+    }
+    
+    public String getEmailTextField() {
+        String emailAddress = emailTextField.getText();
+        return emailAddress;
+    }
+    
+    private boolean isStrongPassword(String password) {
+    return password.length() >= 7 && 
+           password.matches(".*[A-Z].*") &&
+           password.matches(".*\\d.*") &&
+           password.matches(".*[!@#$%].*");
+    }
+    
+    public String getPwdTextField() {
+            String hashedPassword = hashPassword(pwdTextField.getText());
+        return hashedPassword;
+    }
+    
+    private String hashPassword(String password) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] hash = md.digest(password.getBytes());
+            return bytesToHex(hash);
+        } catch (NoSuchAlgorithmException e) {
+            System.out.print(e);
+            return null;
+        }
+    }
+    
+    private String bytesToHex(byte[] bytes) {
+        Formatter formatter = new Formatter();
+        for (byte b : bytes) {
+            formatter.format("%02x", b);
+        }
+        return formatter.toString();
     }
     
     @SuppressWarnings("unchecked")
@@ -110,6 +161,11 @@ public class SignupForm extends javax.swing.JPanel {
         createAccountBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         createAccountBtn.setForeground(new java.awt.Color(255, 255, 255));
         createAccountBtn.setText("CREATE ACCOUNT");
+        createAccountBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                createAccountBtnMouseClicked(evt);
+            }
+        });
 
         accountExists.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         accountExists.setText("Already have an account?");
@@ -308,6 +364,14 @@ public class SignupForm extends javax.swing.JPanel {
     private void backToLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backToLoginMouseClicked
         EchoMartRunner.openLoginForm();
     }//GEN-LAST:event_backToLoginMouseClicked
+
+    private void createAccountBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createAccountBtnMouseClicked
+        if (termsCheckBox.isSelected()) {
+            SaveAndFetch.registerAccount(this);
+        } else {
+            JOptionPane.showMessageDialog(this, "You have to agree to our terms and conditions first!");
+        } 
+    }//GEN-LAST:event_createAccountBtnMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

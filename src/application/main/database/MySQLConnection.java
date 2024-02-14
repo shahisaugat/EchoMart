@@ -12,7 +12,7 @@ public class MySQLConnection implements DatabaseConnection {
         try{
             String username = "root";
             String password = "SaugatSHELL196$!";
-            String database = "newtestdb";
+            String database = "echomart";
             Class.forName("com.mysql.jdbc.Driver");
             Connection connection;
             connection = DriverManager.getConnection(
