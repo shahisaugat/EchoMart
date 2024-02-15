@@ -1,6 +1,7 @@
 package authentication.app.popup;
 
 import application.customer.forms.LoginForm;
+import application.customer.main.EchoMartRunner;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -216,6 +217,7 @@ public class AdminAuthenticator extends javax.swing.JPanel {
         if (getCompletePin().equals("784563")) {
             Notifications.getInstance().show(Notifications.Type.SUCCESS, "Admin Verification Successfull!");
             LoginForm.destroyDialog();
+            EchoMartRunner.getIntoApp();
         } else {
             Notifications.getInstance().show(Notifications.Type.ERROR, "Contact your service provider!"); 
         }

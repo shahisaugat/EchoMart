@@ -3,12 +3,15 @@ package application.customer.main;
 import application.customer.forms.AboutUsForm;
 import application.customer.forms.AfilliateForm;
 import application.customer.forms.ContactForm;
+import application.customer.forms.Dashboard;
 import application.customer.forms.LoginForm;
 import application.customer.forms.SignupForm;
 import application.customer.forms.TermsConditions;
+import application.customer.menu.MenuMethodForm;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.extras.FlatAnimatedLafChange;
+import java.awt.Component;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
@@ -28,6 +31,8 @@ public class EchoMartRunner extends javax.swing.JFrame {
     private final ContactForm contactForm;
     private final TermsConditions termsForm;
     private final SignupForm signUpForm;
+    private final MenuMethodForm menuMethods;
+    
 
     public EchoMartRunner() {
         initComponents();
@@ -35,6 +40,7 @@ public class EchoMartRunner extends javax.swing.JFrame {
         setSize(new Dimension(1366, 768));
         
         loginForm = new LoginForm();
+        menuMethods = new MenuMethodForm();
         
         aboutUs = new AboutUsForm();
         afilliateForm = new AfilliateForm();
@@ -50,9 +56,14 @@ public class EchoMartRunner extends javax.swing.JFrame {
         GlassPanePopup.install(this);
         Notifications.getInstance().setJFrame(this);
     }
+    
+    public static void changeContentPane(Component component) {
+        component.applyComponentOrientation(application.getComponentOrientation());
+        application.menuMethods.changeContentPane(component);
+    }
 
     public static void openAboutUsForm() {
-//        FlatAnimatedLafChange.showSnapshot();
+        FlatAnimatedLafChange.showSnapshot();
         application.setContentPane(application.aboutUs);
         application.aboutUs.applyComponentOrientation(application.getComponentOrientation());
         SwingUtilities.updateComponentTreeUI(application.aboutUs);
@@ -60,7 +71,7 @@ public class EchoMartRunner extends javax.swing.JFrame {
     }
     
     public static void openContactForm() {
-//        FlatAnimatedLafChange.showSnapshot();
+        FlatAnimatedLafChange.showSnapshot();
         application.setContentPane(application.contactForm);
         application.contactForm.applyComponentOrientation(application.getComponentOrientation());
         SwingUtilities.updateComponentTreeUI(application.contactForm);
@@ -68,7 +79,7 @@ public class EchoMartRunner extends javax.swing.JFrame {
     }
     
     public static void openAfilliateForm() {
-//        FlatAnimatedLafChange.showSnapshot();
+        FlatAnimatedLafChange.showSnapshot();
         application.setContentPane(application.afilliateForm);
         application.afilliateForm.applyComponentOrientation(application.getComponentOrientation());
         SwingUtilities.updateComponentTreeUI(application.afilliateForm);
@@ -76,7 +87,7 @@ public class EchoMartRunner extends javax.swing.JFrame {
     }
     
     public static void openTermsForm() {
-//        FlatAnimatedLafChange.showSnapshot();
+        FlatAnimatedLafChange.showSnapshot();
         application.setContentPane(application.termsForm);
         application.termsForm.applyComponentOrientation(application.getComponentOrientation());
         SwingUtilities.updateComponentTreeUI(application.termsForm);
@@ -84,7 +95,7 @@ public class EchoMartRunner extends javax.swing.JFrame {
     }
     
     public static void openLoginForm() {
-//        FlatAnimatedLafChange.showSnapshot();
+        FlatAnimatedLafChange.showSnapshot();
         application.setContentPane(application.loginForm);
         application.loginForm.applyComponentOrientation(application.getComponentOrientation());
         SwingUtilities.updateComponentTreeUI(application.loginForm);
@@ -92,11 +103,25 @@ public class EchoMartRunner extends javax.swing.JFrame {
     }
     
     public static void openSignUpForm() {
-//        FlatAnimatedLafChange.showSnapshot();
+        FlatAnimatedLafChange.showSnapshot();
         application.setContentPane(application.signUpForm);
         application.signUpForm.applyComponentOrientation(application.getComponentOrientation());
         SwingUtilities.updateComponentTreeUI(application.signUpForm);
         FlatAnimatedLafChange.hideSnapshotWithAnimation();
+    }
+    
+    public static void getIntoApp() {
+        FlatAnimatedLafChange.showSnapshot();
+        application.setContentPane(application.menuMethods);
+        application.menuMethods.applyComponentOrientation(application.getComponentOrientation());
+        setSelectedMenu(0, 0);
+        application.menuMethods.hideMenu();
+        SwingUtilities.updateComponentTreeUI(application.menuMethods);
+        FlatAnimatedLafChange.hideSnapshotWithAnimation();
+    }
+    
+    public static void setSelectedMenu(int index, int subIndex) {
+        application.menuMethods.setSelectedMenu(index, subIndex);
     }
     
     @SuppressWarnings("unchecked")
