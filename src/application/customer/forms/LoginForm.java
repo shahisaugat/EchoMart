@@ -2,11 +2,15 @@ package application.customer.forms;
 
 import authentication.app.popup.AdminAuthenticator;
 import application.customer.main.EchoMartRunner;
+import application.customer.methods.SaveAndFetch;
 import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Formatter;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
@@ -59,6 +63,32 @@ public class LoginForm extends javax.swing.JPanel {
         } catch (IOException | FontFormatException e) {
             System.out.println(e);
         }
+    }
+    
+    public String getPasswordTextField() {
+        String pwd = passwordTextField.getText();
+        String hashedPwd = hashPassword(pwd);
+        return hashedPwd;
+    }
+    
+    
+    private String hashPassword(String password) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] hash = md.digest(password.getBytes());
+            return bytesToHex(hash);
+        } catch (NoSuchAlgorithmException e) {
+            System.out.print(e);
+            return null;
+        }
+    }
+    
+    private String bytesToHex(byte[] bytes) {
+        Formatter formatter = new Formatter();
+        for (byte b : bytes) {
+            formatter.format("%02x", b);
+        }
+        return formatter.toString();
     }
     
     @SuppressWarnings("unchecked")
@@ -377,6 +407,11 @@ public class LoginForm extends javax.swing.JPanel {
     private void loginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginButtonMouseClicked
         if (emailTextField.getText().equals("admin") && passwordTextField.getText().equals("admin")) {
             showAuthenticationDialog();
+        } else {
+            boolean authorize = SaveAndFetch.performLogin(emailTextField.getText(), getPasswordTextField());
+            if (authorize) {
+                EchoMartRunner.getIntoApp();
+            }
         }
     }//GEN-LAST:event_loginButtonMouseClicked
 

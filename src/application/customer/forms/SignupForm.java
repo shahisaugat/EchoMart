@@ -1,5 +1,6 @@
 package application.customer.forms;
 
+import application.customer.dao.CustomerDAO;
 import application.customer.main.EchoMartRunner;
 import application.customer.methods.SaveAndFetch;
 import java.awt.Color;
@@ -410,18 +411,21 @@ public class SignupForm extends javax.swing.JPanel {
     }//GEN-LAST:event_backToLoginMouseClicked
 
     private void createAccountBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createAccountBtnMouseClicked
+        CustomerDAO customers = new CustomerDAO();
+        
         if (getFNameTextField().isEmpty() || getLNameTextField().isEmpty() || getEmailTextField().isEmpty() || getPwdTextField().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please fill in all the credentials and proceed!");
         } else if (!isStrongPassword(pwdTextField.getText())) {
             JOptionPane.showMessageDialog(this, "Password must be strong");
         } else if (!termsCheckBox.isSelected()) {
             JOptionPane.showMessageDialog(this, "Please, Agree to our terms and conditions then continue!");
+        } else if (customers.isAccountExists(getEmailTextField())) {
+            JOptionPane.showMessageDialog(this, "Account exists with this email!");
         } else {
             SaveAndFetch.registerAccount(this);
             Notifications.getInstance().show(Notifications.Type.INFO, Notifications.Location.TOP_CENTER, "Customer Details Saved Successfully!");
             addNotify();
             showProfileDialog();
-            
         }
     }//GEN-LAST:event_createAccountBtnMouseClicked
 
