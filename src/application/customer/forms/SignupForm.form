@@ -320,16 +320,15 @@
                   <Component id="brandLogo" min="-2" pref="78" max="-2" attributes="0"/>
                   <EmptySpace pref="80" max="32767" attributes="0"/>
                   <Component id="wlcmText1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="welcomeText2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                           <Component id="brandAdvertisment" min="-2" pref="429" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
                           <Component id="bigCircle" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                       </Group>

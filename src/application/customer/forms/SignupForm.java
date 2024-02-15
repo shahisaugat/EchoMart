@@ -30,15 +30,9 @@ public class SignupForm extends javax.swing.JPanel {
     public SignupForm() {
         initComponents();
         
-        profile = new ProfileSetup();
         pwdNoMatchLabel.setText("");
         
         UIManager.put("DialogTitle.background", Color.decode("#FF5C00"));
-        
-        profileDialog = new JDialog((JFrame) SwingUtilities.getWindowAncestor(this), "Profile Setup", true);
-        profileDialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
-        profileDialog.getContentPane().add(profile);
-        profileDialog.pack();
         
         Cursor defaultCursor = new Cursor(Cursor.HAND_CURSOR);
         
@@ -58,6 +52,17 @@ public class SignupForm extends javax.swing.JPanel {
         } catch (IOException | FontFormatException e) {
             System.out.println(e);
         }
+    }
+    
+    @Override
+    public void addNotify() {
+        super.addNotify();
+        profile = new ProfileSetup(getEmailTextField(), getFNameTextField() + " " + getLNameTextField());
+        
+        profileDialog = new JDialog((JFrame) SwingUtilities.getWindowAncestor(this), "Profile Setup", true);
+        profileDialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
+        profileDialog.getContentPane().add(profile);
+        profileDialog.pack();
     }
     
     public String getFNameTextField() {
@@ -414,7 +419,9 @@ public class SignupForm extends javax.swing.JPanel {
         } else {
             SaveAndFetch.registerAccount(this);
             Notifications.getInstance().show(Notifications.Type.INFO, Notifications.Location.TOP_CENTER, "Customer Details Saved Successfully!");
+            addNotify();
             showProfileDialog();
+            
         }
     }//GEN-LAST:event_createAccountBtnMouseClicked
 

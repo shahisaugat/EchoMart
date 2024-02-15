@@ -57,9 +57,9 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="userProfilePicture" min="-2" pref="92" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="userEmailLabel" min="-2" max="-2" attributes="0"/>
-                              <Component id="userNameLabel" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="userEmailLabel" max="32767" attributes="0"/>
+                              <Component id="userNameLabel" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -144,6 +144,9 @@
               <Image iconType="3" name="/application/customer/image/full-shot-woman-online-shopping__2_-removebg-preview.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="userProfilePictureMouseClicked"/>
+          </Events>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
             <Property name="useNullLayout" type="boolean" value="true"/>
