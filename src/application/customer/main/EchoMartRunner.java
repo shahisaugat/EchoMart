@@ -52,7 +52,7 @@ public class EchoMartRunner extends javax.swing.JFrame {
     }
 
     public static void openAboutUsForm() {
-        FlatAnimatedLafChange.showSnapshot();
+//        FlatAnimatedLafChange.showSnapshot();
         application.setContentPane(application.aboutUs);
         application.aboutUs.applyComponentOrientation(application.getComponentOrientation());
         SwingUtilities.updateComponentTreeUI(application.aboutUs);
@@ -60,7 +60,7 @@ public class EchoMartRunner extends javax.swing.JFrame {
     }
     
     public static void openContactForm() {
-        FlatAnimatedLafChange.showSnapshot();
+//        FlatAnimatedLafChange.showSnapshot();
         application.setContentPane(application.contactForm);
         application.contactForm.applyComponentOrientation(application.getComponentOrientation());
         SwingUtilities.updateComponentTreeUI(application.contactForm);
@@ -68,7 +68,7 @@ public class EchoMartRunner extends javax.swing.JFrame {
     }
     
     public static void openAfilliateForm() {
-        FlatAnimatedLafChange.showSnapshot();
+//        FlatAnimatedLafChange.showSnapshot();
         application.setContentPane(application.afilliateForm);
         application.afilliateForm.applyComponentOrientation(application.getComponentOrientation());
         SwingUtilities.updateComponentTreeUI(application.afilliateForm);
@@ -76,7 +76,7 @@ public class EchoMartRunner extends javax.swing.JFrame {
     }
     
     public static void openTermsForm() {
-        FlatAnimatedLafChange.showSnapshot();
+//        FlatAnimatedLafChange.showSnapshot();
         application.setContentPane(application.termsForm);
         application.termsForm.applyComponentOrientation(application.getComponentOrientation());
         SwingUtilities.updateComponentTreeUI(application.termsForm);
@@ -84,7 +84,7 @@ public class EchoMartRunner extends javax.swing.JFrame {
     }
     
     public static void openLoginForm() {
-        FlatAnimatedLafChange.showSnapshot();
+//        FlatAnimatedLafChange.showSnapshot();
         application.setContentPane(application.loginForm);
         application.loginForm.applyComponentOrientation(application.getComponentOrientation());
         SwingUtilities.updateComponentTreeUI(application.loginForm);
@@ -92,7 +92,7 @@ public class EchoMartRunner extends javax.swing.JFrame {
     }
     
     public static void openSignUpForm() {
-        FlatAnimatedLafChange.showSnapshot();
+//        FlatAnimatedLafChange.showSnapshot();
         application.setContentPane(application.signUpForm);
         application.signUpForm.applyComponentOrientation(application.getComponentOrientation());
         SwingUtilities.updateComponentTreeUI(application.signUpForm);

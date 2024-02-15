@@ -23,48 +23,53 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Component id="panelRound1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="panelRound3" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="pwdLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="pwdTextField" min="-2" pref="214" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="cfmPwdLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="cfmPwdTextField" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Component id="emailTextField" alignment="0" max="32767" attributes="0"/>
-                  <Component id="createAccountBtn" alignment="0" max="32767" attributes="0"/>
-                  <Component id="termsCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="smallCircle" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="214" max="-2" attributes="0"/>
                       <Component id="accountExists" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="backToLogin" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="fNameLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="emailAddressLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="fNameTextField" min="-2" pref="214" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lNameLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="lNameTextField" min="-2" pref="214" max="-2" attributes="0"/>
+                          <Component id="headerText" alignment="0" min="-2" pref="412" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="emailTextField" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="fNameLabel" min="-2" max="-2" attributes="0"/>
+                                      <Component id="emailAddressLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="fNameTextField" min="-2" pref="218" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lNameTextField" min="-2" pref="218" max="-2" attributes="0"/>
+                                      <Component id="lNameLabel" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="strengthLabel" pref="218" max="32767" attributes="0"/>
+                                  <Component id="pwdLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="pwdTextField" alignment="1" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="cfmPwdTextField" max="32767" attributes="0"/>
+                                  <Component id="cfmPwdLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="pwdNoMatchLabel" alignment="0" pref="218" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="termsCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="createAccountBtn" alignment="0" min="-2" pref="465" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="headerText" alignment="0" min="-2" pref="412" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
+              <EmptySpace pref="160" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -73,54 +78,54 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
               <Component id="headerText" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="fNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="fNameTextField" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="lNameTextField" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <Component id="emailAddressLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="emailTextField" min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="pwdLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cfmPwdLabel" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="cfmPwdTextField" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="pwdTextField" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="strengthLabel" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                  <Component id="pwdNoMatchLabel" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="termsCheckBox" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              <Component id="createAccountBtn" min="-2" pref="42" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="566" max="-2" attributes="0"/>
-                      <Component id="panelRound3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="fNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="fNameTextField" min="-2" pref="42" max="-2" attributes="0"/>
-                          <Component id="lNameTextField" min="-2" pref="42" max="-2" attributes="0"/>
-                      </Group>
                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                      <Component id="emailAddressLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="emailTextField" min="-2" pref="42" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="pwdLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cfmPwdLabel" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="pwdTextField" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-                                  <Component id="cfmPwdTextField" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="termsCheckBox" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="274" max="-2" attributes="0"/>
-                              <Component id="createAccountBtn" min="-2" pref="42" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="accountExists" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="backToLogin" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="accountExists" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="backToLogin" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="smallCircle" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <Component id="panelRound1" min="-2" max="-2" attributes="0"/>
@@ -201,6 +206,9 @@
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="pwdTextFieldKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="lNameTextField">
       <Properties>
@@ -215,6 +223,9 @@
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cfmPwdTextFieldKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JCheckBox" name="termsCheckBox">
       <Properties>
@@ -280,25 +291,25 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="pictureHolder1" min="-2" pref="439" max="-2" attributes="0"/>
+                  <Component id="brandAdvertisment" min="-2" pref="439" max="-2" attributes="0"/>
                   <EmptySpace pref="47" max="32767" attributes="0"/>
-                  <Component id="panelRound2" min="-2" max="-2" attributes="0"/>
+                  <Component id="bigCircle" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <Component id="wlcmText1" min="-2" max="-2" attributes="0"/>
+                              <Component id="welcomeText2" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          <Component id="brandLogo" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="67" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -306,19 +317,20 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                  <Component id="jLabel3" min="-2" pref="78" max="-2" attributes="0"/>
+                  <Component id="brandLogo" min="-2" pref="78" max="-2" attributes="0"/>
                   <EmptySpace pref="80" max="32767" attributes="0"/>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="wlcmText1" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="pictureHolder1" min="-2" pref="429" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="welcomeText2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="brandAdvertisment" min="-2" pref="429" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="panelRound2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
+                          <Component id="bigCircle" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -327,7 +339,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="application.customer.design.PictureHolder" name="pictureHolder1">
+        <Container class="application.customer.design.PictureHolder" name="brandAdvertisment">
           <Properties>
             <Property name="image" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/application/customer/image/_R57IQ08-removebg-preview.png"/>
@@ -338,7 +350,7 @@
             <Property name="useNullLayout" type="boolean" value="true"/>
           </Layout>
         </Container>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="wlcmText1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="24" style="1"/>
@@ -349,7 +361,7 @@
             <Property name="text" type="java.lang.String" value="JOIN OUR COMMUNITY OF PASSIONATE"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
+        <Component class="javax.swing.JLabel" name="welcomeText2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="24" style="1"/>
@@ -360,14 +372,14 @@
             <Property name="text" type="java.lang.String" value="BUYERS AND SELLERS !"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel3">
+        <Component class="javax.swing.JLabel" name="brandLogo">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/application/customer/image/Saugat_Shahi-removebg-preview.png"/>
             </Property>
           </Properties>
         </Component>
-        <Container class="application.customer.design.PanelRound" name="panelRound2">
+        <Container class="application.customer.design.PanelRound" name="bigCircle">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="5c" red="ff" type="rgb"/>
@@ -393,7 +405,7 @@
         </Container>
       </SubComponents>
     </Container>
-    <Container class="application.customer.design.PanelRound" name="panelRound3">
+    <Container class="application.customer.design.PanelRound" name="smallCircle">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="5c" red="ff" type="rgb"/>
@@ -417,5 +429,21 @@
         </DimensionLayout>
       </Layout>
     </Container>
+    <Component class="javax.swing.JLabel" name="strengthLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="16" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Password Strength"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="pwdNoMatchLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="16" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Password Should Match"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>
