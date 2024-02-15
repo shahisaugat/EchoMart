@@ -208,7 +208,7 @@ public class LoginForm extends javax.swing.JPanel {
             }
         });
 
-        brandPicture.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/full-shot-woman-online-shopping__1_-removebg-preview.png"))); // NOI18N
+        brandPicture.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/woman.png"))); // NOI18N
 
         copyrightText.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         copyrightText.setForeground(new java.awt.Color(255, 255, 255));

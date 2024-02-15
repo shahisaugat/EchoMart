@@ -343,7 +343,7 @@
         <Container class="application.customer.design.PictureHolder" name="brandPicture">
           <Properties>
             <Property name="image" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/application/customer/image/full-shot-woman-online-shopping__1_-removebg-preview.png"/>
+              <Image iconType="3" name="/application/customer/image/woman.png"/>
             </Property>
           </Properties>
 
