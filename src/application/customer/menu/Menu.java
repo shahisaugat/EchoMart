@@ -22,11 +22,37 @@ public class Menu extends JPanel {
 
     private final String menuItems[][] = {
         {"Home"},
-        {"Products", "Two Wheeler", "Four Wheeler"},
+        {"Categories", "Electronics",
+  "Fashion (Men's, Women's, Kids')",
+  "Home & Kitchen",
+  "Beauty & Personal Care",
+  "Health & Wellness",
+  "Sports & Outdoors",
+  "Automotive",
+  "Books & Audible",
+  "Toys & Games",
+  "Baby Products",
+  "Furniture & Decor",
+  "Groceries & Gourmet Foods",
+  "Pet Supplies",
+  "Tools & Home Improvement",
+  "Jewelry & Watches",
+  "Office Products",
+  "Musical Instruments",
+  "Arts & Crafts",
+  "Industrial & Scientific",
+  "Movies, Music & Entertainment",
+  "Travel & Luggage",
+  "Handmade & Crafts",
+  "Software & Digital Products",
+  "Food & Beverages",
+  "Education & Learning"},
         
-        {"Billing History"},
-        {"Feedback & Support"},
-        {"Settings"}
+        {"Order History"},
+        {"Your Posts"},
+        {"Notifications"},
+        {"Feedbacks"},
+        {"Settings"},
     };
 
     public boolean isMenuFull() {
@@ -193,7 +219,6 @@ public class Menu extends JPanel {
                 int width = parent.getWidth() - (insets.left + insets.right);
                 int height = parent.getHeight() - (insets.top + insets.bottom) - 10;
                 int iconHeight = getPreferredSize().height;
-                int accentColorHeight = 0;
 
                 int ldgap = UIScale.scale(10);
                 int ldHeight = getPreferredSize().height;
@@ -201,7 +226,7 @@ public class Menu extends JPanel {
                 int menux = x;
                 int menuy = y + iconHeight + gap;
                 int menuWidth = width;
-                int menuHeight = height - (iconHeight + gap) - (ldHeight + ldgap) - (accentColorHeight);
+                int menuHeight = height - (iconHeight + gap) - (ldHeight + ldgap) - (0);
                 scroll.setBounds(menux, menuy, menuWidth, menuHeight);
 
             }

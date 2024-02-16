@@ -15,6 +15,7 @@ public class AnimateMenu {
         if (hash.containsKey(menu) && hash.get(menu).isRunning()) {
             hash.get(menu).stop();
         }
+        menu.setMenuShow(show);
         Animator animator = new Animator(400, new Animator.TimingTarget() {
             @Override
             public void timingEvent(float f) {

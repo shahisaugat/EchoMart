@@ -3,52 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/design/ImageAvatar.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/design/StyledTextField.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/dao/CustomerDAO.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/main/EchoMartRunner.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/menu/MenuAction.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/design/WrapLayout.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/model/CustomerData.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/image/catalogueTestImage.png</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/forms/LoginForm.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/catalog/PanelLoadAnimation.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/design/StyledSearchField.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/methods/SaveAndFetch.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/dao/CustomerProfileDAO.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/model/CustomerProfile.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/forms/SignupForm.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/design/PanelItem.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/catalog/ratingImage.png</file>
             <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/menu/Menu.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/menu/MenuMethodForm.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/main/database/MySQLConnection.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/forms/Dashboard.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/image/logo.png</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/menu/MenuItemLayout.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/main/database/DatabaseConnection.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/theme/FlatLaf.properties</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/forms/AfilliateForm.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/forms/ContactForm.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/search/SearchBar.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/forms/TermsConditions.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/image/Search.png</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/menu/PopupSubmenu.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/authentication/app/popup/RecoveryCode.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/design/PictureHolder.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/catalog/CatalogueData.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/image/woman.png</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/design/PanelRound.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/design/ButtonBadges.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/forms/AboutUsForm.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/menu/AnimateMenu.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/menu/MenuEvent.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/image/loginBackground_Ad.png</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/theme/FlatLightLaf.properties</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/menu/MenuItem.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/catalog/Catalogue.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/authentication/app/popup/AdminAuthenticator.java</file>
-            <file>file:/C:/Users/shahi/OneDrive/Documents/NetBeansProjects/echomart-marketplace/src/application/customer/forms/ProfileSetup.java</file>
         </group>
     </open-files>
 </project-private>
