@@ -1,22 +1,29 @@
 package application.customer.forms;
 
+import application.customer.catalog.PanelLoadAnimation;
 import application.customer.dao.CustomerDAO;
 import application.customer.main.EchoMartRunner;
 import application.customer.methods.SaveAndFetch;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Formatter;
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+import javax.swing.Timer;
 import javax.swing.UIManager;
+import raven.glasspanepopup.DefaultOption;
+import raven.glasspanepopup.GlassPanePopup;
 import raven.toast.Notifications;
 
 /**
@@ -27,6 +34,7 @@ public class SignupForm extends javax.swing.JPanel {
     
     private ProfileSetup profile;
     private static JDialog profileDialog;
+    private PanelLoadAnimation loadAnimation;
 
     public SignupForm() {
         initComponents();
@@ -216,7 +224,7 @@ public class SignupForm extends javax.swing.JPanel {
         panelRound1.setBackground(new java.awt.Color(255, 92, 0));
         panelRound1.setRoundBottomRight(800);
 
-        brandAdvertisment.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/_R57IQ08-removebg-preview.png"))); // NOI18N
+        brandAdvertisment.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/loginBackground_Ad.png"))); // NOI18N
 
         wlcmText1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         wlcmText1.setForeground(new java.awt.Color(255, 255, 255));
@@ -226,7 +234,7 @@ public class SignupForm extends javax.swing.JPanel {
         welcomeText2.setForeground(new java.awt.Color(255, 255, 255));
         welcomeText2.setText("BUYERS AND SELLERS !");
 
-        brandLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Saugat_Shahi-removebg-preview.png"))); // NOI18N
+        brandLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/brandLogo.png"))); // NOI18N
 
         bigCircle.setBackground(new java.awt.Color(255, 92, 0));
         bigCircle.setRoundBottomLeft(140);
@@ -273,15 +281,14 @@ public class SignupForm extends javax.swing.JPanel {
                 .addComponent(brandLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addComponent(wlcmText1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelRound1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(welcomeText2)
                         .addGap(31, 31, 31)
                         .addComponent(brandAdvertisment, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27))
                     .addGroup(panelRound1Layout.createSequentialGroup()
-                        .addGap(162, 162, 162)
                         .addComponent(bigCircle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(93, 93, 93))))
         );
@@ -412,21 +419,32 @@ public class SignupForm extends javax.swing.JPanel {
 
     private void createAccountBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createAccountBtnMouseClicked
         CustomerDAO customers = new CustomerDAO();
-        
+    
+        runLoadAnimation();
+    
+    Timer timer = new Timer(1200, (ActionEvent e) -> {
         if (getFNameTextField().isEmpty() || getLNameTextField().isEmpty() || getEmailTextField().isEmpty() || getPwdTextField().isEmpty()) {
+            hideAnimation();
             JOptionPane.showMessageDialog(this, "Please fill in all the credentials and proceed!");
         } else if (!isStrongPassword(pwdTextField.getText())) {
+            hideAnimation();
             JOptionPane.showMessageDialog(this, "Password must be strong");
         } else if (!termsCheckBox.isSelected()) {
+            hideAnimation();
             JOptionPane.showMessageDialog(this, "Please, Agree to our terms and conditions then continue!");
         } else if (customers.isAccountExists(getEmailTextField())) {
+            hideAnimation();
             JOptionPane.showMessageDialog(this, "Account exists with this email!");
         } else {
             SaveAndFetch.registerAccount(this);
             Notifications.getInstance().show(Notifications.Type.INFO, Notifications.Location.TOP_CENTER, "Customer Details Saved Successfully!");
             addNotify();
+            hideAnimation();
             showProfileDialog();
         }
+    });
+    timer.setRepeats(false);
+    timer.start();
     }//GEN-LAST:event_createAccountBtnMouseClicked
 
     private void pwdTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pwdTextFieldKeyReleased
@@ -476,6 +494,35 @@ public class SignupForm extends javax.swing.JPanel {
         return password.length() >= 6 && 
            (password.matches(".*[A-Z].*") || password.matches(".*[a-z].*") || password.matches(".*\\d.*"));
     }
+    
+    public void runLoadAnimation() {
+        ImageIcon loadImg = new ImageIcon(getClass().getResource("/application/customer/catalog/orangeLoader.gif/"));
+
+        loadAnimation = new PanelLoadAnimation(loadImg);
+        GlassPanePopup.showPopup(loadAnimation, new DefaultOption() {
+            @Override
+            public float opacity() {
+                return 0.05f;
+            }
+            
+            @Override
+            public boolean closeWhenClickOutside() {
+                return false;
+            }
+
+            @Override
+            public String getLayout(Component parent, float animate) {
+                float xOffset = 0.50f;
+                float yOffset = 0.50f;
+
+                return "pos " + xOffset + "al " + yOffset + "al";
+            }
+        });
+    }
+    
+    private void hideAnimation() {
+        GlassPanePopup.closePopupAll();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel accountExists;
@@ -494,8 +541,6 @@ public class SignupForm extends javax.swing.JPanel {
     private javax.swing.JLabel lNameLabel;
     private javax.swing.JTextField lNameTextField;
     private application.customer.design.PanelRound panelRound1;
-    private application.customer.design.PanelRound panelRound5;
-    private application.customer.design.PanelRound panelRound6;
     private javax.swing.JLabel pwdLabel;
     private javax.swing.JLabel pwdNoMatchLabel;
     private javax.swing.JTextField pwdTextField;

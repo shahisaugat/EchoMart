@@ -115,11 +115,12 @@
         <Container class="application.customer.design.PictureHolder" name="addToFavourite">
           <Properties>
             <Property name="image" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/application/customer/catalog/Group 9 (6).png"/>
+              <Image iconType="3" name="/application/customer/catalog/addFavImage.png"/>
             </Property>
           </Properties>
           <Events>
             <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="addToFavouriteMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="addToFavouriteMouseExited"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -134,7 +135,7 @@
         <Container class="application.customer.design.PictureHolder" name="addToCart">
           <Properties>
             <Property name="image" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/application/customer/catalog/Group 10 (1).png"/>
+              <Image iconType="3" name="/application/customer/catalog/addCartImage.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -152,7 +153,7 @@
     <Container class="application.customer.design.PictureHolder" name="ratingImage">
       <Properties>
         <Property name="image" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/application/customer/catalog/Vector (7).png"/>
+          <Image iconType="3" name="/application/customer/catalog/ratingImage.png"/>
         </Property>
       </Properties>
 

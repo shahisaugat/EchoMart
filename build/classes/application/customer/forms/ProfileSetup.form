@@ -31,7 +31,7 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Component id="panelRound1" max="32767" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -56,31 +56,35 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="userProfilePicture" min="-2" pref="92" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="userEmailLabel" max="32767" attributes="0"/>
-                              <Component id="userNameLabel" max="32767" attributes="0"/>
+                              <Component id="userNameLabel" min="-2" pref="194" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="skipPID1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="dateOfBirthLabel" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
-                              <Component id="birthDateField" alignment="0" pref="276" max="32767" attributes="0"/>
+                          <Component id="dateOfBirthLabel" min="-2" pref="204" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                          <Component id="contactLabel" min="-2" pref="171" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="provinceLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="provinceField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="provinceField" alignment="0" pref="204" max="32767" attributes="0"/>
+                              <Component id="birthDateField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="skipPID1" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="shippingField" min="-2" pref="276" max="-2" attributes="0"/>
-                              <Component id="shippingLabel" min="-2" max="-2" attributes="0"/>
-                              <Component id="contactField" min="-2" pref="276" max="-2" attributes="0"/>
-                              <Component id="contactLabel" min="-2" pref="171" max="-2" attributes="0"/>
                               <Component id="continueSignupBtn" max="32767" attributes="0"/>
+                              <Component id="shippingLabel" min="-2" max="-2" attributes="0"/>
+                              <Component id="contactField" min="-2" pref="204" max="-2" attributes="0"/>
+                              <Component id="shippingField" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="49" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -89,42 +93,50 @@
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           <Component id="userProfilePicture" min="-2" pref="92" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="userNameLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="userEmailLabel" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="dateOfBirthLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="contactLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="dateOfBirthLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="birthDateField" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="provinceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="shippingLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="provinceField" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                                      <Component id="shippingField" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="contactLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="contactField" min="-2" pref="32" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="skipPID1" min="-2" pref="30" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="continueSignupBtn" min="-2" pref="31" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="contactField" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="birthDateField" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="provinceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="shippingLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="provinceField" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="shippingField" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="63" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="skipPID1" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="continueSignupBtn" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -141,7 +153,7 @@
               <Color blue="0" green="5c" red="ff" type="rgb"/>
             </Property>
             <Property name="image" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/application/customer/image/full-shot-woman-online-shopping__2_-removebg-preview.png"/>
+              <Image iconType="3" name="/application/customer/image/loginBackground_Ad.png"/>
             </Property>
           </Properties>
           <Events>

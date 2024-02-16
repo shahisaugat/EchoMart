@@ -341,7 +341,7 @@
         <Container class="application.customer.design.PictureHolder" name="brandAdvertisment">
           <Properties>
             <Property name="image" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/application/customer/image/_R57IQ08-removebg-preview.png"/>
+              <Image iconType="3" name="/application/customer/image/loginBackground_Ad.png"/>
             </Property>
           </Properties>
 
@@ -374,7 +374,7 @@
         <Component class="javax.swing.JLabel" name="brandLogo">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/application/customer/image/Saugat_Shahi-removebg-preview.png"/>
+              <Image iconType="3" name="/application/customer/image/brandLogo.png"/>
             </Property>
           </Properties>
         </Component>
