@@ -1,19 +1,26 @@
 package application.customer.forms;
 
+import application.customer.catalog.PanelLoadAnimation;
 import authentication.app.popup.AdminAuthenticator;
 import application.customer.main.EchoMartRunner;
 import application.customer.methods.SaveAndFetch;
+import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Formatter;
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
+import javax.swing.Timer;
+import raven.glasspanepopup.DefaultOption;
+import raven.glasspanepopup.GlassPanePopup;
 
 /**
  *
@@ -23,6 +30,7 @@ public class LoginForm extends javax.swing.JPanel {
     
     private static JDialog authenticateDialog;
     private AdminAuthenticator authenticator;
+    private PanelLoadAnimation loadAnimation;
     
     public LoginForm() {
         initComponents();
@@ -405,16 +413,28 @@ public class LoginForm extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginButtonMouseClicked
-        if (emailTextField.getText().equals("admin") && passwordTextField.getText().equals("admin")) {
-            showAuthenticationDialog();
-        } else {
-            boolean authorize = SaveAndFetch.performLogin(emailTextField.getText(), getPasswordTextField());
-            if (authorize) {
-                EchoMartRunner.getIntoApp();
+        loadAnimation();
+        Timer timer = new Timer(1000, (ActionEvent e) -> {
+            if (emailTextField.getText().equals("admin") && passwordTextField.getText().equals("admin")) {
+               hideAnimation();
+               showAuthenticationDialog();
+            } else {
+               boolean authorize = SaveAndFetch.performLogin(emailTextField.getText(), getPasswordTextField());
+               if (authorize) {
+                    hideAnimation();
+                    EchoMartRunner.getIntoApp();
+               } else {
+                    hideAnimation();
+                }
             }
-        }
+        });
+        timer.setRepeats(false);
+        timer.start();
     }//GEN-LAST:event_loginButtonMouseClicked
 
+    private void hideAnimation() {
+        GlassPanePopup.closePopupAll();
+    }
     private void aboutUsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutUsButtonMouseClicked
         EchoMartRunner.openAboutUsForm();
     }//GEN-LAST:event_aboutUsButtonMouseClicked
@@ -447,6 +467,30 @@ public class LoginForm extends javax.swing.JPanel {
     
     public static void destroyDialog() {
         authenticateDialog.dispose();
+    }
+    
+    private void loadAnimation() {
+        ImageIcon loadImg = new ImageIcon(getClass().getResource("/application/customer/catalog/blackLoader.gif/"));
+        loadAnimation = new PanelLoadAnimation(loadImg);
+        GlassPanePopup.showPopup(loadAnimation, new DefaultOption() {
+            @Override
+            public float opacity() {
+                return 0.05f;
+            }
+            
+            @Override
+            public boolean closeWhenClickOutside() {
+                return false;
+            }
+
+            @Override
+            public String getLayout(Component parent, float animate) {
+                float xOffset = 0.50f;
+                float yOffset = 0.50f;
+
+                return "pos " + xOffset + "al " + yOffset + "al";
+            }
+        });
     }
     
 
