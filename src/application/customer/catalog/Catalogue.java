@@ -8,14 +8,6 @@ import javax.swing.ImageIcon;
  */
 public class Catalogue extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Catalogue
-     * @param img
-     * @param name
-     * @param price
-     * @param status
-     * @param time
-     */
     public Catalogue(ImageIcon img, String name, String price, String status, String time) {
         initComponents();
         
@@ -59,20 +51,23 @@ public class Catalogue extends javax.swing.JPanel {
         productImage.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/woman.png"))); // NOI18N
         productImage.setOpaque(true);
 
-        addToFavourite.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/catalog/Group 9 (6).png"))); // NOI18N
+        addToFavourite.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/catalog/addFavImage.png"))); // NOI18N
         addToFavourite.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 addToFavouriteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addToFavouriteMouseExited(evt);
             }
         });
         productImage.add(addToFavourite);
         addToFavourite.setBounds(180, 10, 40, 40);
 
-        addToCart.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/catalog/Group 10 (1).png"))); // NOI18N
+        addToCart.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/catalog/addCartImage.png"))); // NOI18N
         productImage.add(addToCart);
         addToCart.setBounds(180, 60, 40, 40);
 
-        ratingImage.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/catalog/Vector (7).png"))); // NOI18N
+        ratingImage.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/catalog/ratingImage.png"))); // NOI18N
 
         productPrice.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         productPrice.setText("$ 120.34");
@@ -138,9 +133,12 @@ public class Catalogue extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addToFavouriteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addToFavouriteMouseEntered
-        
+
     }//GEN-LAST:event_addToFavouriteMouseEntered
 
+    private void addToFavouriteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addToFavouriteMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addToFavouriteMouseExited
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private application.customer.design.PictureHolder addToCart;
