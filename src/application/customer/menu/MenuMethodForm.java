@@ -63,6 +63,8 @@ public class MenuMethodForm extends JLayeredPane {
             switch (index) {
                 case 0 -> {
                     EchoMartRunner.changeContentPane(new Dashboard());
+                    revalidate();
+                    repaint();
                 }
 
 
