@@ -54,7 +54,6 @@ public class AdminAuthenticator extends javax.swing.JPanel {
         });
     }
     
-    // Method to add key listeners for Ctrl+A and backspace functionality
     private void addKeyListeners() {
         KeyListener backspaceListener = new KeyAdapter() {
             @Override
@@ -203,6 +202,7 @@ public class AdminAuthenticator extends javax.swing.JPanel {
         pin6.setText("3");
         Timer timer = new Timer(600, (ActionEvent e) -> {
         LoginForm.destroyDialog();
+        EchoMartRunner.getIntoApp();
     });
         Notifications.getInstance().show(Notifications.Type.SUCCESS, "Admin Verification Successful!");
     timer.setRepeats(false);
