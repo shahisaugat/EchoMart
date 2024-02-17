@@ -1,7 +1,8 @@
 package application.customer.forms;
 
+//import application.customer.catalog.BannerHolder;
 import application.customer.catalog.Catalogue;
-import application.customer.design.PanelRound;
+import application.customer.design.NavigationItems;
 import authentication.app.popup.AccountMenus;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -16,26 +17,35 @@ import raven.glasspanepopup.GlassPanePopup;
 public class Dashboard extends javax.swing.JPanel {
     
     private AccountMenus accountMenu;
+//    private BannerHolder adShow;
 
     public Dashboard() {
         initComponents();
         
         removeAll();
         jScrollPane1.getVerticalScrollBar().setUnitIncrement(14);
-        PanelRound panelNew = new PanelRound();
-        panelNew.setPreferredSize(new Dimension(1036, 120));
         
-        jScrollPane1.setColumnHeaderView(panelNew);
+        navigationBar1.setSize(new Dimension(490, 40));
+
+        navigationBar1.setAnimate(24);
+        navigationBar1.init(new NavigationItems("New", "Clothes", "Watches", "Fashion"), new NavigationItems("Electronics", "Cosmetics", "Gen-Z", "Smartphones"), new NavigationItems("Music Diaries", "Books", "Instruments", "Kitchen"));
+
+//        adShow = new BannerHolder(); 
+//        adShow.setSize(new Dimension(1060, 174));
+//        adShow.init(new BannerShow("Welcome to the EchoMart", "Visit us"), new BannerShow("Welcome to the EchoMart1", "Shop"), new BannerShow("Welcome to the EchoMart2", "Shop1"));
+//        adShow.setAnimate(30);
+//        jScrollPane1.setColumnHeaderView(adShow);
+        
         addProducts();
     }
     
     private void addProducts() {
-        panelItem1.add(new Catalogue(new ImageIcon(getClass().getResource("/application/customer/image/Mask group.png/")), "New Watch", "NRs. 12000", "Delivery", "Ktm"));
-        panelItem1.add(new Catalogue(new ImageIcon(getClass().getResource("/application/customer/image/Mask group (1).png/")), "Jordan Air M1", "NRs. 12000", "Delivery", "Ktm"));
-        panelItem1.add(new Catalogue(new ImageIcon(getClass().getResource("/application/customer/image/Mask group (3).png/")), "Power Bank", "NRs. 3000", "Delivery", "Ktm"));
-        panelItem1.add(new Catalogue(new ImageIcon(getClass().getResource("/application/customer/image/Mask group (4).png/")), "Face Mask", "NRs. 3000", "Delivery", "Ktm"));
-        panelItem1.add(new Catalogue(new ImageIcon(getClass().getResource("/application/customer/image/Mask group (6).png/")), "Power Bank", "NRs. 3000", "Delivery", "Ktm"));
-        panelItem1.add(new Catalogue(new ImageIcon(getClass().getResource("/application/customer/image/Mask group (7).png/")), "Power Bank", "NRs. 3000", "Delivery", "Ktm"));
+        panelItem1.add(new Catalogue(new ImageIcon(getClass().getResource("/application/customer/catalog/no.png/")), "New Watch", "NRs. 12000", "Delivery", "Ktm"));
+        panelItem1.add(new Catalogue(new ImageIcon(getClass().getResource("/application/customer/catalog/no.png/")), "Jordan Air M1", "NRs. 12000", "Delivery", "Ktm"));
+        panelItem1.add(new Catalogue(new ImageIcon(getClass().getResource("/application/customer/catalog/no.png/")), "Power Bank", "NRs. 3000", "Delivery", "Ktm"));
+        panelItem1.add(new Catalogue(new ImageIcon(getClass().getResource("/application/customer/catalog/no.png/")), "Face Mask", "NRs. 3000", "Delivery", "Ktm"));
+        panelItem1.add(new Catalogue(new ImageIcon(getClass().getResource("/application/customer/catalog/no.png/")), "Power Bank", "NRs. 3000", "Delivery", "Ktm"));
+        panelItem1.add(new Catalogue(new ImageIcon(getClass().getResource("/application/customer/catalog/no.png/")), "Power Bank", "NRs. 3000", "Delivery", "Ktm"));
         panelItem1.add(new Catalogue(new ImageIcon(getClass().getResource("/application/customer/image/Mask group (8).png/")), "Power Bank", "NRs. 3000", "Delivery", "Ktm"));
         panelItem1.add(new Catalogue(new ImageIcon(getClass().getResource("/application/customer/image/Mask group (9).png/")), "Power Bank", "NRs. 3000", "Delivery", "Ktm"));
         panelItem1.add(new Catalogue(new ImageIcon(getClass().getResource("/application/customer/image/Mask group (10).png/")), "Power Bank", "NRs. 3000", "Delivery", "Ktm"));
@@ -54,20 +64,16 @@ public class Dashboard extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         styledSearchField1 = new application.customer.design.StyledSearchField();
+        navigationBar1 = new application.customer.design.NavigationBar();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
 
         jScrollPane1.setBorder(null);
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setViewportView(panelItem1);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Frame 13.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Group 13.png"))); // NOI18N
         jLabel1.setText("My Account");
         jLabel1.setIconTextGap(10);
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -77,90 +83,85 @@ public class Dashboard extends javax.swing.JPanel {
         });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Frame 12.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Group 14.png"))); // NOI18N
         jLabel2.setText("Favourites");
         jLabel2.setIconTextGap(10);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Vector.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Group 15.png"))); // NOI18N
         jLabel3.setText("Cart");
         jLabel3.setIconTextGap(10);
 
-        styledSearchField1.setText("styledSearchField1");
+        styledSearchField1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        styledSearchField1.setPrefixIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Frame 15.png"))); // NOI18N
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Vector (1).png"))); // NOI18N
+        navigationBar1.setBackground(new java.awt.Color(255, 204, 102));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Vector (2).png"))); // NOI18N
+        javax.swing.GroupLayout navigationBar1Layout = new javax.swing.GroupLayout(navigationBar1);
+        navigationBar1.setLayout(navigationBar1Layout);
+        navigationBar1Layout.setHorizontalGroup(
+            navigationBar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 490, Short.MAX_VALUE)
+        );
+        navigationBar1Layout.setVerticalGroup(
+            navigationBar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
 
-        jLabel6.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 15)); // NOI18N
-        jLabel6.setText("New");
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/catalog/Polygon 2 (2).png"))); // NOI18N
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
 
-        jLabel7.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 15)); // NOI18N
-        jLabel7.setText("Watches");
-
-        jLabel8.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 15)); // NOI18N
-        jLabel8.setText("Clothes");
-
-        jLabel9.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 15)); // NOI18N
-        jLabel9.setText("Electronics");
-
-        jLabel10.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 15)); // NOI18N
-        jLabel10.setText("Toys");
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/catalog/Polygon 1 (2).png"))); // NOI18N
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1036, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel6)
-                .addGap(33, 33, 33)
-                .addComponent(jLabel7)
-                .addGap(39, 39, 39)
-                .addComponent(jLabel8)
-                .addGap(34, 34, 34)
-                .addComponent(jLabel9)
-                .addGap(34, 34, 34)
-                .addComponent(jLabel10)
-                .addGap(18, 18, 18)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(19, 19, 19)
                 .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(navigationBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(styledSearchField1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(43, 43, 43)
+                        .addGap(71, 71, 71)
                         .addComponent(jLabel2)
-                        .addGap(56, 56, 56)
-                        .addComponent(jLabel3)))
-                .addGap(52, 52, 52))
+                        .addGap(61, 61, 61)
+                        .addComponent(jLabel3))
+                    .addComponent(styledSearchField1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(26, 26, 26))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(styledSearchField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(17, 17, 17))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22))
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(42, 42, 42)
+                        .addComponent(styledSearchField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(navigationBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -183,19 +184,23 @@ public class Dashboard extends javax.swing.JPanel {
         });
     }//GEN-LAST:event_jLabel1MouseClicked
 
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        navigationBar1.show(1);
+    }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        navigationBar1.show(2);
+    }//GEN-LAST:event_jLabel5MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private application.customer.design.NavigationBar navigationBar1;
     private application.customer.design.PanelItem panelItem1;
     private application.customer.design.StyledSearchField styledSearchField1;
     // End of variables declaration//GEN-END:variables
