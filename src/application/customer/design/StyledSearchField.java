@@ -55,7 +55,7 @@ public class StyledSearchField extends JTextField {
         if (prefixIcon != null) {
             Image prefix = ((ImageIcon) prefixIcon).getImage();
             int y = (getHeight() - prefixIcon.getIconHeight()) / 2;
-            g2.drawImage(prefix, 3, y, this);
+            g2.drawImage(prefix, 12, y, this);
         }
         if (suffixIcon != null) {
             Image suffix = ((ImageIcon) suffixIcon).getImage();
@@ -66,13 +66,13 @@ public class StyledSearchField extends JTextField {
 
     private void initBorder() {
         int left = 5;
-        int right = 5;
+        int right = 12;
         if (prefixIcon != null) {
             left = prefixIcon.getIconWidth() + 5;
         }
         if (suffixIcon != null) {
             right = suffixIcon.getIconWidth() + 5;
         }
-        setBorder(javax.swing.BorderFactory.createEmptyBorder(7, left, 7, right));
+        setBorder(javax.swing.BorderFactory.createEmptyBorder(7, left + 20, 7, right));
     }
 }
