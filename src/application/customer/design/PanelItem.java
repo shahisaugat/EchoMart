@@ -7,6 +7,6 @@ public class PanelItem extends JPanel {
 
     public PanelItem() {
         setBackground(Color.WHITE);
-        setLayout(new WrapLayout(WrapLayout.LEFT, 20, 20));
+        setLayout(new WrapLayout(WrapLayout.LEFT, 26, 26));
     }
 }
