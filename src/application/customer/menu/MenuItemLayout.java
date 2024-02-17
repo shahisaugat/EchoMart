@@ -81,7 +81,7 @@ public class MenuItemLayout implements LayoutManager {
                             com.setBounds(0, 100, 0, 0);
                         }
                     } else {
-                        com.setBounds(x, y, width, comHeight);
+                        com.setBounds(x, y + 10, width, comHeight);
                         y += comHeight;
                     }
                 }

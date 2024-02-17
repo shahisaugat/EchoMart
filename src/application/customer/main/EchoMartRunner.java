@@ -114,7 +114,6 @@ public class EchoMartRunner extends javax.swing.JFrame {
         application.setContentPane(application.menuMethods);
         application.menuMethods.applyComponentOrientation(application.getComponentOrientation());
         setSelectedMenu(0, 0);
-        application.menuMethods.hideMenu();
         SwingUtilities.updateComponentTreeUI(application.menuMethods);
         FlatAnimatedLafChange.hideSnapshotWithAnimation();
     }

@@ -79,10 +79,6 @@ public class MenuMethodForm extends JLayeredPane {
         });
     }
 
-    public void hideMenu() {
-        menu.hideMenuItem();
-    }
-
     public void changeContentPane(Component component) {
         panelBody.removeAll();
         panelBody.add(component);

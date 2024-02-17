@@ -28,24 +28,24 @@ public class Menu extends JPanel {
   "Beauty & Personal Care",
   "Health & Wellness",
   "Sports & Outdoors",
-  "Automotive",
-  "Books & Audible",
-  "Toys & Games",
-  "Baby Products",
-  "Furniture & Decor",
-  "Groceries & Gourmet Foods",
-  "Pet Supplies",
-  "Tools & Home Improvement",
-  "Jewelry & Watches",
-  "Office Products",
-  "Musical Instruments",
-  "Arts & Crafts",
-  "Industrial & Scientific",
-  "Movies, Music & Entertainment",
-  "Travel & Luggage",
-  "Handmade & Crafts",
-  "Software & Digital Products",
-  "Food & Beverages",
+//  "Automotive",
+//  "Books & Audible",
+//  "Toys & Games",
+//  "Baby Products",
+//  "Furniture & Decor",
+//  "Groceries & Gourmet Foods",
+//  "Pet Supplies",
+//  "Tools & Home Improvement",
+//  "Jewelry & Watches",
+//  "Office Products",
+//  "Musical Instruments",
+//  "Arts & Crafts",
+//  "Industrial & Scientific",
+//  "Movies, Music & Entertainment",
+//  "Travel & Luggage",
+//  "Handmade & Crafts",
+//  "Software & Digital Products",
+//  "Food & Beverages",
   "Education & Learning"},
         
         {"Order History"},
@@ -154,15 +154,6 @@ public class Menu extends JPanel {
         events.add(event);
     }
 
-    public void hideMenuItem() {
-        for (Component com : panelMenu.getComponents()) {
-            if (com instanceof MenuItem) {
-                ((MenuItem) com).hideMenuItem();
-            }
-        }
-        revalidate();
-    }
-
     public boolean isHideMenuTitleOnMinimum() {
         return hideMenuTitleOnMinimum;
     }
@@ -215,20 +206,19 @@ public class Menu extends JPanel {
                 Insets insets = parent.getInsets();
                 int x = insets.left;
                 int y = insets.top;
-                int gap = UIScale.scale(140);
+                int gap = UIScale.scale(130);
                 int width = parent.getWidth() - (insets.left + insets.right);
                 int height = parent.getHeight() - (insets.top + insets.bottom) - 10;
                 int iconHeight = getPreferredSize().height;
 
                 int ldgap = UIScale.scale(10);
-                int ldHeight = getPreferredSize().height;
+                int ldHeight = getPreferredSize().height - 12;
 
                 int menux = x;
                 int menuy = y + iconHeight + gap;
                 int menuWidth = width;
                 int menuHeight = height - (iconHeight + gap) - (ldHeight + ldgap) - (0);
                 scroll.setBounds(menux, menuy, menuWidth, menuHeight);
-
             }
         }
     }

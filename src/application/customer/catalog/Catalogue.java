@@ -1,5 +1,9 @@
 package application.customer.catalog;
 
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.awt.GraphicsEnvironment;
+import java.io.IOException;
 import javax.swing.ImageIcon;
 
 /**
@@ -10,7 +14,7 @@ public class Catalogue extends javax.swing.JPanel {
 
     public Catalogue(ImageIcon img, String name, String price, String status, String time) {
         initComponents();
-        
+                
         revalidate();
         repaint();
         
@@ -18,138 +22,106 @@ public class Catalogue extends javax.swing.JPanel {
         productName.setText(name);
         productPrice.setText(price);
         shippingStatus.setText(status);
-        deliveryTime.setText(time);
-        
-        productName.setBorder(null);
+        location.setText(time);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        shippingStatus = new javax.swing.JLabel();
-        rating = new javax.swing.JLabel();
-        deliveryTime = new javax.swing.JLabel();
+        panelRound1 = new application.customer.design.PanelRound();
         productImage = new application.customer.design.PictureHolder();
-        addToFavourite = new application.customer.design.PictureHolder();
-        addToCart = new application.customer.design.PictureHolder();
-        ratingImage = new application.customer.design.PictureHolder();
+        productName = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         productPrice = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        productName = new javax.swing.JTextPane();
+        location = new javax.swing.JLabel();
+        shippingStatus = new javax.swing.JLabel();
 
-        shippingStatus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        shippingStatus.setText("Free Shipping");
-
-        rating.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rating.setText("4.5");
-
-        deliveryTime.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        deliveryTime.setText("2 Days Delivery");
+        panelRound1.setBackground(new java.awt.Color(233, 233, 233));
+        panelRound1.setRoundBottomLeft(8);
+        panelRound1.setRoundBottomRight(8);
+        panelRound1.setRoundTopLeft(8);
+        panelRound1.setRoundTopRight(8);
 
         productImage.setBackground(new java.awt.Color(255, 255, 255));
-        productImage.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/woman.png"))); // NOI18N
+        productImage.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        productImage.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/loginBackground_Ad.png"))); // NOI18N
         productImage.setOpaque(true);
 
-        addToFavourite.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/catalog/addFavImage.png"))); // NOI18N
-        addToFavourite.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                addToFavouriteMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                addToFavouriteMouseExited(evt);
-            }
-        });
-        productImage.add(addToFavourite);
-        addToFavourite.setBounds(180, 10, 40, 40);
+        productName.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 15)); // NOI18N
+        productName.setText("Necklace");
 
-        addToCart.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/catalog/addCartImage.png"))); // NOI18N
-        productImage.add(addToCart);
-        addToCart.setBounds(180, 60, 40, 40);
+        jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 15)); // NOI18N
+        jLabel2.setText("New");
 
-        ratingImage.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/catalog/ratingImage.png"))); // NOI18N
+        productPrice.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        productPrice.setText("NRs. 1200");
 
-        productPrice.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
-        productPrice.setText("$ 120.34");
+        location.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        location.setText("Ktm");
 
-        jScrollPane2.setBorder(null);
-        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-        jScrollPane2.setFocusable(false);
+        shippingStatus.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        shippingStatus.setText("Delivery");
 
-        productName.setEditable(false);
-        productName.setBorder(null);
-        productName.setFont(new java.awt.Font("Yu Gothic UI", 1, 15)); // NOI18N
-        productName.setText("Redmi Note 12s");
-        productName.setFocusable(false);
-        jScrollPane2.setViewportView(productName);
+        javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
+        panelRound1.setLayout(panelRound1Layout);
+        panelRound1Layout.setHorizontalGroup(
+            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(productImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelRound1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(productName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(panelRound1Layout.createSequentialGroup()
+                                .addComponent(productPrice)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(location, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelRound1Layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                                .addComponent(shippingStatus)))))
+                .addContainerGap())
+        );
+        panelRound1Layout.setVerticalGroup(
+            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(productImage, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(productName)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(productPrice)
+                    .addComponent(location))
+                .addGap(18, 18, 18)
+                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(shippingStatus))
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(ratingImage, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(rating, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(shippingStatus)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(deliveryTime)
-                        .addGap(15, 15, 15))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(productImage, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(productPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 8, Short.MAX_VALUE))))
+            .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(productImage, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ratingImage, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rating))
-                .addGap(11, 11, 11)
-                .addComponent(productPrice)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(shippingStatus)
-                    .addComponent(deliveryTime))
-                .addContainerGap(19, Short.MAX_VALUE))
+            .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addToFavouriteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addToFavouriteMouseEntered
-
-    }//GEN-LAST:event_addToFavouriteMouseEntered
-
-    private void addToFavouriteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addToFavouriteMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addToFavouriteMouseExited
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private application.customer.design.PictureHolder addToCart;
-    private application.customer.design.PictureHolder addToFavourite;
-    private javax.swing.JLabel deliveryTime;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel location;
+    private application.customer.design.PanelRound panelRound1;
     private application.customer.design.PictureHolder productImage;
-    private javax.swing.JTextPane productName;
+    private javax.swing.JLabel productName;
     private javax.swing.JLabel productPrice;
-    private javax.swing.JLabel rating;
-    private application.customer.design.PictureHolder ratingImage;
     private javax.swing.JLabel shippingStatus;
     // End of variables declaration//GEN-END:variables
 }
