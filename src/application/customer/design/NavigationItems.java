@@ -60,18 +60,27 @@ public class NavigationItems extends javax.swing.JPanel {
 
         item1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         item1.setText("New");
+        item1.setBorderPainted(false);
         item1.setFocusable(false);
 
         item2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         item2.setText("Watches");
+        item2.setBorderPainted(false);
         item2.setFocusable(false);
 
         item3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         item3.setText("Smartphones");
+        item3.setBorderPainted(false);
         item3.setFocusable(false);
+        item3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                item3ActionPerformed(evt);
+            }
+        });
 
         item4.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         item4.setText("Electronics");
+        item4.setBorderPainted(false);
         item4.setFocusable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -91,16 +100,16 @@ public class NavigationItems extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(item1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(item2, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                        .addComponent(item3, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
-                    .addComponent(item4, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
-                .addContainerGap())
+            .addComponent(item4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(item2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(item1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(item3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void item3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_item3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_item3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
