@@ -14,6 +14,8 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Formatter;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -31,6 +33,7 @@ public class LoginForm extends javax.swing.JPanel {
     private static JDialog authenticateDialog;
     private AdminAuthenticator authenticator;
     private PanelLoadAnimation loadAnimation;
+    private static final Map<String, String> userData = new HashMap<>();
     
     public LoginForm() {
         initComponents();
@@ -79,6 +82,11 @@ public class LoginForm extends javax.swing.JPanel {
         return hashedPwd;
     }
     
+    public String getEmailField() {
+        String email = emailTextField.getText();
+        return email;
+    }
+    
     
     private String hashPassword(String password) {
         try {
@@ -97,6 +105,16 @@ public class LoginForm extends javax.swing.JPanel {
             formatter.format("%02x", b);
         }
         return formatter.toString();
+    }
+    
+    public static String getStoredUserEmail() {
+        String email = userData.get("email");
+        System.out.println("Stored Email: " + email);
+        return email;
+    }
+    
+    public static String getStoredUserPassword() {
+        return userData.get("password");
     }
     
     @SuppressWarnings("unchecked")
@@ -421,6 +439,7 @@ public class LoginForm extends javax.swing.JPanel {
             } else {
                boolean authorize = SaveAndFetch.performLogin(emailTextField.getText(), getPasswordTextField());
                if (authorize) {
+                    userData.put("email", getEmailField());
                     hideAnimation();
                     EchoMartRunner.getIntoApp();
                } else {

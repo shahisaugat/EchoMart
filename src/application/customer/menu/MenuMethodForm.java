@@ -3,7 +3,6 @@ package application.customer.menu;
 import application.customer.forms.Dashboard;
 import application.customer.main.EchoMartRunner;
 import com.formdev.flatlaf.FlatClientProperties;
-import com.formdev.flatlaf.extras.FlatSVGIcon;
 import com.formdev.flatlaf.util.UIScale;
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -54,8 +53,6 @@ public class MenuMethodForm extends JLayeredPane {
         if (menuButton == null) {
             menuButton = new JButton();
         }
-        String icon = (getComponentOrientation().isLeftToRight()) ? "menu_left.svg" : "menu_right.svg";
-        menuButton.setIcon(new FlatSVGIcon("app/vehicle/icon" + icon, 0.8f));
     }
 
     private void initMenuEvent() {

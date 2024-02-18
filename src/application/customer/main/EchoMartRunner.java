@@ -118,6 +118,15 @@ public class EchoMartRunner extends javax.swing.JFrame {
         FlatAnimatedLafChange.hideSnapshotWithAnimation();
     }
     
+    public static void logout() {
+        FlatAnimatedLafChange.showSnapshot();
+        application.setContentPane(application.loginForm);
+        application.loginForm.applyComponentOrientation(application.getComponentOrientation());
+        setSelectedMenu(0, 0);
+        SwingUtilities.updateComponentTreeUI(application.loginForm);
+        FlatAnimatedLafChange.hideSnapshotWithAnimation();
+    }
+    
     public static void setSelectedMenu(int index, int subIndex) {
         application.menuMethods.setSelectedMenu(index, subIndex);
     }

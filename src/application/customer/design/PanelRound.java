@@ -55,6 +55,23 @@ public class PanelRound extends JPanel {
     public PanelRound() {
         setOpaque(false);
     }
+    
+    private float opacity = 1.0f;
+
+    public float getOpacity() {
+        return opacity;
+    }
+
+    public void setOpacity(float opacity) {
+        if (opacity < 0.0f) {
+            this.opacity = 0.0f;
+        } else if (opacity > 1.0f) {
+            this.opacity = 1.0f;
+        } else {
+            this.opacity = opacity;
+        }
+        repaint();
+    }
 
     @Override
     protected void paintComponent(Graphics grphcs) {

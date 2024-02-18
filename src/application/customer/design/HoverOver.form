@@ -19,12 +19,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="pictureHolder1" alignment="0" min="-2" pref="171" max="-2" attributes="0"/>
+          <Component id="pictureHolder1" min="-2" pref="150" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="pictureHolder1" alignment="0" min="-2" pref="123" max="-2" attributes="0"/>
+          <Component id="pictureHolder1" min="-2" pref="90" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -35,6 +35,12 @@
           <Image iconType="3" name="/application/customer/image/Rectangle 63.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pictureHolder1MouseClicked"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="HoverOver_pictureHolder1"/>
+      </AuxValues>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
         <Property name="useNullLayout" type="boolean" value="true"/>
@@ -48,7 +54,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="76" y="50" width="22" height="22"/>
+              <AbsoluteConstraints x="67" y="30" width="22" height="22"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -65,7 +71,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="7" y="90" width="160" height="-1"/>
+              <AbsoluteConstraints x="0" y="60" width="150" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>

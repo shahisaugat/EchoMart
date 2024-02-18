@@ -31,17 +31,10 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="item1" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="item2" alignment="3" pref="34" max="32767" attributes="0"/>
-                      <Component id="item3" alignment="3" pref="34" max="32767" attributes="0"/>
-                  </Group>
-                  <Component id="item4" alignment="0" pref="34" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-          </Group>
+          <Component id="item4" alignment="0" max="32767" attributes="0"/>
+          <Component id="item2" alignment="0" max="32767" attributes="0"/>
+          <Component id="item1" alignment="0" max="32767" attributes="0"/>
+          <Component id="item3" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -52,6 +45,7 @@
           <Font name="Yu Gothic UI Semibold" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="New"/>
+        <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
     </Component>
@@ -61,6 +55,7 @@
           <Font name="Yu Gothic UI Semibold" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Watches"/>
+        <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
     </Component>
@@ -70,8 +65,12 @@
           <Font name="Yu Gothic UI Semibold" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Smartphones"/>
+        <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="item3ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="item4">
       <Properties>
@@ -79,6 +78,7 @@
           <Font name="Yu Gothic UI Semibold" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Electronics"/>
+        <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
     </Component>
