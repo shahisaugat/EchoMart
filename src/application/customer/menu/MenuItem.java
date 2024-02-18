@@ -8,17 +8,14 @@ import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.FontFormatException;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.GraphicsEnvironment;
 import java.awt.Insets;
 import java.awt.LayoutManager;
 import java.awt.RenderingHints;
 import java.awt.Shape;
 import java.awt.event.ActionEvent;
 import java.awt.geom.Path2D;
-import java.io.IOException;
 import java.util.List;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -131,18 +128,7 @@ public class MenuItem extends JPanel {
     private JButton createButtonItem(String text) {
         
         JButton button = new JButton(text);
-        
-        String fontFilePath = "/application/customer/fonts/WorkSans-VariableFont_wght.ttf/";
-        try {
-            Font customFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream(fontFilePath));
-            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            ge.registerFont(customFont);
-            
-            Font sizedFont = customFont.deriveFont((float) 15);
-            button.setFont(sizedFont);
-        } catch (IOException | FontFormatException e) {
-            System.out.println(e);
-        }
+        button.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 15));
         
         button.putClientProperty(FlatClientProperties.STYLE, ""
                 + "background:$Menu.background;"
