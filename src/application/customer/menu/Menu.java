@@ -9,6 +9,7 @@ import java.awt.Insets;
 import java.awt.LayoutManager;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
@@ -66,7 +67,8 @@ public class Menu extends JPanel {
     protected final int menuMaxWidth = 280;
     protected final int menuMinWidth = 60;
     protected final int headerFullHgap = 5;
-
+    private JLabel header;
+    
     public Menu() {
         init();
     }
@@ -77,6 +79,12 @@ public class Menu extends JPanel {
                 + "border:20,2,2,2;"
                 + "background:$Menu.background;"
                 + "arc:10");
+        
+        header = new JLabel();
+        header.setIcon(new ImageIcon(getClass().getResource("/application/customer/image/logo.png/")));
+        header.putClientProperty(FlatClientProperties.STYLE, ""
+                + "font:$Menu.header.font;"
+                + "foreground:$Menu.foreground");
         
         scroll = new JScrollPane();
         panelMenu = new JPanel(new MenuItemLayout(this));
@@ -97,8 +105,10 @@ public class Menu extends JPanel {
                 + "thumb:$Menu.ScrollBar.thumb");
         createMenu();
         add(scroll);
+        
+        add(header);
     }
-
+    
     private void createMenu() {
         int index = 0;
         for (String[] menuItem1 : menuItems) {
@@ -111,7 +121,7 @@ public class Menu extends JPanel {
             }
         }
     }
-
+    
     private JLabel createTitle(String title) {
         String menuName = title.substring(1, title.length() - 1);
         JLabel lbTitle = new JLabel(menuName);
@@ -204,6 +214,7 @@ public class Menu extends JPanel {
         public void layoutContainer(Container parent) {
             synchronized (parent.getTreeLock()) {
                 Insets insets = parent.getInsets();
+                
                 int x = insets.left;
                 int y = insets.top;
                 int gap = UIScale.scale(130);
@@ -211,6 +222,10 @@ public class Menu extends JPanel {
                 int height = parent.getHeight() - (insets.top + insets.bottom) - 10;
                 int iconHeight = getPreferredSize().height;
 
+                int hgap = 24;
+                int iconWidth = width;
+                header.setBounds(x + hgap, y + 14, iconWidth, iconHeight + 80);
+                
                 int ldgap = UIScale.scale(10);
                 int ldHeight = getPreferredSize().height - 12;
 
