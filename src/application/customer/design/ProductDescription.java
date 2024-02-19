@@ -1,15 +1,29 @@
 package application.customer.design;
 
+import application.customer.forms.Dashboard;
+import com.formdev.flatlaf.FlatClientProperties;
 import javax.swing.ImageIcon;
+import javax.swing.JScrollBar;
 
 /**
  *
  * @author shahi
  */
 public class ProductDescription extends javax.swing.JPanel {
+    
+    private int headerVar = 0;
+    private int varQtyValue = 0;
 
     public ProductDescription() {
         initComponents();
+        
+        JScrollBar vScroll = jScrollPane1.getVerticalScrollBar();
+        vScroll.putClientProperty(FlatClientProperties.STYLE, ""
+                + "width:$Menu.scroll.width;"
+                + "trackInsets:$Menu.scroll.trackInsets;"
+                + "thumbInsets:$Menu.scroll.thumbInsets;"
+                + "background:$Menu.ScrollBar.background;"
+                + "thumb:$Menu.ScrollBar.thumb");
         
         String description = "<html><body style='width: 300px; font-size: 12px;'>" +
         "<p style='margin-top: 0; margin-bottom: 0px;'>The Analog Watch offers timeless elegance with its classic design and reliable performance. Powered by quartz movement, it ensures accurate timekeeping. The watch features a comfortable leather strap that adds a touch of luxury to your wrist. With its water-resistant construction, you can wear it confidently in various environments.</p>" +
@@ -23,7 +37,6 @@ public class ProductDescription extends javax.swing.JPanel {
 
         desc.setContentType("text/html");
         desc.setText(description);
-
     }
 
     @SuppressWarnings("unchecked")
@@ -130,6 +143,11 @@ public class ProductDescription extends javax.swing.JPanel {
         addToCartBtn.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 16)); // NOI18N
         addToCartBtn.setForeground(new java.awt.Color(255, 255, 255));
         addToCartBtn.setText("Add to cart");
+        addToCartBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addToCartBtnMouseClicked(evt);
+            }
+        });
 
         headerLabel.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 16)); // NOI18N
         headerLabel.setText("Product Information");
@@ -299,11 +317,12 @@ public class ProductDescription extends javax.swing.JPanel {
                     .addComponent(color3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(color2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pNameLabel)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(conditionLabel)
-                    .addComponent(productName)
-                    .addComponent(condition))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(pNameLabel)
+                        .addComponent(productName)
+                        .addComponent(condition)))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -312,11 +331,12 @@ public class ProductDescription extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(qtyLabel)
-                            .addComponent(decQty)
-                            .addComponent(varQty, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(incQty))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(varQty, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(qtyLabel)
+                                .addComponent(decQty)
+                                .addComponent(incQty)))
                         .addGap(24, 24, 24)
                         .addComponent(addToCartBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -358,25 +378,28 @@ public class ProductDescription extends javax.swing.JPanel {
 
     private void incQtyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_incQtyMouseClicked
         String stringVar = varQty.getText();
-        int intVar = Integer.parseInt(stringVar);
-    
-        intVar++; // Increment the value
-        varQty.setText(Integer.toString(intVar));
+        varQtyValue = Integer.parseInt(stringVar);
+        varQtyValue++;
+        varQty.setText(Integer.toString(varQtyValue));
     }//GEN-LAST:event_incQtyMouseClicked
 
     private void decQtyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_decQtyMouseClicked
         String stringVar = varQty.getText();
-        int intVar = Integer.parseInt(stringVar);
-    
-        if (intVar > 0) { 
-            intVar--;
-            varQty.setText(Integer.toString(intVar)); 
+        varQtyValue = Integer.parseInt(stringVar);
+        if (varQtyValue > 0) { 
+            varQtyValue--;
+            varQty.setText(Integer.toString(varQtyValue)); 
         }
     }//GEN-LAST:event_decQtyMouseClicked
 
     private void incQtyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_incQtyActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_incQtyActionPerformed
+
+    private void addToCartBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addToCartBtnMouseClicked
+        headerVar += varQtyValue; 
+        Dashboard.setHeaderCart(headerVar);
+    }//GEN-LAST:event_addToCartBtnMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
