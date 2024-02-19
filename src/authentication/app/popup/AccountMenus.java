@@ -1,6 +1,6 @@
 package authentication.app.popup;
 
-import application.customer.dao.ProfileFetch;
+import application.customer.dao.ProfileFetchDAO;
 import application.customer.forms.LoginForm;
 import application.customer.main.EchoMartRunner;
 import java.awt.Color;
@@ -65,7 +65,7 @@ public class AccountMenus extends javax.swing.JPanel {
         panelRound2.setRoundTopRight(12);
 
         imageAvatar1.setBorderSize(2);
-        imageAvatar1.setBorderSpace(2);
+        imageAvatar1.setBorderSpace(1);
         imageAvatar1.setGradientColor1(new java.awt.Color(102, 102, 102));
         imageAvatar1.setGradientColor2(new java.awt.Color(102, 102, 102));
         imageAvatar1.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Group 13.png"))); // NOI18N
@@ -75,9 +75,9 @@ public class AccountMenus extends javax.swing.JPanel {
         accBtnLayout.setHorizontalGroup(
             accBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, accBtnLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(10, Short.MAX_VALUE)
                 .addComponent(imageAvatar1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
+                .addGap(10, 10, 10))
         );
         accBtnLayout.setVerticalGroup(
             accBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,16 +143,15 @@ public class AccountMenus extends javax.swing.JPanel {
         panelRound2Layout.setHorizontalGroup(
             panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRound2Layout.createSequentialGroup()
-                .addComponent(accBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(panelRound2Layout.createSequentialGroup()
-                .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(logoutBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(panelRound2Layout.createSequentialGroup()
+                        .addComponent(accBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(logoutBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         panelRound2Layout.setVerticalGroup(
@@ -199,7 +198,7 @@ public class AccountMenus extends javax.swing.JPanel {
 
     private void fetchAndSetEmail() {
         
-        ProfileFetch profileFetch = new ProfileFetch();
+        ProfileFetchDAO profileFetch = new ProfileFetchDAO();
         
         String userEmail = LoginForm.getStoredUserEmail();
 
@@ -218,8 +217,13 @@ public class AccountMenus extends javax.swing.JPanel {
         
         if (customerData.containsKey("ProfilePicture")) {
             byte[] profilePicture = (byte[]) customerData.get("ProfilePicture");
-            ImageIcon imageIcon = new ImageIcon(profilePicture);
-            imageAvatar1.setImage(imageIcon);
+            if (profilePicture != null) {
+                ImageIcon imageIcon = new ImageIcon(profilePicture);
+                imageAvatar1.setImage(imageIcon);
+            } else {
+                ImageIcon img = new ImageIcon(getClass().getResource("/application/customer/image/Group 13.png/"));
+                imageAvatar1.setImage(img);
+            }
         } else{
             System.out.print("Image Not Found!");
         }
