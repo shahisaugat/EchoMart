@@ -1,13 +1,14 @@
 package application.customer.forms;
 
-//import application.customer.catalog.BannerHolder;
 import application.customer.catalog.Catalogue;
 import application.customer.design.NavigationItems;
 import authentication.app.popup.AccountMenus;
 import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Font;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JScrollBar;
 import raven.glasspanepopup.DefaultOption;
 import raven.glasspanepopup.GlassPanePopup;
@@ -18,13 +19,21 @@ import raven.glasspanepopup.GlassPanePopup;
  */
 public class Dashboard extends javax.swing.JPanel {
     
+    private static JLabel headerCart;
     private AccountMenus accountMenu;
-//    private BannerHolder adShow;
-
+    
     public Dashboard() {
         initComponents();
         
         removeAll();
+        
+        headerCart = new JLabel();
+        headerCart.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 12));
+        int headerX = jLabel3.getX() + (100 * 10) + 18;
+        int headerY = jLabel3.getY() + (2 * 10 + 8);
+        headerCart.setBounds(headerX, headerY, 17, 17);
+        add(headerCart);
+        
         jScrollPane1.getVerticalScrollBar().setUnitIncrement(14);
         
         JScrollBar vScroll = jScrollPane1.getVerticalScrollBar();
@@ -40,13 +49,21 @@ public class Dashboard extends javax.swing.JPanel {
         navigationBar1.setAnimate(24);
         navigationBar1.init(new NavigationItems("New", "Clothes", "Watches", "Fashion"), new NavigationItems("Electronics", "Cosmetics", "Gen-Z", "Smartphones"), new NavigationItems("Music Diaries", "Books", "Instruments", "Kitchen"));
 
-//        adShow = new BannerHolder(); 
-//        adShow.setSize(new Dimension(1060, 174));
-//        adShow.init(new BannerShow("Welcome to the EchoMart", "Visit us"), new BannerShow("Welcome to the EchoMart1", "Shop"), new BannerShow("Welcome to the EchoMart2", "Shop1"));
-//        adShow.setAnimate(30);
-//        jScrollPane1.setColumnHeaderView(adShow);
+//      adShow = new BannerHolder(); 
+//      adShow.setSize(new Dimension(1060, 174));
+//      adShow.init(new BannerShow("Welcome to the EchoMart", "Visit us"), new BannerShow("Welcome to the EchoMart1", "Shop"), new BannerShow("Welcome to the EchoMart2", "Shop1"));
+//      adShow.setAnimate(30);
+//      jScrollPane1.setColumnHeaderView(adShow);
         
         addProducts();
+    }
+    
+    public static void setHeaderCart(int productHeaderCart) {
+        if (productHeaderCart < 9) {
+            headerCart.setText(Integer.toString(productHeaderCart));
+        } else {
+            headerCart.setText("9+");
+        } 
     }
     
     private void addProducts() {
@@ -63,7 +80,6 @@ public class Dashboard extends javax.swing.JPanel {
         panelItem1.add(new Catalogue(new ImageIcon(getClass().getResource("/application/customer/image/Mask group (12).png/")), "Power Bank", "NRs. 3000", "Delivery", "Ktm"));
         panelItem1.add(new Catalogue(new ImageIcon(getClass().getResource("/application/customer/image/Mask group (2).png/")), "Crop Tops Gray", "NRs. 3000", "Delivery", "Ktm"));
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -149,11 +165,6 @@ public class Dashboard extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -162,32 +173,38 @@ public class Dashboard extends javax.swing.JPanel {
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(styledSearchField1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
-                                .addGap(71, 71, 71)
+                                .addGap(50, 50, 50)
                                 .addComponent(jLabel2)
-                                .addGap(61, 61, 61)
-                                .addComponent(jLabel3))
-                            .addComponent(styledSearchField1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGap(41, 41, 41)
+                                .addComponent(jLabel3)
+                                .addGap(30, 30, 30))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(26, 26, 26))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(navigationBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3))
                         .addGap(42, 42, 42)
-                        .addComponent(styledSearchField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(navigationBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                        .addComponent(styledSearchField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
