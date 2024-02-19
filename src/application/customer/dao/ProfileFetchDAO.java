@@ -11,7 +11,7 @@ import java.sql.SQLException;
  *
  * @author shahi
  */
-public class ProfileFetch extends MySQLConnection {
+public class ProfileFetchDAO extends MySQLConnection {
     public HashMap<String, Object> fetchCustomerData(String emailAddress) {
        HashMap<String, Object> customerData = new HashMap<>();
     
