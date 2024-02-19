@@ -4,6 +4,7 @@ import application.customer.catalog.PanelLoadAnimation;
 import authentication.app.popup.AdminAuthenticator;
 import application.customer.main.EchoMartRunner;
 import application.customer.methods.SaveAndFetch;
+import authentication.app.popup.ForgotPassword;
 import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Font;
@@ -33,6 +34,8 @@ public class LoginForm extends javax.swing.JPanel {
     private static JDialog authenticateDialog;
     private AdminAuthenticator authenticator;
     private PanelLoadAnimation loadAnimation;
+    private ForgotPassword forgotPwd;
+    private static JDialog pwdRecoveryDialog;
     private static final Map<String, String> userData = new HashMap<>();
     
     public LoginForm() {
@@ -44,6 +47,13 @@ public class LoginForm extends javax.swing.JPanel {
         authenticateDialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
         authenticateDialog.getContentPane().add(authenticator);
         authenticateDialog.pack();
+        
+        forgotPwd = new ForgotPassword();
+        
+        pwdRecoveryDialog = new JDialog((JFrame) SwingUtilities.getWindowAncestor(this), "Profile Setup", true);
+        pwdRecoveryDialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
+        pwdRecoveryDialog.getContentPane().add(forgotPwd);
+        pwdRecoveryDialog.pack();
         
         Cursor defaultCursor = new Cursor(Cursor.HAND_CURSOR);
         
@@ -168,6 +178,11 @@ public class LoginForm extends javax.swing.JPanel {
 
         forgotPassword.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         forgotPassword.setText("Forgot your password?");
+        forgotPassword.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                forgotPasswordMouseClicked(evt);
+            }
+        });
 
         loginButton.setBackground(new java.awt.Color(255, 92, 0));
         loginButton.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -442,6 +457,13 @@ public class LoginForm extends javax.swing.JPanel {
                     userData.put("email", getEmailField());
                     hideAnimation();
                     EchoMartRunner.getIntoApp();
+                    if (rememberMe.isSelected()) {
+                        
+                    } else {
+                        emailTextField.setText("");
+                        passwordTextField.setText("");
+                    }
+                    
                } else {
                     hideAnimation();
                 }
@@ -474,6 +496,10 @@ public class LoginForm extends javax.swing.JPanel {
         EchoMartRunner.openSignUpForm();
     }//GEN-LAST:event_signupButtonMouseClicked
 
+    private void forgotPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotPasswordMouseClicked
+        showForgotPwdDialog();
+    }//GEN-LAST:event_forgotPasswordMouseClicked
+
     private void showAuthenticationDialog() {
         
         int centerX = (int) (this.getTopLevelAncestor().getLocationOnScreen().getX() + this.getTopLevelAncestor().getSize().getWidth() / 2 - authenticateDialog.getWidth() / 2);
@@ -486,6 +512,20 @@ public class LoginForm extends javax.swing.JPanel {
     
     public static void destroyDialog() {
         authenticateDialog.dispose();
+    }
+
+    private void showForgotPwdDialog() {
+        
+        int centerX = (int) (this.getTopLevelAncestor().getLocationOnScreen().getX() + this.getTopLevelAncestor().getSize().getWidth() / 2 - pwdRecoveryDialog.getWidth() / 2);
+        int centerY = (int) (this.getTopLevelAncestor().getLocationOnScreen().getY() + this.getTopLevelAncestor().getSize().getHeight() / 2 - pwdRecoveryDialog.getHeight() / 2);
+
+        pwdRecoveryDialog.setLocation(centerX, centerY);
+        
+        pwdRecoveryDialog.setVisible(true);
+    }
+    
+    public static void destroyPwdDialog() {
+        pwdRecoveryDialog.dispose();
     }
     
     private void loadAnimation() {
