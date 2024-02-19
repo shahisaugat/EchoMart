@@ -1,8 +1,10 @@
 package application.customer.catalog;
 
-import application.customer.design.HoverOver;
-import java.awt.Dimension;
+import application.customer.design.ProductDescription;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -10,15 +12,11 @@ import javax.swing.ImageIcon;
  */
 public class Catalogue extends javax.swing.JPanel {
     
-    private final HoverOver hoverOver;
-
+    private final ProductDescription desc;
+    private final JDialog descDialog;
+    
     public Catalogue(ImageIcon img, String name, String price, String status, String time) {
         initComponents();
-        
-        hoverOver = new HoverOver();
-        hoverOver.setSize(new Dimension(150, 90));
-        hoverOver.setVisible(false);
-        add(hoverOver);
         
         productImage.setImage(img);
         productName.setText(name);
@@ -26,11 +24,12 @@ public class Catalogue extends javax.swing.JPanel {
         shippingStatus.setText(status);
         rating.setText(time);
         
-        int hoverX = productImage.getX();
-        int hoverY = productImage.getY();
-        hoverOver.setBounds(hoverX, hoverY, hoverOver.getWidth(), hoverOver.getHeight());
+        desc = new ProductDescription();
         
-        setComponentZOrder(hoverOver, 0);
+        descDialog = new JDialog((JFrame) SwingUtilities.getWindowAncestor(this), "Profile Setup", true);
+        descDialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
+        descDialog.getContentPane().add(desc);
+        descDialog.pack();
     }
 
     @SuppressWarnings("unchecked")
@@ -46,14 +45,18 @@ public class Catalogue extends javax.swing.JPanel {
         shippingStatus = new javax.swing.JLabel();
 
         productImage.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/design/Mask group (13).png"))); // NOI18N
-        productImage.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                productImageMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                productImageMouseExited(evt);
-            }
-        });
+
+        javax.swing.GroupLayout productImageLayout = new javax.swing.GroupLayout(productImage);
+        productImage.setLayout(productImageLayout);
+        productImageLayout.setHorizontalGroup(
+            productImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 150, Short.MAX_VALUE)
+        );
+        productImageLayout.setVerticalGroup(
+            productImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 90, Short.MAX_VALUE)
+        );
+
         panelShadow1.add(productImage);
         productImage.setBounds(20, 20, 150, 90);
 
@@ -76,9 +79,14 @@ public class Catalogue extends javax.swing.JPanel {
         jButton1.setBackground(new java.awt.Color(255, 92, 0));
         jButton1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 13)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Add to cart");
+        jButton1.setText("View Details");
         jButton1.setBorderPainted(false);
         jButton1.setFocusable(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         panelShadow1.add(jButton1);
         jButton1.setBounds(20, 202, 150, 27);
 
@@ -91,7 +99,7 @@ public class Catalogue extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelShadow1, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+            .addComponent(panelShadow1, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,20 +107,17 @@ public class Catalogue extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void productImageMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_productImageMouseEntered
-        hoverActive();
-    }//GEN-LAST:event_productImageMouseEntered
-
-    private void productImageMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_productImageMouseExited
-        hoverInactive();
-    }//GEN-LAST:event_productImageMouseExited
-
-    void hoverActive() {
-        hoverOver.setVisible(true);
-    }
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        showDescDialog();
+    }//GEN-LAST:event_jButton1ActionPerformed
     
-    void hoverInactive() {
-        hoverOver.setVisible(false);
+    private void showDescDialog() {
+        
+        int centerX = (int) (this.getTopLevelAncestor().getLocationOnScreen().getX() + this.getTopLevelAncestor().getSize().getWidth() / 2 - descDialog.getWidth() / 2);
+        int centerY = (int) (this.getTopLevelAncestor().getLocationOnScreen().getY() + this.getTopLevelAncestor().getSize().getHeight() / 2 - descDialog.getHeight() / 2);
+
+        descDialog.setLocation(centerX, centerY);
+        descDialog.setVisible(true);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
