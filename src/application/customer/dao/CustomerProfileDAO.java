@@ -35,4 +35,21 @@ public class CustomerProfileDAO extends MySQLConnection {
         }
         return false;
     }
+    
+    public boolean changePassword(String newPassword, String emailAddress) {
+    String query = "UPDATE customers SET Password = ? WHERE EmailAddress = ?";
+
+    try (Connection conn = openConnection();
+         PreparedStatement statement = conn.prepareStatement(query)) {
+        
+        statement.setString(1, newPassword);
+        statement.setString(2, emailAddress);
+        
+        int rowsUpdated = statement.executeUpdate();
+        
+        return rowsUpdated > 0;
+    } catch (SQLException ex) {
+        return false; 
+    }
+}
 }
