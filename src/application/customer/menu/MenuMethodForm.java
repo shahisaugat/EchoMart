@@ -1,5 +1,6 @@
 package application.customer.menu;
 
+import application.customer.forms.CustomerPosts;
 import application.customer.forms.Dashboard;
 import application.customer.main.EchoMartRunner;
 import com.formdev.flatlaf.FlatClientProperties;
@@ -63,14 +64,10 @@ public class MenuMethodForm extends JLayeredPane {
                     revalidate();
                     repaint();
                 }
-
-
-                case 1 -> {
-                    switch (subIndex) {
-//                        case 1 -> Application.changeContentPane(new TwoWheeler());
-//                        case 2 -> Application.changeContentPane(new FourWheeler());
-//                        default -> action.cancel();
-                    }
+                case 3 -> {
+//                    switch (subIndex) {
+                        EchoMartRunner.changeContentPane(new CustomerPosts());
+//                    }
                 }
             }
         });
