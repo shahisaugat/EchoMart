@@ -48,7 +48,6 @@ public class CustomerDAO extends MySQLConnection {
         }
         return false;
     } catch (SQLException e) {
-        e.printStackTrace();
         throw new RuntimeException("Error occurred while checking account existence", e);
     }
 }
@@ -72,7 +71,6 @@ public class CustomerDAO extends MySQLConnection {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
             return LoginStatus.ERROR;
         }
     }
