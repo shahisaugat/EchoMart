@@ -36,7 +36,7 @@ public class ProfileSetup extends javax.swing.JPanel {
         
         initComponents();
         
-        recoveryCodesForm = new RecoveryCode();
+        recoveryCodesForm = new RecoveryCode(email);
         
         codeDialog = new JDialog((JFrame) SwingUtilities.getWindowAncestor(this), "Recovery Codes", true);
         codeDialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
