@@ -1,8 +1,8 @@
 package authentication.app.popup;
 
+import application.customer.dao.RecoveryCodesDAO;
 import application.customer.forms.ProfileSetup;
 import application.customer.main.EchoMartRunner;
-import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -10,8 +10,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 import javax.swing.JOptionPane;
-import javax.swing.Timer;
 import raven.toast.Notifications;
+import java.sql.Timestamp;
+import java.util.Calendar;
 
 /**
  *
@@ -20,28 +21,30 @@ import raven.toast.Notifications;
 public class RecoveryCode extends javax.swing.JPanel {
     
     private final Map<Integer, Boolean> recoveryCodeMap = new HashMap<>();
-    private String codes;
+    private final String[] codes;
+    private final String email;
 
-    public RecoveryCode() {
+    public RecoveryCode(String email) {
         initComponents();
+        this.email = email;
         
         codes = generateRecoveryCodes();
     }
     
-    private String generateRecoveryCodes() {
-        Random rand = new Random();
-        StringBuilder codes = new StringBuilder();
-        int count = 0;
-        while(count < 6) {
-            int code = 100000 + rand.nextInt(900000);
-            
-            if (!recoveryCodeMap.containsKey(code)) {
-                recoveryCodeMap.put(code, true);
-                codes.append(code).append("\n");
-                count++;
-            }
+    private String[] generateRecoveryCodes() {
+    Random rand = new Random();
+    String[] generatedCodes = new String[6];
+    int count = 0;
+    while(count < 6) {
+        int code = 100000 + rand.nextInt(900000);
+        
+        if (!recoveryCodeMap.containsKey(code)) {
+            recoveryCodeMap.put(code, true);
+            generatedCodes[count] = String.valueOf(code);
+            count++;
         }
-        return codes.toString();
+    }
+    return generatedCodes;
     }
 
     @SuppressWarnings("unchecked")
@@ -141,23 +144,45 @@ public class RecoveryCode extends javax.swing.JPanel {
         EchoMartRunner.openLoginForm();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void downloadTextFile(String codes) {
-        
-        String userHome = System.getProperty("user.home");
-        String fileName = "recovery_codes.txt";
-        String filePath = userHome + File.separator + "Downloads" + File.separator + fileName;
-
-        try {
-            try (FileWriter writer = new FileWriter(filePath)) {
-                writer.write(codes);
-            }
-
-            Notifications.getInstance().show(Notifications.Type.SUCCESS, "Codes Downloaded Successfully!");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Error downloading text file.");
-        }
+    private void downloadTextFile(String[] codes) {
+    if (codes == null || codes.length == 0) {
+        codes = generateRecoveryCodes();
     }
+    
+    Calendar calendar = Calendar.getInstance();
+    calendar.add(Calendar.MONTH, 3); 
+    Timestamp expirationTime = new Timestamp(calendar.getTimeInMillis());
+
+    RecoveryCodesDAO pushCodesDAO = new RecoveryCodesDAO();
+    pushCodesDAO.saveRecoveryCodes(email, codes, expirationTime);
+    
+    String userHome = System.getProperty("user.home");
+    String fileName = "recovery_codes.txt";
+    String filePath = userHome + File.separator + "Downloads" + File.separator + fileName;
+    String message =  "RECOVERY_CODES_ECHO_MART\n\n" +
+                      codes[0] + "\n" +
+                      codes[1] + "\n" +
+                      codes[2] + "\n" +
+                      codes[3] + "\n" +
+                      codes[4] + "\n" +
+                      codes[5] + "\n" +
+                      "\nUse one of the following codes to recover your password.\n" +
+                      "You can use this code as long as you want!\n\n" +
+                      "but the codes are only valid for the next three months!\n" +
+                      "Customer Support: " + 
+                      "9866291003\n" +
+                      "or email us at devops.shahi@gmail.com";
+
+    try {
+        try (FileWriter writer = new FileWriter(filePath)) {
+                writer.write(message); 
+        }
+
+        Notifications.getInstance().show(Notifications.Type.SUCCESS, "Codes Downloaded Successfully!");
+    } catch (IOException ex) {
+        JOptionPane.showMessageDialog(this, "Error downloading text file.");
+    }
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
