@@ -1,6 +1,6 @@
 package application.customer.forms;
 
-import application.customer.catalog.Catalogue;
+import application.customer.catalog.ContentViewCatalogue;
 import application.customer.design.NavigationItems;
 import authentication.app.popup.AccountMenus;
 import com.formdev.flatlaf.FlatClientProperties;
@@ -21,6 +21,7 @@ public class Dashboard extends javax.swing.JPanel {
     
     private static JLabel headerCart;
     private AccountMenus accountMenu;
+    private static JLabel headerFav;
     
     public Dashboard() {
         initComponents();
@@ -29,10 +30,17 @@ public class Dashboard extends javax.swing.JPanel {
         
         headerCart = new JLabel();
         headerCart.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 12));
-        int headerX = jLabel3.getX() + (100 * 10) + 18;
-        int headerY = jLabel3.getY() + (2 * 10 + 8);
-        headerCart.setBounds(headerX, headerY, 17, 17);
+        int headerCartX = jLabel3.getX() + (100 * 10) + 18;
+        int headerCartY = jLabel3.getY() + (2 * 10 + 8);
+        headerCart.setBounds(headerCartX, headerCartY, 17, 17);
         add(headerCart);
+        
+        headerFav = new JLabel();
+        headerFav.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 12));
+        int headerFavX = jLabel2.getX() + (100 * 9) + 16;
+        int headerFavY = jLabel2.getY() + (2 * 8 + 12);
+        headerFav.setBounds(headerFavX, headerFavY, 17, 17);
+        add(headerFav);
         
         jScrollPane1.getVerticalScrollBar().setUnitIncrement(14);
         
@@ -66,19 +74,38 @@ public class Dashboard extends javax.swing.JPanel {
         } 
     }
     
+    public static void setHeaderFav(int productHeaderFav) {
+        if (productHeaderFav < 9) {
+            headerFav.setText(Integer.toString(productHeaderFav));
+        } else {
+            headerFav.setText("9+");
+        } 
+    }
+    
+    public static int getHeaderFav() {
+    String currentVar = headerFav.getText();
+    int currentIntVar;
+    try {
+        currentIntVar = Integer.parseInt(currentVar);
+    } catch (NumberFormatException e) {
+        currentIntVar = 0;
+    }
+    return currentIntVar;
+}
+    
     private void addProducts() {
-        panelItem1.add(new Catalogue(new ImageIcon(getClass().getResource("/application/customer/catalog/no.png/")), "New Watch", "NRs. 12000", "Delivery", "4.5"));
-        panelItem1.add(new Catalogue(new ImageIcon(getClass().getResource("/application/customer/catalog/no.png/")), "Jordan Air M1", "NRs. 12000", "Delivery", "4.1"));
-        panelItem1.add(new Catalogue(new ImageIcon(getClass().getResource("/application/customer/catalog/no.png/")), "Power Bank", "NRs. 3000", "Delivery", "3.2"));
-        panelItem1.add(new Catalogue(new ImageIcon(getClass().getResource("/application/customer/catalog/no.png/")), "Face Mask", "NRs. 3000", "Delivery", "2.1"));
-        panelItem1.add(new Catalogue(new ImageIcon(getClass().getResource("/application/customer/catalog/no.png/")), "Power Bank", "NRs. 3000", "Delivery", "4.5"));
-        panelItem1.add(new Catalogue(new ImageIcon(getClass().getResource("/application/customer/catalog/no.png/")), "Power Bank", "NRs. 3000", "Delivery", "4.5"));
-        panelItem1.add(new Catalogue(new ImageIcon(getClass().getResource("/application/customer/image/Mask group (8).png/")), "Power Bank", "NRs. 3000", "Delivery", "Ktm"));
-        panelItem1.add(new Catalogue(new ImageIcon(getClass().getResource("/application/customer/image/Mask group (9).png/")), "Power Bank", "NRs. 3000", "Delivery", "Ktm"));
-        panelItem1.add(new Catalogue(new ImageIcon(getClass().getResource("/application/customer/image/Mask group (10).png/")), "Power Bank", "NRs. 3000", "Delivery", "Ktm"));
-        panelItem1.add(new Catalogue(new ImageIcon(getClass().getResource("/application/customer/image/Mask group (11).png/")), "Power Bank", "NRs. 3000", "Delivery", "Ktm"));
-        panelItem1.add(new Catalogue(new ImageIcon(getClass().getResource("/application/customer/image/Mask group (12).png/")), "Power Bank", "NRs. 3000", "Delivery", "Ktm"));
-        panelItem1.add(new Catalogue(new ImageIcon(getClass().getResource("/application/customer/image/Mask group (2).png/")), "Crop Tops Gray", "NRs. 3000", "Delivery", "Ktm"));
+        panelItem1.add(new ContentViewCatalogue(new ImageIcon(getClass().getResource("/application/customer/catalog/no.png/")), "New Watch", "NRs. 12000", "Delivery", "4.5"));
+        panelItem1.add(new ContentViewCatalogue(new ImageIcon(getClass().getResource("/application/customer/catalog/no.png/")), "Jordan Air M1", "NRs. 12000", "Delivery", "4.1"));
+        panelItem1.add(new ContentViewCatalogue(new ImageIcon(getClass().getResource("/application/customer/catalog/no.png/")), "Power Bank", "NRs. 3000", "Delivery", "3.2"));
+        panelItem1.add(new ContentViewCatalogue(new ImageIcon(getClass().getResource("/application/customer/catalog/no.png/")), "Face Mask", "NRs. 3000", "Delivery", "2.1"));
+        panelItem1.add(new ContentViewCatalogue(new ImageIcon(getClass().getResource("/application/customer/catalog/no.png/")), "Power Bank", "NRs. 3000", "Delivery", "4.5"));
+        panelItem1.add(new ContentViewCatalogue(new ImageIcon(getClass().getResource("/application/customer/catalog/no.png/")), "Power Bank", "NRs. 3000", "Delivery", "4.5"));
+        panelItem1.add(new ContentViewCatalogue(new ImageIcon(getClass().getResource("/application/customer/image/Mask group (8).png/")), "Power Bank", "NRs. 3000", "Delivery", "Ktm"));
+        panelItem1.add(new ContentViewCatalogue(new ImageIcon(getClass().getResource("/application/customer/image/Mask group (9).png/")), "Power Bank", "NRs. 3000", "Delivery", "Ktm"));
+        panelItem1.add(new ContentViewCatalogue(new ImageIcon(getClass().getResource("/application/customer/image/Mask group (10).png/")), "Power Bank", "NRs. 3000", "Delivery", "Ktm"));
+        panelItem1.add(new ContentViewCatalogue(new ImageIcon(getClass().getResource("/application/customer/image/Mask group (11).png/")), "Power Bank", "NRs. 3000", "Delivery", "Ktm"));
+        panelItem1.add(new ContentViewCatalogue(new ImageIcon(getClass().getResource("/application/customer/image/Mask group (12).png/")), "Power Bank", "NRs. 3000", "Delivery", "Ktm"));
+        panelItem1.add(new ContentViewCatalogue(new ImageIcon(getClass().getResource("/application/customer/image/Mask group (2).png/")), "Crop Tops Gray", "NRs. 3000", "Delivery", "Ktm"));
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
