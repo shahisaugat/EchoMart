@@ -4,6 +4,7 @@ import application.customer.forms.AboutUsForm;
 import application.customer.forms.AfilliateForm;
 import application.customer.forms.ContactForm;
 import application.customer.forms.LoginForm;
+import application.customer.forms.ProductDescription;
 import application.customer.forms.SignupForm;
 import application.customer.forms.TermsConditions;
 import application.customer.menu.MenuMethodForm;
@@ -31,6 +32,7 @@ public class EchoMartRunner extends javax.swing.JFrame {
     private final TermsConditions termsForm;
     private final SignupForm signUpForm;
     private final MenuMethodForm menuMethods;
+    private final ProductDescription descProduct;
     
 
     public EchoMartRunner() {
@@ -46,6 +48,7 @@ public class EchoMartRunner extends javax.swing.JFrame {
         contactForm = new ContactForm();
         termsForm = new TermsConditions();
         signUpForm = new SignupForm();
+        descProduct = new ProductDescription();
         
         
         setContentPane(loginForm);
@@ -129,6 +132,14 @@ public class EchoMartRunner extends javax.swing.JFrame {
     
     public static void setSelectedMenu(int index, int subIndex) {
         application.menuMethods.setSelectedMenu(index, subIndex);
+    }
+    
+    public static void openDescription() {
+        FlatAnimatedLafChange.showSnapshot();
+        application.setContentPane(application.descProduct);
+        application.descProduct.applyComponentOrientation(application.getComponentOrientation());
+        SwingUtilities.updateComponentTreeUI(application.descProduct);
+        FlatAnimatedLafChange.hideSnapshotWithAnimation();
     }
     
     @SuppressWarnings("unchecked")
