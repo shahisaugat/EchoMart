@@ -2,6 +2,7 @@ package application.customer.catalog;
 
 import application.customer.design.ProductDescription;
 import application.customer.forms.Dashboard;
+import application.customer.main.EchoMartRunner;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
@@ -196,7 +197,7 @@ public class ContentViewCatalogue extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        showDescDialog();
+        EchoMartRunner.openDescription();
     }//GEN-LAST:event_jButton1MouseClicked
     
     private void showDescDialog() {
