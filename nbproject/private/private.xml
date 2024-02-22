@@ -3,9 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/design/ProductDescription.java</file>
-            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/authentication/app/popup/AccountMenus.java</file>
+            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/forms/UploadCatalogue.java</file>
+            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/dao/CustomerDAO.java</file>
+            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/forms/ProfileSetup.java</file>
+            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/dao/CustomerProfileDAO.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/menu/Menu.java</file>
+            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/forms/AboutUsForm.java</file>
+            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/forms/AfilliateForm.java</file>
+            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/model/CatalogModel.java</file>
+            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/dao/ProductDataDAO.java</file>
+            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/dao/ProfileFetchDAO.java</file>
+            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/dao/RecoveryCodesDAO.java</file>
+            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/forms/LoginForm.java</file>
+            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/design/DottedPanel.java</file>
+            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/authentication/app/popup/RecoveryCode.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/catalog/ContentViewCatalogue.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/forms/Dashboard.java</file>
         </group>

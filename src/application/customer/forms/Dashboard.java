@@ -1,15 +1,27 @@
 package application.customer.forms;
 
+import application.customer.catalog.BannerHolder;
 import application.customer.catalog.ContentViewCatalogue;
+import application.customer.catalog.TileViewCatalogue;
+import application.customer.dao.ProductDataDAO;
 import application.customer.design.NavigationItems;
+import application.customer.design.WrapLayout;
 import authentication.app.popup.AccountMenus;
 import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.Component;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.List;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollBar;
+import javax.swing.SwingUtilities;
 import raven.glasspanepopup.DefaultOption;
 import raven.glasspanepopup.GlassPanePopup;
 
@@ -22,11 +34,26 @@ public class Dashboard extends javax.swing.JPanel {
     private static JLabel headerCart;
     private AccountMenus accountMenu;
     private static JLabel headerFav;
+    private BannerHolder adShow;
+    private UploadCatalogue createListing;
+    private JDialog listingDialog;
     
     public Dashboard() {
         initComponents();
         
         removeAll();
+        
+        Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
+        jLabel1.setCursor(handCursor);
+        jLabel2.setCursor(handCursor);
+        jLabel3.setCursor(handCursor);
+        
+        createListing = new UploadCatalogue();
+        
+        listingDialog = new JDialog((JFrame) SwingUtilities.getWindowAncestor(this), "Profile Setup", true);
+        listingDialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
+        listingDialog.getContentPane().add(createListing);
+        listingDialog.pack();
         
         headerCart = new JLabel();
         headerCart.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 12));
@@ -63,7 +90,31 @@ public class Dashboard extends javax.swing.JPanel {
 //      adShow.setAnimate(30);
 //      jScrollPane1.setColumnHeaderView(adShow);
         
-        addProducts();
+        jComboBox1.addActionListener((ActionEvent e) -> {
+            // Get the selected item from the JComboBox
+            String selectedOption = (String) jComboBox1.getSelectedItem();
+            
+            // Clear existing items from panelItem1
+            panelItem1.removeAll();
+            
+            // Check the selected option and add products accordingly
+            if ("Tiles".equals(selectedOption)) {
+                addProductsAsTile();
+            } else if ("Content".equals(selectedOption)) {
+                addProductsAsContent();
+            }
+            
+            // Repaint the panel to reflect changes
+            panelItem1.revalidate();
+            panelItem1.repaint();
+        });
+        
+        String defaultOption = (String) jComboBox1.getSelectedItem();
+    if ("Tiles".equals(defaultOption)) {
+        addProductsAsTile();
+    } else if ("Content".equals(defaultOption)) {
+        addProductsAsContent();
+    }
     }
     
     public static void setHeaderCart(int productHeaderCart) {
@@ -93,20 +144,48 @@ public class Dashboard extends javax.swing.JPanel {
     return currentIntVar;
 }
     
-    private void addProducts() {
-        panelItem1.add(new ContentViewCatalogue(new ImageIcon(getClass().getResource("/application/customer/catalog/no.png/")), "New Watch", "NRs. 12000", "Delivery", "4.5"));
-        panelItem1.add(new ContentViewCatalogue(new ImageIcon(getClass().getResource("/application/customer/catalog/no.png/")), "Jordan Air M1", "NRs. 12000", "Delivery", "4.1"));
-        panelItem1.add(new ContentViewCatalogue(new ImageIcon(getClass().getResource("/application/customer/catalog/no.png/")), "Power Bank", "NRs. 3000", "Delivery", "3.2"));
-        panelItem1.add(new ContentViewCatalogue(new ImageIcon(getClass().getResource("/application/customer/catalog/no.png/")), "Face Mask", "NRs. 3000", "Delivery", "2.1"));
-        panelItem1.add(new ContentViewCatalogue(new ImageIcon(getClass().getResource("/application/customer/catalog/no.png/")), "Power Bank", "NRs. 3000", "Delivery", "4.5"));
-        panelItem1.add(new ContentViewCatalogue(new ImageIcon(getClass().getResource("/application/customer/catalog/no.png/")), "Power Bank", "NRs. 3000", "Delivery", "4.5"));
-        panelItem1.add(new ContentViewCatalogue(new ImageIcon(getClass().getResource("/application/customer/image/Mask group (8).png/")), "Power Bank", "NRs. 3000", "Delivery", "Ktm"));
-        panelItem1.add(new ContentViewCatalogue(new ImageIcon(getClass().getResource("/application/customer/image/Mask group (9).png/")), "Power Bank", "NRs. 3000", "Delivery", "Ktm"));
-        panelItem1.add(new ContentViewCatalogue(new ImageIcon(getClass().getResource("/application/customer/image/Mask group (10).png/")), "Power Bank", "NRs. 3000", "Delivery", "Ktm"));
-        panelItem1.add(new ContentViewCatalogue(new ImageIcon(getClass().getResource("/application/customer/image/Mask group (11).png/")), "Power Bank", "NRs. 3000", "Delivery", "Ktm"));
-        panelItem1.add(new ContentViewCatalogue(new ImageIcon(getClass().getResource("/application/customer/image/Mask group (12).png/")), "Power Bank", "NRs. 3000", "Delivery", "Ktm"));
-        panelItem1.add(new ContentViewCatalogue(new ImageIcon(getClass().getResource("/application/customer/image/Mask group (2).png/")), "Crop Tops Gray", "NRs. 3000", "Delivery", "Ktm"));
+    private void addProductsAsContent() {
+        panelItem1.setLayout(new WrapLayout(WrapLayout.LEFT, 18, 18));
+    
+        ProductDataDAO productFetch = new ProductDataDAO();
+    // Fetch product data from the database
+    List<HashMap<String, Object>> products = productFetch.fetchAllProductData();
+    
+    // Iterate over the fetched product data
+    for (HashMap<String, Object> product : products) {
+        // Extract product information
+        ImageIcon imageIcon = new ImageIcon((byte[]) product.get("primary_image"));
+        String productName = (String) product.get("product_name");
+//        String description = (String) product.get("description");
+        BigDecimal price = (BigDecimal) product.get("price");
+        int deliveryStatusId = (int) product.get("delivery_status_id");
+        String pCondition = (String) product.get("pcondition");
+
+        for (int i = 0; i < 10; i ++) {
+            panelItem1.add(new ContentViewCatalogue(imageIcon, productName, "NRs. " + price, String.valueOf(deliveryStatusId), pCondition));
+            }
     }
+    }
+    
+    private void addProductsAsTile() {
+        panelItem1.setLayout(new WrapLayout(WrapLayout.LEFT, 36, 36));
+        panelItem1.add(new TileViewCatalogue("Naviforce Watch", "This has no longer been used which is why I thouht of selling this as I have a newer one. This is very cheap to buy and feels cozi!", "NRs. 12000", "4.6", new ImageIcon(getClass().getResource("/application/customer/catalog/image1.png/")), "Free Delivery", "Bhaktapur, Nepal"));
+        panelItem1.add(new TileViewCatalogue("Naviforce Watch", "This has no longer been used which is why I thouht of selling this as I have a newer one. This is very cheap to buy and feels cozi!", "NRs. 12000", "4.6", new ImageIcon(getClass().getResource("/application/customer/catalog/image1.png/")), "Free Delivery", "Bhaktapur, Nepal"));
+        panelItem1.add(new TileViewCatalogue("Naviforce Watch", "This has no longer been used which is why I thouht of selling this as I have a newer one. This is very cheap to buy and feels cozi!", "NRs. 12000", "4.6", new ImageIcon(getClass().getResource("/application/customer/catalog/image1.png/")), "Free Delivery", "Bhaktapur, Nepal"));
+        panelItem1.add(new TileViewCatalogue("Naviforce Watch", "This has no longer been used which is why I thouht of selling this as I have a newer one. This is very cheap to buy and feels cozi!", "NRs. 12000", "4.6", new ImageIcon(getClass().getResource("/application/customer/catalog/image1.png/")), "Free Delivery", "Bhaktapur, Nepal"));
+        panelItem1.add(new TileViewCatalogue("Naviforce Watch", "This has no longer been used which is why I thouht of selling this as I have a newer one. This is very cheap to buy and feels cozi!", "NRs. 12000", "4.6", new ImageIcon(getClass().getResource("/application/customer/catalog/image1.png/")), "Free Delivery", "Bhaktapur, Nepal"));
+
+    }
+    
+    public void actionButton() {
+        int centerX = (int) (this.getTopLevelAncestor().getLocationOnScreen().getX() + this.getTopLevelAncestor().getSize().getWidth() / 2 - listingDialog.getWidth() / 2);
+        int centerY = (int) (this.getTopLevelAncestor().getLocationOnScreen().getY() + this.getTopLevelAncestor().getSize().getHeight() / 2 - listingDialog.getHeight() / 2);
+
+        listingDialog.setLocation(centerX, centerY);
+        
+        listingDialog.setVisible(true);
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -122,6 +201,7 @@ public class Dashboard extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jSeparator1 = new javax.swing.JSeparator();
 
         jScrollPane1.setBorder(null);
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -190,11 +270,11 @@ public class Dashboard extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1036, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(navigationBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4)
@@ -209,7 +289,8 @@ public class Dashboard extends javax.swing.JPanel {
                                 .addComponent(jLabel3)
                                 .addGap(30, 30, 30))))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 787, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -218,24 +299,34 @@ public class Dashboard extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(navigationBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3))
                         .addGap(42, 42, 42)
-                        .addComponent(styledSearchField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(4, 4, 4)
+                        .addComponent(styledSearchField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(4, 4, 4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(navigationBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)))
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 577, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -276,6 +367,7 @@ public class Dashboard extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private application.customer.design.NavigationBar navigationBar1;
     private application.customer.design.PanelItem panelItem1;
     private application.customer.design.StyledSearchField styledSearchField1;

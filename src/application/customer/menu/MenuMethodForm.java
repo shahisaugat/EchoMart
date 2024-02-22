@@ -1,6 +1,6 @@
 package application.customer.menu;
 
-import application.customer.forms.CustomerPosts;
+import application.customer.design.FloatingButtonUI;
 import application.customer.forms.Dashboard;
 import application.customer.main.EchoMartRunner;
 import com.formdev.flatlaf.FlatClientProperties;
@@ -13,6 +13,7 @@ import java.awt.Dimension;
 import java.awt.Insets;
 import java.awt.LayoutManager;
 import javax.swing.JButton;
+import javax.swing.JLayer;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -60,13 +61,13 @@ public class MenuMethodForm extends JLayeredPane {
         menu.addMenuEvent((int index, int subIndex, MenuAction action) -> {
             switch (index) {
                 case 0 -> {
-                    EchoMartRunner.changeContentPane(new Dashboard());
+                    EchoMartRunner.changeContentPane(new JLayer(new Dashboard(), new FloatingButtonUI()));
                     revalidate();
                     repaint();
                 }
                 case 3 -> {
 //                    switch (subIndex) {
-                        EchoMartRunner.changeContentPane(new CustomerPosts());
+                        EchoMartRunner.changeContentPane(null);
 //                    }
                 }
             }

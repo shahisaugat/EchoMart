@@ -22,7 +22,7 @@ public class AccountMenus extends javax.swing.JPanel {
         
         Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
         jButton1.setCursor(handCursor);
-//        jButton2.setCursor(handCursor);
+        jButton2.setCursor(handCursor);
         jButton3.setCursor(handCursor);
         jButton4.setCursor(handCursor);
     }

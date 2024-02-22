@@ -37,7 +37,7 @@ public class CustomerProfile {
     private final String province;
     
     public CustomerProfile(String emailAddress, byte[] imageData, 
-            String contactNumber, String dateOfBirth, String shippingAddress, String province) {
+        String contactNumber, String dateOfBirth, String shippingAddress, String province) {
         this.emailAddress = emailAddress;
         this.dateOfBirth = dateOfBirth;
         this.imageData = imageData;
