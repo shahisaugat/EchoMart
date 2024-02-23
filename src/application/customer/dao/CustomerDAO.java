@@ -81,6 +81,4 @@ public class CustomerDAO extends MySQLConnection {
         USER_NOT_FOUND,
         ERROR
     }
-
-    
 }
