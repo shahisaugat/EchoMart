@@ -1,8 +1,7 @@
 package application.customer.catalog;
 
-import application.customer.design.ProductDescription;
+import application.customer.design.ScrollableDesc;
 import application.customer.forms.Dashboard;
-import application.customer.main.EchoMartRunner;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
@@ -17,8 +16,8 @@ import javax.swing.SwingUtilities;
  */
 public class ContentViewCatalogue extends javax.swing.JPanel {
     
-    private final ProductDescription desc;
-    private final JDialog descDialog;
+//    private final ScrollableDesc desc;
+//    private final JDialog descDialog;
     private int fetchedHeaderFav;
     
     public ContentViewCatalogue(ImageIcon img, String name, String price, String status, String cond) {
@@ -30,12 +29,12 @@ public class ContentViewCatalogue extends javax.swing.JPanel {
         shippingStatus.setText(status);
         productCondition.setText(cond);
         
-        desc = new ProductDescription();
+//        desc = new ScrollableDesc();
         
-        descDialog = new JDialog((JFrame) SwingUtilities.getWindowAncestor(this), "Profile Setup", true);
-        descDialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
-        descDialog.getContentPane().add(desc);
-        descDialog.pack();
+//        descDialog = new JDialog((JFrame) SwingUtilities.getWindowAncestor(this), "Profile Setup", true);
+//        descDialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
+//        descDialog.getContentPane().add(desc);
+//        descDialog.pack();
         
         jButton2.addActionListener(new ButtonClickListener());
     }
@@ -197,17 +196,17 @@ public class ContentViewCatalogue extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        EchoMartRunner.openDescription();
+//        showDescDialog();
     }//GEN-LAST:event_jButton1MouseClicked
     
-    private void showDescDialog() {
-        
-        int centerX = (int) (this.getTopLevelAncestor().getLocationOnScreen().getX() + this.getTopLevelAncestor().getSize().getWidth() / 2 - descDialog.getWidth() / 2);
-        int centerY = (int) (this.getTopLevelAncestor().getLocationOnScreen().getY() + this.getTopLevelAncestor().getSize().getHeight() / 2 - descDialog.getHeight() / 2);
-
-        descDialog.setLocation(centerX, centerY);
-        descDialog.setVisible(true);
-    }
+//    private void showDescDialog() {
+//        
+//        int centerX = (int) (this.getTopLevelAncestor().getLocationOnScreen().getX() + this.getTopLevelAncestor().getSize().getWidth() / 2 - descDialog.getWidth() / 2);
+//        int centerY = (int) (this.getTopLevelAncestor().getLocationOnScreen().getY() + this.getTopLevelAncestor().getSize().getHeight() / 2 - descDialog.getHeight() / 2);
+//
+//        descDialog.setLocation(centerX, centerY);
+//        descDialog.setVisible(true);
+//    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
