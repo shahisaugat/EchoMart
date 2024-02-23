@@ -6,7 +6,7 @@ import javax.swing.ImageIcon;
  *
  * @author shahi
  */
-public class CatalogueController {
+public class DescriptionController {
 
     private int pID;
 
@@ -108,7 +108,7 @@ public class CatalogueController {
    private String oContact;
    private String oRep;
    
-   public CatalogueController(int pID, String pName, String pCondition, String pDesc, ImageIcon image1, ImageIcon image2, ImageIcon image3, String oName, String oMail, String oContact, String oRep) {
+   public DescriptionController(int pID, String pName, String pCondition, String pDesc, ImageIcon image1, ImageIcon image2, ImageIcon image3, String oName, String oMail, String oContact, String oRep) {
        this.pID = pID;
        this.pName = pName;
        this.pCondition = pCondition;
