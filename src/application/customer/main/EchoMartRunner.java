@@ -1,5 +1,6 @@
 package application.customer.main;
 
+import application.customer.dao.ProductDataDAO;
 import application.customer.forms.AboutUsForm;
 import application.customer.forms.AfilliateForm;
 import application.customer.forms.ContactForm;
@@ -12,6 +13,10 @@ import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.extras.FlatAnimatedLafChange;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import raven.glasspanepopup.GlassPanePopup;
@@ -31,6 +36,11 @@ public class EchoMartRunner extends javax.swing.JFrame {
     private final TermsConditions termsForm;
     private final SignupForm signUpForm;
     private final MenuMethodForm menuMethods;
+    private static ImageIcon imageIcon;
+    private static String productName;
+    private static BigDecimal price;
+    private static int deliveryStatusId;
+    private static String pCondition;
     
 
     public EchoMartRunner() {
@@ -53,6 +63,38 @@ public class EchoMartRunner extends javax.swing.JFrame {
         
         GlassPanePopup.install(this);
         Notifications.getInstance().setJFrame(this);
+        
+        
+        ProductDataDAO productFetch = new ProductDataDAO();
+        List<HashMap<String, Object>> products = productFetch.fetchAllProductData();
+    
+        for (HashMap<String, Object> product : products) {
+            imageIcon = new ImageIcon((byte[]) product.get("primary_image"));
+            productName = (String) product.get("product_name");
+            price = (BigDecimal) product.get("price");
+            deliveryStatusId = (int) product.get("delivery_status_id");
+            pCondition = (String) product.get("pcondition");
+        }
+    }
+    
+    public static ImageIcon getImageIcon() {
+        return imageIcon;
+    }
+    
+    public static String getProductName() {
+        return productName;
+    }
+    
+    public static BigDecimal getPrice() {
+        return price;
+    }
+    
+    public static int getDeliveryStatusId() {
+        return deliveryStatusId;
+    }
+    
+    public static String getPCondition() {
+        return pCondition;
     }
     
     public static void changeContentPane(Component component) {
