@@ -1,5 +1,6 @@
 package application.customer.catalog;
 
+import java.math.BigDecimal;
 import javax.swing.ImageIcon;
 
 /**
@@ -8,12 +9,12 @@ import javax.swing.ImageIcon;
  */
 public class TileViewCatalogue extends javax.swing.JPanel {
 
-    public TileViewCatalogue(String pName, String description, String pPrice, String pRating, ImageIcon pImg, String dStatus, String ownerLocate) {
+    public TileViewCatalogue(String pName, String description, BigDecimal pPrice, String pRating, ImageIcon pImg, String dStatus, String ownerLocate) {
         initComponents();
         
         productName.setText(pName);
         desc.setText(description);
-        price.setText(pPrice);
+        price.setText(String.valueOf(pPrice));
         rating.setText(pRating);
         pictureHolder1.setImage(pImg);
         deliveryStatus.setText(dStatus);
