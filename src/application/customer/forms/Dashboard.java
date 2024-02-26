@@ -1,6 +1,5 @@
 package application.customer.forms;
 
-import application.customer.catalog.BannerHolder;
 import application.customer.catalog.ContentViewCatalogue;
 import application.customer.catalog.TileViewCatalogue;
 import application.customer.dao.ProductDataDAO;
@@ -34,14 +33,17 @@ public class Dashboard extends javax.swing.JPanel {
     private static JLabel headerCart;
     private AccountMenus accountMenu;
     private static JLabel headerFav;
-    private BannerHolder adShow;
-    private UploadCatalogue createListing;
-    private JDialog listingDialog;
+    private final UploadCatalogue createListing;
+    private final JDialog listingDialog;
+    private final List<HashMap<String, Object>> products;
     
     public Dashboard() {
         initComponents();
         
         removeAll();
+        
+        ProductDataDAO productFetch = new ProductDataDAO();
+        products = productFetch.fetchAllProductData();
         
         Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
         jLabel1.setCursor(handCursor);
@@ -146,25 +148,18 @@ public class Dashboard extends javax.swing.JPanel {
     
     private void addProductsAsContent() {
         panelItem1.setLayout(new WrapLayout(WrapLayout.LEFT, 18, 18));
-    
-        ProductDataDAO productFetch = new ProductDataDAO();
-    // Fetch product data from the database
-    List<HashMap<String, Object>> products = productFetch.fetchAllProductData();
-    
-    // Iterate over the fetched product data
-    for (HashMap<String, Object> product : products) {
-        // Extract product information
-        ImageIcon imageIcon = new ImageIcon((byte[]) product.get("primary_image"));
-        String productName = (String) product.get("product_name");
-//        String description = (String) product.get("description");
-        BigDecimal price = (BigDecimal) product.get("price");
-        int deliveryStatusId = (int) product.get("delivery_status_id");
-        String pCondition = (String) product.get("pcondition");
-
-        for (int i = 0; i < 10; i ++) {
-            panelItem1.add(new ContentViewCatalogue(imageIcon, productName, "NRs. " + price, String.valueOf(deliveryStatusId), pCondition));
-            }
-    }
+        for (HashMap<String, Object> product : products) {
+            ImageIcon imageIcon = new ImageIcon((byte[]) product.get("primary_image"));
+            String productName = (String) product.get("product_name");
+            BigDecimal price = (BigDecimal) product.get("price");
+            int deliveryStatusId = (int) product.get("delivery_status_id");
+            String deliveryStatus = (deliveryStatusId == 1) ? "Free Delivery" : "No Delivery";
+            String pCondition = (String) product.get("pcondition");
+        
+            panelItem1.add(new ContentViewCatalogue(
+                    imageIcon, productName, "NRs. " + price, deliveryStatus, pCondition
+            ));
+        }
     }
     
     private void addProductsAsTile() {
