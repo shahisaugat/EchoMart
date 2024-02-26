@@ -71,7 +71,7 @@ public class ProductDataDAO extends MySQLConnection {
     List<HashMap<String, Object>> allProductData = new ArrayList<>();
     
     try (Connection conn = openConnection()) {
-        String selectQuery = "SELECT p.product_name, p.description, p.price, p.delivery_status_id, p.pcondition, i.primary_image " +
+        String selectQuery = "SELECT p.product_name, p.location, p.description, p.price, p.delivery_status_id, p.pcondition, i.primary_image " +
                              "FROM products p " +
                              "JOIN images i ON p.product_id = i.product_id";
         
@@ -82,6 +82,7 @@ public class ProductDataDAO extends MySQLConnection {
                     productData.put("product_name", rs.getString("product_name"));
                     productData.put("description", rs.getString("description"));
                     productData.put("price", rs.getBigDecimal("price"));
+                    productData.put("location", rs.getString("location"));
                     productData.put("delivery_status_id", rs.getInt("delivery_status_id"));
                     productData.put("pcondition", rs.getString("pcondition"));
                     productData.put("primary_image", rs.getBytes("primary_image"));
