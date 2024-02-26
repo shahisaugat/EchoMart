@@ -58,11 +58,11 @@ public class ProductDataDAO extends MySQLConnection {
         } catch (SQLException e) {
             conn.rollback(); 
             System.out.println(e + " Transaction rolled back.");
-            return false; // Return false if there's an error
+            return false;
         }
     } catch (SQLException e) {
         System.out.println(e + " Database Connection Failed!");
-        return false; // Return false if there's an error
+        return false;
     }
     return false;
 }
