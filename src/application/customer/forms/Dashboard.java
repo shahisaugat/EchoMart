@@ -162,14 +162,27 @@ public class Dashboard extends javax.swing.JPanel {
         }
     }
     
+    
     private void addProductsAsTile() {
         panelItem1.setLayout(new WrapLayout(WrapLayout.LEFT, 36, 36));
-        panelItem1.add(new TileViewCatalogue("Naviforce Watch", "This has no longer been used which is why I thouht of selling this as I have a newer one. This is very cheap to buy and feels cozi!", "NRs. 12000", "4.6", new ImageIcon(getClass().getResource("/application/customer/catalog/image1.png/")), "Free Delivery", "Bhaktapur, Nepal"));
-        panelItem1.add(new TileViewCatalogue("Naviforce Watch", "This has no longer been used which is why I thouht of selling this as I have a newer one. This is very cheap to buy and feels cozi!", "NRs. 12000", "4.6", new ImageIcon(getClass().getResource("/application/customer/catalog/image1.png/")), "Free Delivery", "Bhaktapur, Nepal"));
-        panelItem1.add(new TileViewCatalogue("Naviforce Watch", "This has no longer been used which is why I thouht of selling this as I have a newer one. This is very cheap to buy and feels cozi!", "NRs. 12000", "4.6", new ImageIcon(getClass().getResource("/application/customer/catalog/image1.png/")), "Free Delivery", "Bhaktapur, Nepal"));
-        panelItem1.add(new TileViewCatalogue("Naviforce Watch", "This has no longer been used which is why I thouht of selling this as I have a newer one. This is very cheap to buy and feels cozi!", "NRs. 12000", "4.6", new ImageIcon(getClass().getResource("/application/customer/catalog/image1.png/")), "Free Delivery", "Bhaktapur, Nepal"));
-        panelItem1.add(new TileViewCatalogue("Naviforce Watch", "This has no longer been used which is why I thouht of selling this as I have a newer one. This is very cheap to buy and feels cozi!", "NRs. 12000", "4.6", new ImageIcon(getClass().getResource("/application/customer/catalog/image1.png/")), "Free Delivery", "Bhaktapur, Nepal"));
-
+        for (HashMap<String, Object> product : products) {
+            ImageIcon imageIcon = new ImageIcon((byte[]) product.get("primary_image"));
+            String productName = (String) product.get("product_name");
+            String description = (String) product.get("description");
+            BigDecimal price = (BigDecimal) product.get("price");
+            int deliveryStatusId = (int) product.get("delivery_status_id");
+            String deliveryStatus = (deliveryStatusId == 1) ? "Free Delivery" : "No Delivery";
+            String location = (String) product.get("location");
+        
+            panelItem1.add(new TileViewCatalogue(
+                    productName, 
+                    description, 
+                    price, "4.5", 
+                    imageIcon, 
+                    deliveryStatus, 
+                    location
+            ));
+        }
     }
     
     public void actionButton() {
