@@ -4,6 +4,7 @@ import application.customer.dao.ProductDataDAO;
 import application.customer.forms.AboutUsForm;
 import application.customer.forms.AfilliateForm;
 import application.customer.forms.ContactForm;
+import application.customer.forms.FavouritesForm;
 import application.customer.forms.LoginForm;
 import application.customer.forms.SignupForm;
 import application.customer.forms.TermsConditions;
@@ -41,6 +42,7 @@ public class EchoMartRunner extends javax.swing.JFrame {
     private static BigDecimal price;
     private static int deliveryStatusId;
     private static String pCondition;
+    private final FavouritesForm favourites;
     
 
     public EchoMartRunner() {
@@ -55,7 +57,8 @@ public class EchoMartRunner extends javax.swing.JFrame {
         afilliateForm = new AfilliateForm();
         contactForm = new ContactForm();
         termsForm = new TermsConditions();
-        signUpForm = new SignupForm();        
+        signUpForm = new SignupForm(); 
+        favourites = new FavouritesForm();
         
         setContentPane(loginForm);
         
@@ -165,6 +168,15 @@ public class EchoMartRunner extends javax.swing.JFrame {
         application.loginForm.applyComponentOrientation(application.getComponentOrientation());
         setSelectedMenu(0, 0);
         SwingUtilities.updateComponentTreeUI(application.loginForm);
+        FlatAnimatedLafChange.hideSnapshotWithAnimation();
+    }
+    
+    public static void openFavForm() {
+        FlatAnimatedLafChange.showSnapshot();
+        application.setContentPane(application.favourites);
+        application.favourites.applyComponentOrientation(application.getComponentOrientation());
+        setSelectedMenu(0, 0);
+        SwingUtilities.updateComponentTreeUI(application.favourites);
         FlatAnimatedLafChange.hideSnapshotWithAnimation();
     }
     
