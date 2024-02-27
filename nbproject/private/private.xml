@@ -5,25 +5,28 @@
         <group>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/forms/UploadCatalogue.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/dao/CustomerDAO.java</file>
-            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/design/ProductDescription.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/forms/ProfileSetup.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/dao/CustomerProfileDAO.java</file>
-            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/menu/MenuMethodForm.java</file>
+            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/dao/FavouriteDAO.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/menu/Menu.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/forms/AboutUsForm.java</file>
-            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/catalog/CatalogueData.java</file>
-            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/forms/AfilliateForm.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/main/EchoMartRunner.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/model/CatalogModel.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/dao/ProductDataDAO.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/dao/ProfileFetchDAO.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/dao/RecoveryCodesDAO.java</file>
-            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/forms/LoginForm.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/design/DottedPanel.java</file>
-            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/model/CustomerData.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/design/ScrollableDesc.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/authentication/app/popup/RecoveryCode.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/catalog/ContentViewCatalogue.java</file>
+            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/design/ProductDescription.java</file>
+            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/menu/MenuMethodForm.java</file>
+            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/catalog/CatalogueData.java</file>
+            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/forms/AfilliateForm.java</file>
+            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/forms/FavouritesForm.java</file>
+            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/forms/LoginForm.java</file>
+            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/catalog/BannerHolder.java</file>
+            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/model/CustomerData.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/forms/Dashboard.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/catalog/TileViewCatalogue.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/forms/ContactForm.java</file>
