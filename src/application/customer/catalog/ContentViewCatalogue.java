@@ -1,14 +1,13 @@
 package application.customer.catalog;
 
-import application.customer.design.ScrollableDesc;
+import application.customer.dao.FavouriteDAO;
 import application.customer.forms.Dashboard;
+import application.customer.forms.LoginForm;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.math.BigDecimal;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
 
 /**
  *
@@ -50,6 +49,17 @@ public class ContentViewCatalogue extends javax.swing.JPanel {
                source.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/catalog/Group 20 (2).png")));
                fetchedHeaderFav = Dashboard.getHeaderFav();
                fetchedHeaderFav++;
+               
+               String email = LoginForm.getStoredUserEmail();
+               FavouriteDAO favDAO = new FavouriteDAO();
+               String priceStr = productPrice.getText();
+               priceStr = priceStr.replace("NRs.", "").trim();
+               BigDecimal price = new BigDecimal(priceStr);
+               String pName = productName.getText();
+               String cond = productCondition.getText();
+               int pID = favDAO.getProductId(pName, price, cond);
+               
+               favDAO.addFavorite(email, pID);
             } else {
                source.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/catalog/Group 20 (1).png")));
                fetchedHeaderFav = Dashboard.getHeaderFav();
@@ -96,7 +106,7 @@ public class ContentViewCatalogue extends javax.swing.JPanel {
         productImageLayout.setHorizontalGroup(
             productImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, productImageLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 128, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         productImageLayout.setVerticalGroup(
@@ -157,8 +167,8 @@ public class ContentViewCatalogue extends javax.swing.JPanel {
                         .addComponent(shippingStatus)))
                 .addGap(16, 16, 16))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(productImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(productImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
         );
         panelRound1Layout.setVerticalGroup(
