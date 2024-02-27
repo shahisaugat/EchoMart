@@ -5,6 +5,7 @@ import application.customer.catalog.TileViewCatalogue;
 import application.customer.dao.ProductDataDAO;
 import application.customer.design.NavigationItems;
 import application.customer.design.WrapLayout;
+import application.customer.main.EchoMartRunner;
 import authentication.app.popup.AccountMenus;
 import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.Component;
@@ -229,6 +230,11 @@ public class Dashboard extends javax.swing.JPanel {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Group 14.png"))); // NOI18N
         jLabel2.setText("Favourites");
         jLabel2.setIconTextGap(10);
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 15)); // NOI18N
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Group 15.png"))); // NOI18N
@@ -364,6 +370,10 @@ public class Dashboard extends javax.swing.JPanel {
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         navigationBar1.show(2);
     }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        EchoMartRunner.openFavForm();
+    }//GEN-LAST:event_jLabel2MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
