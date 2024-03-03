@@ -496,7 +496,7 @@ public class SignupForm extends javax.swing.JPanel {
     }
     
     public void runLoadAnimation() {
-        ImageIcon loadImg = new ImageIcon(getClass().getResource("/application/customer/catalog/orangeLoader.gif/"));
+        ImageIcon loadImg = new ImageIcon(getClass().getResource("/application/customer/image/orangeLoader.gif/"));
 
         loadAnimation = new PanelLoadAnimation(loadImg);
         GlassPanePopup.showPopup(loadAnimation, new DefaultOption() {
