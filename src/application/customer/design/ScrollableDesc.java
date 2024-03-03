@@ -9,7 +9,7 @@ import javax.swing.ImageIcon;
  */
 public class ScrollableDesc extends javax.swing.JPanel {
     
-    private ProductDescription productDesc;
+    private final ProductDescription productDesc;
     
     public ScrollableDesc(int pID, String pName, String pCondition, String pDesc, ImageIcon image1, ImageIcon image2, ImageIcon image3, String oName, String oMail, String oContact, String oRep) {
         initComponents();
@@ -33,11 +33,11 @@ public class ScrollableDesc extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
