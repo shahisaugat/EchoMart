@@ -8,8 +8,6 @@ import application.customer.forms.LoginForm;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -210,10 +208,6 @@ public class ContentViewCatalogue extends javax.swing.JPanel {
         String price = productPrice.getText();
         BigDecimal pPrice = new BigDecimal(price);
         int productID = pDesc.fetchProductId(productName.getText(), pPrice);
-        
-        
-        
-        desc = new ScrollableDesc();
         
         descDialog = new JDialog((JFrame) SwingUtilities.getWindowAncestor(this), "Profile Setup", true);
         descDialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
