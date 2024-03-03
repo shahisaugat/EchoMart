@@ -1,22 +1,29 @@
 package application.customer.catalog;
 
 import application.customer.dao.FavouriteDAO;
+import application.customer.dao.ProductDescDAO;
+import application.customer.design.ScrollableDesc;
 import application.customer.forms.Dashboard;
 import application.customer.forms.LoginForm;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
 /**
  *
  * @author shahi
  */
 public class ContentViewCatalogue extends javax.swing.JPanel {
-    
-//    private final ScrollableDesc desc;
-//    private final JDialog descDialog;
+ 
+    private JDialog descDialog;
+    private ScrollableDesc desc;
     private int fetchedHeaderFav;
     
     public ContentViewCatalogue(ImageIcon img, String name, String price, String status, String cond) {
@@ -27,13 +34,6 @@ public class ContentViewCatalogue extends javax.swing.JPanel {
         productPrice.setText(price);
         shippingStatus.setText(status);
         productCondition.setText(cond);
-        
-//        desc = new ScrollableDesc();
-        
-//        descDialog = new JDialog((JFrame) SwingUtilities.getWindowAncestor(this), "Profile Setup", true);
-//        descDialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
-//        descDialog.getContentPane().add(desc);
-//        descDialog.pack();
         
         jButton2.addActionListener(new ButtonClickListener());
     }
@@ -206,17 +206,32 @@ public class ContentViewCatalogue extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-//        showDescDialog();
+        ProductDescDAO pDesc = new ProductDescDAO();
+        String price = productPrice.getText();
+        BigDecimal pPrice = new BigDecimal(price);
+        int productID = pDesc.fetchProductId(productName.getText(), pPrice);
+        
+        
+        
+        desc = new ScrollableDesc();
+        
+        descDialog = new JDialog((JFrame) SwingUtilities.getWindowAncestor(this), "Profile Setup", true);
+        descDialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
+        descDialog.getContentPane().add(desc);
+        descDialog.pack();
+        
+        
+        showDescDialog();
     }//GEN-LAST:event_jButton1MouseClicked
     
-//    private void showDescDialog() {
-//        
-//        int centerX = (int) (this.getTopLevelAncestor().getLocationOnScreen().getX() + this.getTopLevelAncestor().getSize().getWidth() / 2 - descDialog.getWidth() / 2);
-//        int centerY = (int) (this.getTopLevelAncestor().getLocationOnScreen().getY() + this.getTopLevelAncestor().getSize().getHeight() / 2 - descDialog.getHeight() / 2);
-//
-//        descDialog.setLocation(centerX, centerY);
-//        descDialog.setVisible(true);
-//    }
+    private void showDescDialog() {
+        
+        int centerX = (int) (this.getTopLevelAncestor().getLocationOnScreen().getX() + this.getTopLevelAncestor().getSize().getWidth() / 2 - descDialog.getWidth() / 2);
+        int centerY = (int) (this.getTopLevelAncestor().getLocationOnScreen().getY() + this.getTopLevelAncestor().getSize().getHeight() / 2 - descDialog.getHeight() / 2);
+
+        descDialog.setLocation(centerX, centerY);
+        descDialog.setVisible(true);
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
