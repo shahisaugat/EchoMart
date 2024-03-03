@@ -158,7 +158,7 @@
               <Font name="Yu Gothic UI Semibold" size="13" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/authentication/app/popup/Payment Method (1).png"/>
+              <Image iconType="3" name="/application/customer/image/Payment Method (1).png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Payment methods"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -173,7 +173,7 @@
               <Font name="Yu Gothic UI Semibold" size="13" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/authentication/app/popup/statistics (1).png"/>
+              <Image iconType="3" name="/application/customer/image/statistics (1).png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="My Statistics"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -188,7 +188,7 @@
               <Font name="Yu Gothic UI Semibold" size="13" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/authentication/app/popup/Prize.png"/>
+              <Image iconType="3" name="/application/customer/image/Prize.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Reward Points"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -203,7 +203,7 @@
               <Font name="Yu Gothic UI Semibold" size="13" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/authentication/app/popup/Vector (13).png"/>
+              <Image iconType="3" name="/application/customer/image/Vector (13).png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Logout"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
