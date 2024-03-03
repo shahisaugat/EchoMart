@@ -13,7 +13,7 @@ import java.util.List;
 public class FavouriteDAO extends MySQLConnection {
     
     public int getProductId(String productTitle, BigDecimal price, String condition) {
-        int productId = -1; // Default value if product is not found
+        int productId = -1;
         
         try (Connection conn = openConnection()) {
             String selectQuery = "SELECT product_id FROM products WHERE product_name = ? AND price = ? AND pcondition = ?";
