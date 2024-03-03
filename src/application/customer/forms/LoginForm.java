@@ -529,7 +529,7 @@ public class LoginForm extends javax.swing.JPanel {
     }
     
     private void loadAnimation() {
-        ImageIcon loadImg = new ImageIcon(getClass().getResource("/application/customer/catalog/blackLoader.gif/"));
+        ImageIcon loadImg = new ImageIcon(getClass().getResource("/application/customer/image/blackLoader.gif/"));
         loadAnimation = new PanelLoadAnimation(loadImg);
         GlassPanePopup.showPopup(loadAnimation, new DefaultOption() {
             @Override
