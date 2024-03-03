@@ -15,6 +15,7 @@
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/dao/ProductDataDAO.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/dao/ProfileFetchDAO.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/dao/RecoveryCodesDAO.java</file>
+            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/design/NavigationBar.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/design/DottedPanel.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/design/ScrollableDesc.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/authentication/app/popup/RecoveryCode.java</file>
@@ -23,10 +24,15 @@
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/menu/MenuMethodForm.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/catalog/CatalogueData.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/forms/AfilliateForm.java</file>
+            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/theme/FlatLaf.properties</file>
+            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/design/NavigationItems.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/forms/FavouritesForm.java</file>
+            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/theme/FlatLightLaf.properties</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/forms/LoginForm.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/catalog/BannerHolder.java</file>
+            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/dao/ProductDescDAO.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/model/CustomerData.java</file>
+            <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/authentication/app/popup/AccountMenus.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/forms/Dashboard.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/catalog/TileViewCatalogue.java</file>
             <file>file:/C:/Users/shahi/Downloads/EchoMart/EchoMart/src/application/customer/forms/ContactForm.java</file>
