@@ -87,25 +87,25 @@ public class AccountMenus extends javax.swing.JPanel {
         );
 
         jButton1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 13)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/authentication/app/popup/Payment Method (1).png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Payment Method (1).png"))); // NOI18N
         jButton1.setText("Payment methods");
         jButton1.setBorder(null);
         jButton1.setIconTextGap(8);
 
         jButton2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 13)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/authentication/app/popup/statistics (1).png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/statistics (1).png"))); // NOI18N
         jButton2.setText("My Statistics");
         jButton2.setBorder(null);
         jButton2.setIconTextGap(8);
 
         jButton3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 13)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/authentication/app/popup/Prize.png"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Prize.png"))); // NOI18N
         jButton3.setText("Reward Points");
         jButton3.setBorder(null);
         jButton3.setIconTextGap(8);
 
         jButton4.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 13)); // NOI18N
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/authentication/app/popup/Vector (13).png"))); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Vector (13).png"))); // NOI18N
         jButton4.setText("Logout");
         jButton4.setBorder(null);
         jButton4.setIconTextGap(9);
