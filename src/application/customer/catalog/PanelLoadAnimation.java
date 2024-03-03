@@ -42,7 +42,7 @@ public class PanelLoadAnimation extends javax.swing.JPanel {
         setBackground(new java.awt.Color(239, 239, 239));
         setOpaque(false);
 
-        loadGIF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/catalog/blackLoader.gif"))); // NOI18N
+        loadGIF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/blackLoader.gif"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
