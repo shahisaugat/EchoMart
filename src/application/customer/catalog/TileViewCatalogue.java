@@ -43,10 +43,10 @@ public class TileViewCatalogue extends javax.swing.JPanel {
         panelRound1.setRoundTopRight(12);
 
         jButton1.setBackground(new java.awt.Color(244, 244, 244));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/catalog/newImage.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/newImage.png"))); // NOI18N
         jButton1.setBorder(null);
 
-        pictureHolder1.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/catalog/image3.png"))); // NOI18N
+        pictureHolder1.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/image3.png"))); // NOI18N
 
         productName.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 13)); // NOI18N
         productName.setText("Naviforce Watch");
@@ -74,7 +74,7 @@ public class TileViewCatalogue extends javax.swing.JPanel {
 
         rating.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         rating.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        rating.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/design/Vector (4).png"))); // NOI18N
+        rating.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Vector (4).png"))); // NOI18N
         rating.setText("4.5");
         rating.setIconTextGap(7);
 
