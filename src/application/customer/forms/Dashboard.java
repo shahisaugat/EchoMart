@@ -261,14 +261,14 @@ public class Dashboard extends javax.swing.JPanel {
             .addGap(0, 40, Short.MAX_VALUE)
         );
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/catalog/Polygon 2 (2).png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Polygon 2 (2).png"))); // NOI18N
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel4MouseClicked(evt);
             }
         });
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/catalog/Polygon 1 (2).png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Polygon 1 (2).png"))); // NOI18N
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel5MouseClicked(evt);
