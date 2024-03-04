@@ -9,7 +9,7 @@ import javax.swing.ImageIcon;
  */
 public class ScrollableDesc extends javax.swing.JPanel {
     
-    private final ProductDescription productDesc;
+    private ProductDescription productDesc;
     
     public ScrollableDesc(int pID, String pName, String pCondition, String pDesc, ImageIcon image1, ImageIcon image2, ImageIcon image3, String oName, String oMail, String oContact, String oRep) {
         initComponents();
