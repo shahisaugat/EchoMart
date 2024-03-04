@@ -75,28 +75,28 @@ public class ProductDescription extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        showImg1.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/design/Mask group (13).png"))); // NOI18N
+        showImg1.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Mask group (13).png"))); // NOI18N
         showImg1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 showImg1MouseClicked(evt);
             }
         });
 
-        showImg2.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/design/Mask group (13).png"))); // NOI18N
+        showImg2.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Mask group (13).png"))); // NOI18N
         showImg2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 showImg2MouseClicked(evt);
             }
         });
 
-        showImg3.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/design/Mask group (13).png"))); // NOI18N
+        showImg3.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Mask group (13).png"))); // NOI18N
         showImg3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 showImg3MouseClicked(evt);
             }
         });
 
-        pictureView.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/design/Mask group (13).png"))); // NOI18N
+        pictureView.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Mask group (6).png"))); // NOI18N
 
         descLabel.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 16)); // NOI18N
         descLabel.setText("Description");
@@ -268,7 +268,7 @@ public class ProductDescription extends javax.swing.JPanel {
         ownerProfile.setBorderSpace(1);
         ownerProfile.setGradientColor1(new java.awt.Color(255, 92, 0));
         ownerProfile.setGradientColor2(new java.awt.Color(255, 92, 0));
-        ownerProfile.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/catalog/image1.png"))); // NOI18N
+        ownerProfile.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/image1.png"))); // NOI18N
 
         ownerName.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         ownerName.setText("Saugat Shahi Thakuri");
@@ -526,11 +526,7 @@ public class ProductDescription extends javax.swing.JPanel {
     private javax.swing.JButton addToCartBtn;
     private application.customer.design.PanelRound color1;
     private application.customer.design.PanelRound color2;
-    private application.customer.design.PanelRound color3;
-    private application.customer.design.PanelRound color4;
     private application.customer.design.PanelRound color5;
-    private application.customer.design.PanelRound color6;
-    private application.customer.design.PanelRound color7;
     private application.customer.design.PanelRound color8;
     private javax.swing.JLabel colorLabel;
     private javax.swing.JScrollPane commentsScroll;
