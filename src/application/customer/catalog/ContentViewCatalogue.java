@@ -1,7 +1,6 @@
 package application.customer.catalog;
 
 import application.customer.dao.FavouriteDAO;
-import application.customer.dao.ProductDescDAO;
 import application.customer.design.ScrollableDesc;
 import application.customer.forms.Dashboard;
 import application.customer.forms.LoginForm;
@@ -44,7 +43,7 @@ public class ContentViewCatalogue extends javax.swing.JPanel {
            JButton source = (JButton) e.getSource();
 
             if (isIcon1) {
-               source.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/catalog/Group 20 (2).png")));
+               source.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Group 20 (2).png")));
                fetchedHeaderFav = Dashboard.getHeaderFav();
                fetchedHeaderFav++;
                
@@ -59,7 +58,7 @@ public class ContentViewCatalogue extends javax.swing.JPanel {
                
                favDAO.addFavorite(email, pID);
             } else {
-               source.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/catalog/Group 20 (1).png")));
+               source.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Group 20 (1).png")));
                fetchedHeaderFav = Dashboard.getHeaderFav();
                fetchedHeaderFav--;
             }
@@ -90,9 +89,9 @@ public class ContentViewCatalogue extends javax.swing.JPanel {
         panelRound1.setRoundTopLeft(8);
         panelRound1.setRoundTopRight(8);
 
-        productImage.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/catalog/image4.png"))); // NOI18N
+        productImage.setImage(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/image4.png"))); // NOI18N
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/catalog/Group 20 (1).png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Group 20 (1).png"))); // NOI18N
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
@@ -135,7 +134,7 @@ public class ContentViewCatalogue extends javax.swing.JPanel {
         productPrice.setText("NRs. 1200");
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/design/Vector (4).png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Vector (4).png"))); // NOI18N
         jLabel3.setText("4.5");
 
         productCondition.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 13)); // NOI18N
@@ -180,7 +179,7 @@ public class ContentViewCatalogue extends javax.swing.JPanel {
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(productPrice)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(productCondition)
                     .addComponent(shippingStatus))
@@ -204,11 +203,12 @@ public class ContentViewCatalogue extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        ProductDescDAO pDesc = new ProductDescDAO();
-        String price = productPrice.getText();
-        BigDecimal pPrice = new BigDecimal(price);
-        int productID = pDesc.fetchProductId(productName.getText(), pPrice);
-        
+//        ProductDescDAO pDesc = new ProductDescDAO();
+//        String price = productPrice.getText();
+//        BigDecimal pPrice = new BigDecimal(price);
+//        int productID = pDesc.fetchProductId(productName.getText(), pPrice);
+//        
+        desc = new ScrollableDesc(2, "Saugat", "Saugat", "Saugat", new ImageIcon(getClass().getResource("/application/customer/image/image3.png/")), new ImageIcon(getClass().getResource("/application/customer/image/image2.png/")), new ImageIcon(getClass().getResource("/application/customer/image/image4.png/")), "Saugat", "Saugat", "Saugat", "Saugat");
         descDialog = new JDialog((JFrame) SwingUtilities.getWindowAncestor(this), "Profile Setup", true);
         descDialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
         descDialog.getContentPane().add(desc);
