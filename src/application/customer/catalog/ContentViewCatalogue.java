@@ -1,9 +1,10 @@
 package application.customer.catalog;
 
 import application.customer.dao.FavouriteDAO;
-import application.customer.design.ScrollableDesc;
+import application.customer.design.ProductDescription;
 import application.customer.forms.Dashboard;
 import application.customer.forms.LoginForm;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
@@ -20,7 +21,7 @@ import javax.swing.SwingUtilities;
 public class ContentViewCatalogue extends javax.swing.JPanel {
  
     private JDialog descDialog;
-    private ScrollableDesc desc;
+    private ProductDescription desc;
     private int fetchedHeaderFav;
     
     public ContentViewCatalogue(ImageIcon img, String name, String price, String status, String cond) {
@@ -33,6 +34,13 @@ public class ContentViewCatalogue extends javax.swing.JPanel {
         productCondition.setText(cond);
         
         jButton2.addActionListener(new ButtonClickListener());
+        
+        desc = new ProductDescription(2, "Saugat", "Saugat", "Saugat", new ImageIcon(getClass().getResource("/application/customer/image/image3.png/")), new ImageIcon(getClass().getResource("/application/customer/image/image2.png/")), new ImageIcon(getClass().getResource("/application/customer/image/image4.png/")), "Saugat", "Saugat", "Saugat", "Saugat");
+        descDialog = new JDialog((JFrame) SwingUtilities.getWindowAncestor(this), "Profile Setup", true);
+        descDialog.setSize(new Dimension(685, 428));
+        descDialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
+        descDialog.getContentPane().add(desc);
+        descDialog.pack();
     }
     
     private class ButtonClickListener implements ActionListener {
@@ -208,13 +216,6 @@ public class ContentViewCatalogue extends javax.swing.JPanel {
 //        BigDecimal pPrice = new BigDecimal(price);
 //        int productID = pDesc.fetchProductId(productName.getText(), pPrice);
 //        
-        desc = new ScrollableDesc(2, "Saugat", "Saugat", "Saugat", new ImageIcon(getClass().getResource("/application/customer/image/image3.png/")), new ImageIcon(getClass().getResource("/application/customer/image/image2.png/")), new ImageIcon(getClass().getResource("/application/customer/image/image4.png/")), "Saugat", "Saugat", "Saugat", "Saugat");
-        descDialog = new JDialog((JFrame) SwingUtilities.getWindowAncestor(this), "Profile Setup", true);
-        descDialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
-        descDialog.getContentPane().add(desc);
-        descDialog.pack();
-        
-        
         showDescDialog();
     }//GEN-LAST:event_jButton1MouseClicked
     
