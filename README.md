@@ -169,8 +169,8 @@ CREATE TABLE favorites (
   ```
 **5. Run application**
 
-## If you have changes to be made
-1. **To change the form**
+### If you have changes to be made
+**1. To change the form**
 ```java
 private void initMenuEvent() {
         menu.addMenuEvent((int index, int subIndex, MenuAction action) -> {
@@ -187,7 +187,7 @@ private void initMenuEvent() {
         });
     }
 ```
-2. To create any popups like Account Menus
+**2. To create any popups like Account Menus**
 ```java
 private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {                                     
         accountMenu = new AccountMenus();
@@ -208,7 +208,7 @@ private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {
     }
 ```
 
-## Project URL
+### Project URL
 
 Find the project repository on GitHub:
 
