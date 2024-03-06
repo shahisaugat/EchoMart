@@ -136,6 +136,26 @@ CREATE TABLE favorites (
         }
     }
   ```
+4. Run application
+
+## If you have changes to be made
+1. **To change the form**
+```java
+private void initMenuEvent() {
+        menu.addMenuEvent((int index, int subIndex, MenuAction action) -> {
+            switch (index) {
+                case 0 -> {
+                    EchoMartRunner.changeContentPane(new JLayer(new Dashboard(), new FloatingButtonUI()));
+                    revalidate();
+                    repaint();
+                }
+                case 3 -> {
+                        EchoMartRunner.changeContentPane(null);
+                }
+            }
+        });
+    }
+```
 
 ## Project URL
 
