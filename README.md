@@ -112,7 +112,7 @@ CREATE TABLE favorites (
 
 3. **Change JDBC driver database's username and password**
 
- ```
+ ```java
 @Override
     public Connection openConnection() { 
         try{
