@@ -66,9 +66,7 @@ public class MenuMethodForm extends JLayeredPane {
                     repaint();
                 }
                 case 3 -> {
-//                    switch (subIndex) {
                         EchoMartRunner.changeContentPane(null);
-//                    }
                 }
             }
         });
