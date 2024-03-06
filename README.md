@@ -169,7 +169,8 @@ CREATE TABLE favorites (
   ```
 **5. Run application**
 
-### If you have changes to be made
+### If you have any changes to be made
+
 **1. To change the form**
 ```java
 private void initMenuEvent() {
