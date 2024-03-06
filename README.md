@@ -5,14 +5,37 @@ Welcome to Echo Mart, your premier destination for sustainable shopping and seco
 ## Setup Instructions
 
 1. **Setup any Compatible IDE for Java**
-2. **Download the .jar files and add it to the libraries**
-   ### FlatLaf 3.2
-   ### Swing-toast-notifications-1.0.1
-   ### jsvg-1.2.0
-   ### glasspane-popup-2.0.1
-   ### miglayout-4.0
-   ### timingframework-1.0
-   ### mysql-connector-j-8.3.0
+
+2. **Download and Add Required Libraries**
+
+   - **FlatLaf 3.2**
+     - [Download](https://search.maven.org/artifact/com.formdev/flatlaf/3.2/jar)
+     - Feature: Look and feel library for creating modern UIs in Java Swing applications.
+
+   - **Swing-toast-notifications-1.0.1**
+     - [Download](https://search.maven.org/artifact/org.pushing-pixels/swing-toast-notifications/1.0.1/jar)
+     - Feature: Provides toast notification support for Java Swing applications.
+
+   - **JSVG 1.2.0**
+     - [Download](https://search.maven.org/artifact/org.apache.xmlgraphics/batik-jsvg/1.12/jar)
+     - Feature: Library for rendering SVG images in Java applications.
+
+   - **Glasspane-popup-2.0.1**
+     - [Download](https://search.maven.org/artifact/com.pigdroid/javatoolbox/2.0.1/jar)
+     - Feature: Library for creating customizable popups and dialogs in Java Swing applications.
+
+   - **Miglayout 4.0**
+     - [Download](https://search.maven.org/artifact/com.miglayout/miglayout-core/4.0/jar)
+     - Feature: Layout manager for Java Swing that provides powerful and flexible layout capabilities.
+
+   - **Timingframework 1.0**
+     - [Download](https://search.maven.org/artifact/org.jdesktop/timingframework/1.0/jar)
+     - Feature: Provides support for creating and managing timed animations in Java applications.
+
+   - **MySQL Connector J 8.3.0**
+     - [Download](https://search.maven.org/artifact/mysql/mysql-connector-java/8.0.28/jar)
+     - Feature: JDBC driver for connecting Java applications to MySQL databases.
+
 4. **Creation of Database**
 
  Execute the following SQL commands to create the required database and tables:
