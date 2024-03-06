@@ -136,3 +136,9 @@ CREATE TABLE favorites (
         }
     }
   ```
+
+## Project URL
+
+Find the project repository on GitHub:
+
+[GitHub Repository](https://github.com/shahisaugat/EchoMart)
