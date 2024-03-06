@@ -5,7 +5,15 @@ Welcome to Echo Mart, your premier destination for sustainable shopping and seco
 ## Setup Instructions
 
 1. **Setup any Compatible IDE for Java**
-2. **Creation of Database**
+2. **Download the .jar files and add it to the libraries**
+   ### FlatLaf 3.2
+   ### Swing-toast-notifications-1.0.1
+   ### jsvg-1.2.0
+   ### glasspane-popup-2.0.1
+   ### miglayout-4.0
+   ### timingframework-1.0
+   ### mysql-connector-j-8.3.0
+4. **Creation of Database**
 
  Execute the following SQL commands to create the required database and tables:
 
@@ -152,6 +160,26 @@ private void initMenuEvent() {
                 case 3 -> {
                         EchoMartRunner.changeContentPane(null);
                 }
+            }
+        });
+    }
+```
+2. To create any popups like Account Menus
+```java
+private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {                                     
+        accountMenu = new AccountMenus();
+        GlassPanePopup.showPopup(accountMenu, new DefaultOption() {
+            @Override
+            public float opacity() {
+                return 0.02f;
+            }
+            
+            @Override
+            public String getLayout(Component parent, float animate) {
+                float xOffset = 0.830f;
+                float yOffset = 0.124f;
+
+                return "pos " + xOffset + "al " + yOffset + "al";
             }
         });
     }
