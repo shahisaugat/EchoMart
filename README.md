@@ -4,8 +4,9 @@ Welcome to Echo Mart, your premier destination for sustainable shopping and seco
 
 ## Setup Instructions
 
-1. **Creation of Database**
- 
+1. **Setup any Compatible IDE for Java**
+2. **Creation of Database**
+
  Execute the following SQL commands to create the required database and tables:
 
  ```sql
@@ -16,7 +17,8 @@ Welcome to Echo Mart, your premier destination for sustainable shopping and seco
  FullName varchar(255),
  LastName varchar(255),
  EmailAddress varchar(255) PRIMARY KEY,
- Password varchar(255));
+ Password varchar(255)
+ );
   
  CREATE TABLE customers_profile(
    EmailAddress varchar(255),
@@ -26,13 +28,14 @@ Welcome to Echo Mart, your premier destination for sustainable shopping and seco
    Province varchar(255),
    ShippingAddress varchar(255),
    FOREIGN KEY (EmailAddress)
-   REFERENCES customers(EmailAddress));
+   REFERENCES customers(EmailAddress)
+ );
    
  SELECT c.FullName, c.LastName, c.EmailAddress, cp.ProfilePicture 
  FROM customers c 
  JOIN customers_profile cp ON c.EmailAddress = cp.EmailAddress
- WHERE c.EmailAddress = 'devops.shahi@email.com';
-
+ WHERE c.EmailAddress = 'devops.shahi@email.com'
+ ;
 
  CREATE TABLE RecoveryCodes (
    EmailAddress VARCHAR(255) NOT NULL,
@@ -105,3 +108,31 @@ CREATE TABLE favorites (
   FOREIGN KEY (customer_email) REFERENCES customers(EmailAddress),
   FOREIGN KEY (product_id) REFERENCES products(product_id)
 );
+```
+
+3. **Change JDBC driver database's username and password**
+
+ ```
+@Override
+    public Connection openConnection() { 
+        try{
+            String username = "root";
+            String password = "SaugatSHELL196$!";
+            String database = "echomart";
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection connection;
+            connection = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/" + database, username, password
+            );
+            if(connection == null){
+                System.out.println("Database connection fail");
+            }else{
+                System.out.println("Database connection success");
+            }
+            return connection;
+        }catch(Exception e){
+            System.out.println(e);
+            return null;
+        }
+    }
+  ```
