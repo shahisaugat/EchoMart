@@ -4,9 +4,9 @@ Welcome to Echo Mart, your premier destination for sustainable shopping and seco
 
 ## Setup Instructions
 
-1. **Setup any Compatible IDE for Java**
+**1. Setup any Compatible IDE for Java**
 
-2. **Download and Add Required Libraries**
+**2. Download and Add Required Libraries**
 
    - **FlatLaf 3.2**
      - [Download](https://search.maven.org/artifact/com.formdev/flatlaf/3.2/jar)
@@ -36,7 +36,7 @@ Welcome to Echo Mart, your premier destination for sustainable shopping and seco
      - [Download](https://search.maven.org/artifact/mysql/mysql-connector-java/8.0.28/jar)
      - Feature: JDBC driver for connecting Java applications to MySQL databases.
 
-4. **Creation of Database**
+**3. Creation of Database**
 
  Execute the following SQL commands to create the required database and tables:
 
@@ -141,7 +141,7 @@ CREATE TABLE favorites (
 );
 ```
 
-3. **Change JDBC driver database's username and password**
+**4. Change JDBC driver database's username and password**
 
  ```java
 @Override
@@ -167,7 +167,7 @@ CREATE TABLE favorites (
         }
     }
   ```
-4. Run application
+**5. Run application**
 
 ## If you have changes to be made
 1. **To change the form**
