@@ -418,10 +418,15 @@
           <Font name="Segoe UI" size="15" style="0"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
-            <StringItem index="0" value="Automobile"/>
-            <StringItem index="1" value="Books &amp; Audible"/>
-            <StringItem index="2" value=""/>
+          <StringArray count="8">
+            <StringItem index="0" value="Categories"/>
+            <StringItem index="1" value="Automobile"/>
+            <StringItem index="2" value="Books &amp; Audible"/>
+            <StringItem index="3" value="Toys &amp; Games"/>
+            <StringItem index="4" value="Furniture &amp; Decor"/>
+            <StringItem index="5" value="Tools &amp; Home Improvement"/>
+            <StringItem index="6" value="Watches"/>
+            <StringItem index="7" value="Musical Instruments"/>
           </StringArray>
         </Property>
       </Properties>
