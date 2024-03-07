@@ -1,6 +1,7 @@
 package application.customer.catalog;
 
 import application.customer.dao.FavouriteDAO;
+import application.customer.dao.ProductDescDAO;
 import application.customer.design.ProductDescription;
 import application.customer.forms.Dashboard;
 import application.customer.forms.LoginForm;
@@ -8,6 +9,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
+import java.util.HashMap;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -211,11 +213,28 @@ public class ContentViewCatalogue extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-//        ProductDescDAO pDesc = new ProductDescDAO();
-//        String price = productPrice.getText();
-//        BigDecimal pPrice = new BigDecimal(price);
-//        int productID = pDesc.fetchProductId(productName.getText(), pPrice);
-//        
+        ProductDescDAO pDesc = new ProductDescDAO();
+        String price = productPrice.getText().replace("NRs. ", "");
+        BigDecimal pPrice = new BigDecimal(price);
+        int productID = pDesc.fetchProductId(productName.getText(), pPrice);
+        
+        HashMap<String, Object> productData = pDesc.fetchProductData(productName.getText(), productID);
+        byte[] primaryImage = (byte[]) productData.get("primary_image");
+        byte[] secondaryImage = (byte[]) productData.get("secondary_image");
+        byte[] tertiaryImage = (byte[]) productData.get("tertiary_image");
+        String productName = (String) productData.get("product_name");
+        String location = (String) productData.get("location");
+        String sellerEmail = (String) productData.get("seller_email");
+//        SELECT p.product_name, p.location, p.description, p.price, p.delivery_status_id, p.pcondition, " +
+//                             "i.primary_image, i.secondary_image, i.tertiary_image, " +
+//                             "p.seller_email, p.category_id, p.upload_date " +
+//                             "FROM products p " +
+//                             "JOIN images i ON p.product_id = i.product_id " +
+//                             "WHERE p.product_name = ? AND p.product_id = ?
+//        String ProductDescription(int pID, String pName, String pCondition, String pDesc, ImageIcon image1, ImageIcon image2, ImageIcon image3, String oName, String oMail, String oContact, String oRep) {
+        desc.setProductName(productName);
+        desc.setShowImg1(new ImageIcon(primaryImage));
+        
         showDescDialog();
     }//GEN-LAST:event_jButton1MouseClicked
     
@@ -239,4 +258,5 @@ public class ContentViewCatalogue extends javax.swing.JPanel {
     private javax.swing.JLabel productPrice;
     private javax.swing.JLabel shippingStatus;
     // End of variables declaration//GEN-END:variables
+
 }
