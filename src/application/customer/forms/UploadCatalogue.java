@@ -383,7 +383,7 @@ public class UploadCatalogue extends javax.swing.JPanel {
         productDescriptionLabel.setText("Product Description");
 
         productCategoryValue.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        productCategoryValue.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Automobile", "Books & Audible", "" }));
+        productCategoryValue.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Categories", "Automobile", "Books & Audible", "Toys & Games", "Furniture & Decor", "Tools & Home Improvement", "Watches", "Musical Instruments" }));
 
         productTitleField.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
 
