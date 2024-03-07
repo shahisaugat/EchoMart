@@ -9,7 +9,7 @@ Welcome to Echo Mart, your premier destination for sustainable shopping and seco
 **2. Download and Add Required Libraries**
 
    - **FlatLaf 3.2**
-     - [Download](https://search.maven.org/artifact/com.formdev/flatlaf/3.2/jar)
+     - [Download]('Jar Folder/flatlaf-3.2.jar')
      - Feature: Look and feel library for creating modern UIs in Java Swing applications.
 
    - **Swing-toast-notifications-1.0.1**
