@@ -4,6 +4,7 @@ import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.ui.FlatUIUtils;
 import com.formdev.flatlaf.util.UIScale;
 import java.awt.BasicStroke;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Cursor;
@@ -130,6 +131,7 @@ public class MenuItem extends JPanel {
         
         JButton button = new JButton(text);
         button.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 15));
+        button.setForeground(Color.decode("#E8E8E8"));
         Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
         button.setCursor(handCursor);
         
