@@ -1,5 +1,6 @@
 package application.customer.design;
 
+import application.customer.catalog.ShadowRenderer;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -11,7 +12,6 @@ import java.awt.image.BufferedImage;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.basic.BasicTextFieldUI;
-import raven.toast.util.ShadowRenderer;
 
 public class StyledTextField extends JTextField {
 
