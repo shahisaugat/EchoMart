@@ -3,6 +3,8 @@ package application.customer.design;
 import application.customer.forms.Dashboard;
 import java.awt.Dimension;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JTextPane;
 
 /**
  *
@@ -593,4 +595,56 @@ public class ProductDescription extends javax.swing.JPanel {
     private application.customer.design.PictureHolder showImg3;
     private javax.swing.JTextField varQty;
     // End of variables declaration//GEN-END:variables
+
+    public void setjTextPane1(JTextPane jTextPane1) {
+        this.jTextPane1 = jTextPane1;
+    }
+
+    public void setOwnerAccountStatus(JLabel ownerAccountStatus) {
+        this.ownerAccountStatus = ownerAccountStatus;
+    }
+
+    public void setOwnerContact(JLabel ownerContact) {
+        this.ownerContact = ownerContact;
+    }
+
+    public void setOwnerGmail(JLabel ownerGmail) {
+        this.ownerGmail = ownerGmail;
+    }
+
+    public void setOwnerName(JLabel ownerName) {
+        this.ownerName = ownerName;
+    }
+
+    public void setOwnerProfile(ImageAvatar ownerProfile) {
+        this.ownerProfile = ownerProfile;
+    }
+
+    public void setOwnerRepScore(JLabel ownerRepScore) {
+        this.ownerRepScore = ownerRepScore;
+    }
+
+    public void setPictureView(PictureHolder pictureView) {
+        this.pictureView = pictureView;
+    }
+
+    public void setProductId(String id) {
+        this.productId.setText(id);
+    }
+
+    public void setProductName(String productName) {
+        this.productName.setText(productName);
+    }
+
+    public void setShowImg1(ImageIcon showImg1) {
+        this.showImg1.setImage(showImg1);
+    }
+
+    public void setShowImg2(ImageIcon showImg2) {
+        this.showImg2.setImage(showImg2);
+    }
+
+    public void setShowImg3(ImageIcon showImg3) {
+        this.showImg3.setImage(showImg3);
+    }
 }
