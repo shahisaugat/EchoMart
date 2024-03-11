@@ -1,10 +1,7 @@
 package application.customer.design;
 
 import application.customer.forms.Dashboard;
-import java.awt.Dimension;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JTextPane;
 
 /**
  *
@@ -15,23 +12,10 @@ public class ProductDescription extends javax.swing.JPanel {
     private int headerVar = 0;
     private int varQtyValue = 0;
 
-    public ProductDescription(int pID, String pName, String pCondition, String pDesc, ImageIcon image1, ImageIcon image2, ImageIcon image3, String oName, String oMail, String oContact, String oRep) {
+    public ProductDescription() {
         initComponents();
         
-        productId.setText(Integer.toString(pID));
-        productName.setText(pName);
-        condition.setText(pCondition);
-        desc.setText(pDesc);
-        showImg1.setImage(image1);
-        showImg2.setImage(image2);
-        showImg3.setImage(image3);
-        pictureView.setImage(image1);
-        ownerName.setText(oName);
-        ownerContact.setText(oContact);
-        ownerGmail.setText(oMail);
-        ownerRepScore.setText(oRep);
-        
-        jScrollPane3.setSize(new Dimension(685, 428));
+        desc.setContentType("text/html");
     }
 
     @SuppressWarnings("unchecked")
@@ -40,8 +24,6 @@ public class ProductDescription extends javax.swing.JPanel {
 
         jScrollPane3 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
-        color8 = new application.customer.design.PanelRound();
-        color5 = new application.customer.design.PanelRound();
         condition = new javax.swing.JLabel();
         varQty = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -71,14 +53,13 @@ public class ProductDescription extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         desc = new javax.swing.JTextPane();
         qtyLabel = new javax.swing.JLabel();
-        color1 = new application.customer.design.PanelRound();
-        color2 = new application.customer.design.PanelRound();
         ownerRepScore = new javax.swing.JLabel();
         ownerAccountStatus = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
+        price = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -86,41 +67,6 @@ public class ProductDescription extends javax.swing.JPanel {
         jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        color8.setBackground(new java.awt.Color(51, 51, 51));
-        color8.setRoundBottomLeft(18);
-        color8.setRoundBottomRight(18);
-        color8.setRoundTopLeft(18);
-        color8.setRoundTopRight(18);
-
-        javax.swing.GroupLayout color8Layout = new javax.swing.GroupLayout(color8);
-        color8.setLayout(color8Layout);
-        color8Layout.setHorizontalGroup(
-            color8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 18, Short.MAX_VALUE)
-        );
-        color8Layout.setVerticalGroup(
-            color8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 18, Short.MAX_VALUE)
-        );
-
-        color5.setBackground(new java.awt.Color(255, 0, 0));
-        color5.setForeground(new java.awt.Color(204, 102, 0));
-        color5.setRoundBottomLeft(18);
-        color5.setRoundBottomRight(18);
-        color5.setRoundTopLeft(18);
-        color5.setRoundTopRight(18);
-
-        javax.swing.GroupLayout color5Layout = new javax.swing.GroupLayout(color5);
-        color5.setLayout(color5Layout);
-        color5Layout.setHorizontalGroup(
-            color5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 18, Short.MAX_VALUE)
-        );
-        color5Layout.setVerticalGroup(
-            color5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 18, Short.MAX_VALUE)
-        );
 
         condition.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         condition.setText("Like New");
@@ -238,7 +184,7 @@ public class ProductDescription extends javax.swing.JPanel {
         ownerGmail.setText("Email Id: devops.shahi@gmail.com");
 
         colorLabel.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 15)); // NOI18N
-        colorLabel.setText("Color Variation :");
+        colorLabel.setText("Price Tag :");
 
         conditionLabel.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 15)); // NOI18N
         conditionLabel.setText("Condition :");
@@ -280,46 +226,13 @@ public class ProductDescription extends javax.swing.JPanel {
 
         desc.setEditable(false);
         desc.setBorder(null);
-        desc.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        desc.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        desc.setText("public HashMap<String, Object> fetchProductData(String productName, int productId) {     HashMap<String, Object> productData = new HashMap<>();          try (Connection conn = openConnection()) {         String selectQuery = \"SELECT p.description, \" +                              \"i.secondary_image, i.tertiary_image, \" +                              \"p.seller_email, c.FullName, c.LastName, \" +                              \"p.category_id, p.upload_date, \" + // Added comma here                              \"cp.ContactNumber \" + // Moved to the same line                              \"FROM products p \" +                              \"JOIN images i ON p.product_id = i.product_id \" +                              \"JOIN customers c ON p.seller_email = c.EmailAddress \" +                               \"JOIN customers_profile cp ON p.seller_email = cp.EmailAddress \" +                              \"WHERE p.product_name = ? AND p.product_id = ?\";                  System.out.println(\"SQL Query: \" + selectQuery); // Debug                  try (PreparedStatement ps = conn.prepareStatement(selectQuery)) {             ps.setString(1, productName);             ps.setInt(2, productId);                          try (ResultSet rs = ps.executeQuery()) {                 if (rs.next()) {                     productData.put(\"description\", rs.getString(\"description\"));                     productData.put(\"secondary_image\", rs.getBytes(\"secondary_image\"));                     productData.put(\"tertiary_image\", rs.getBytes(\"tertiary_image\"));                     productData.put(\"seller_email\", rs.getString(\"seller_email\"));                     productData.put(\"first_name\", rs.getString(\"FullName\"));                     productData.put(\"last_name\", rs.getString(\"LastName\"));                     productData.put(\"ContactNumber\", rs.getString(\"ContactNumber\"));                     productData.put(\"category_id\", rs.getInt(\"category_id\"));                     productData.put(\"upload_date\", rs.getString(\"upload_date\"));                                          System.out.println(\"Data retrieved successfully.\"); // Debug                 } else {                     System.out.println(\"No data found for the given product name and ID.\"); // Debug                 }             }         }     } catch (SQLException e) {         e.printStackTrace();     }          return productData; }");
         desc.setFocusable(false);
         jScrollPane1.setViewportView(desc);
 
         qtyLabel.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
         qtyLabel.setText("Quantity");
-
-        color1.setBackground(new java.awt.Color(0, 153, 51));
-        color1.setRoundBottomLeft(18);
-        color1.setRoundBottomRight(18);
-        color1.setRoundTopLeft(18);
-        color1.setRoundTopRight(18);
-
-        javax.swing.GroupLayout color1Layout = new javax.swing.GroupLayout(color1);
-        color1.setLayout(color1Layout);
-        color1Layout.setHorizontalGroup(
-            color1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 18, Short.MAX_VALUE)
-        );
-        color1Layout.setVerticalGroup(
-            color1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 18, Short.MAX_VALUE)
-        );
-
-        color2.setBackground(new java.awt.Color(255, 153, 0));
-        color2.setRoundBottomLeft(18);
-        color2.setRoundBottomRight(18);
-        color2.setRoundTopLeft(18);
-        color2.setRoundTopRight(18);
-
-        javax.swing.GroupLayout color2Layout = new javax.swing.GroupLayout(color2);
-        color2.setLayout(color2Layout);
-        color2Layout.setHorizontalGroup(
-            color2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 18, Short.MAX_VALUE)
-        );
-        color2Layout.setVerticalGroup(
-            color2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 18, Short.MAX_VALUE)
-        );
 
         ownerRepScore.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         ownerRepScore.setText("Rep Score: 120");
@@ -333,6 +246,9 @@ public class ProductDescription extends javax.swing.JPanel {
         jScrollPane2.setBorder(null);
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane2.setViewportView(jTextPane1);
+
+        price.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        price.setText("Like New");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -382,22 +298,15 @@ public class ProductDescription extends javax.swing.JPanel {
                             .addGap(24, 24, 24)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(descLabel)
-                                .addComponent(jScrollPane1)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(colorLabel)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(color1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(color2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(color8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(color5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(conditionLabel)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(condition, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(addToCartBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(addToCartBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(qtyLabel)
@@ -407,7 +316,9 @@ public class ProductDescription extends javax.swing.JPanel {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(varQty, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(incQty, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(incQty, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addGap(32, 32, 32))))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -415,16 +326,12 @@ public class ProductDescription extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(headerLabel)
-                .addGap(34, 34, 34)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(pidLabel)
-                        .addComponent(colorLabel)
-                        .addComponent(productId))
-                    .addComponent(color5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(color1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(color8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(color2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pidLabel)
+                    .addComponent(colorLabel)
+                    .addComponent(productId)
+                    .addComponent(price))
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(conditionLabel)
@@ -490,9 +397,7 @@ public class ProductDescription extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 685, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -554,10 +459,6 @@ public class ProductDescription extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addToCartBtn;
-    private application.customer.design.PanelRound color1;
-    private application.customer.design.PanelRound color2;
-    private application.customer.design.PanelRound color5;
-    private application.customer.design.PanelRound color8;
     private javax.swing.JLabel colorLabel;
     private javax.swing.JScrollPane commentsScroll;
     private javax.swing.JLabel condition;
@@ -587,6 +488,7 @@ public class ProductDescription extends javax.swing.JPanel {
     private application.customer.design.PanelRound panelRound1;
     private application.customer.design.PictureHolder pictureView;
     private javax.swing.JLabel pidLabel;
+    private javax.swing.JLabel price;
     private javax.swing.JLabel productId;
     private javax.swing.JLabel productName;
     private javax.swing.JLabel qtyLabel;
@@ -596,36 +498,44 @@ public class ProductDescription extends javax.swing.JPanel {
     private javax.swing.JTextField varQty;
     // End of variables declaration//GEN-END:variables
 
-    public void setjTextPane1(JTextPane jTextPane1) {
-        this.jTextPane1 = jTextPane1;
+    public void setDesc(String desc) {
+        this.desc.setText(desc);
+    }
+    
+    public void setCondition(String condition) {
+        this.condition.setText(condition);
+    }
+    
+    public void setPrice(String price) {
+        this.price.setText(price);
     }
 
-    public void setOwnerAccountStatus(JLabel ownerAccountStatus) {
-        this.ownerAccountStatus = ownerAccountStatus;
+    public void setOwnerAccountStatus(String ownerAccountStatus) {
+        this.ownerAccountStatus.setText(ownerAccountStatus);
     }
 
-    public void setOwnerContact(JLabel ownerContact) {
-        this.ownerContact = ownerContact;
+    public void setOwnerContact(String ownerContact) {
+        this.ownerContact.setText(ownerContact);
     }
 
-    public void setOwnerGmail(JLabel ownerGmail) {
-        this.ownerGmail = ownerGmail;
+    public void setOwnerGmail(String ownerGmail) {
+        this.ownerGmail.setText(ownerGmail);
     }
 
-    public void setOwnerName(JLabel ownerName) {
-        this.ownerName = ownerName;
+    public void setOwnerName(String ownerName) {
+        this.ownerName.setText(ownerName);
     }
 
     public void setOwnerProfile(ImageAvatar ownerProfile) {
         this.ownerProfile = ownerProfile;
     }
 
-    public void setOwnerRepScore(JLabel ownerRepScore) {
-        this.ownerRepScore = ownerRepScore;
+    public void setOwnerRepScore(String ownerRepScore) {
+        this.ownerRepScore.setText(ownerRepScore);
     }
 
-    public void setPictureView(PictureHolder pictureView) {
-        this.pictureView = pictureView;
+    public void setPictureView(ImageIcon pictureView) {
+        this.pictureView.setImage(pictureView);
     }
 
     public void setProductId(String id) {
