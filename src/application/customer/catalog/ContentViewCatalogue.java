@@ -37,7 +37,7 @@ public class ContentViewCatalogue extends javax.swing.JPanel {
         
         jButton2.addActionListener(new ButtonClickListener());
         
-        desc = new ProductDescription(2, "Saugat", "Saugat", "Saugat", new ImageIcon(getClass().getResource("/application/customer/image/image3.png/")), new ImageIcon(getClass().getResource("/application/customer/image/image2.png/")), new ImageIcon(getClass().getResource("/application/customer/image/image4.png/")), "Saugat", "Saugat", "Saugat", "Saugat");
+        desc = new ProductDescription();
         descDialog = new JDialog((JFrame) SwingUtilities.getWindowAncestor(this), "Profile Setup", true);
         descDialog.setSize(new Dimension(685, 428));
         descDialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
@@ -213,29 +213,34 @@ public class ContentViewCatalogue extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        try {
         ProductDescDAO pDesc = new ProductDescDAO();
         String price = productPrice.getText().replace("NRs. ", "");
         BigDecimal pPrice = new BigDecimal(price);
         int productID = pDesc.fetchProductId(productName.getText(), pPrice);
-        
+
         HashMap<String, Object> productData = pDesc.fetchProductData(productName.getText(), productID);
-        byte[] primaryImage = (byte[]) productData.get("primary_image");
         byte[] secondaryImage = (byte[]) productData.get("secondary_image");
         byte[] tertiaryImage = (byte[]) productData.get("tertiary_image");
-        String productName = (String) productData.get("product_name");
-        String location = (String) productData.get("location");
         String sellerEmail = (String) productData.get("seller_email");
-//        SELECT p.product_name, p.location, p.description, p.price, p.delivery_status_id, p.pcondition, " +
-//                             "i.primary_image, i.secondary_image, i.tertiary_image, " +
-//                             "p.seller_email, p.category_id, p.upload_date " +
-//                             "FROM products p " +
-//                             "JOIN images i ON p.product_id = i.product_id " +
-//                             "WHERE p.product_name = ? AND p.product_id = ?
-//        String ProductDescription(int pID, String pName, String pCondition, String pDesc, ImageIcon image1, ImageIcon image2, ImageIcon image3, String oName, String oMail, String oContact, String oRep) {
-        desc.setProductName(productName);
-        desc.setShowImg1(new ImageIcon(primaryImage));
-        
+        String sellerName = (String) productData.get("first_name") + " " + (String) productData.get("last_name");
+        String phoneNumber = (String) productData.get("ContactNumber");
+        String description = (String) productData.get("description");
+
+        desc.setProductId(String.valueOf(productID));
+        desc.setOwnerGmail(sellerEmail);
+        desc.setOwnerContact(phoneNumber);
+        desc.setPrice("NRs. " + price);
+        desc.setOwnerName(sellerName);
+        desc.setProductName(productName.getText());
+        desc.setCondition(productCondition.getText());
+        desc.setShowImg2(new ImageIcon(secondaryImage));
+        desc.setShowImg3(new ImageIcon(tertiaryImage));
+        desc.setDesc(description);
         showDescDialog();
+    } catch (Exception ex) {
+        ex.printStackTrace();
+    }
     }//GEN-LAST:event_jButton1MouseClicked
     
     private void showDescDialog() {
