@@ -1,18 +1,14 @@
 package application.customer.forms;
 
 import application.customer.dao.ProductDataDAO;
-import application.customer.design.PictureHolder;
 import application.customer.model.CatalogModel;
 import java.awt.Dimension;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JProgressBar;
 import javax.swing.JSeparator;
@@ -134,11 +130,11 @@ public class UploadCatalogue extends javax.swing.JPanel {
     return null;
 }
     
-    private void dottedPanelMouseClicked(java.awt.event.MouseEvent evt, JFileChooser fileChooser, PictureHolder pictureHolder, int index) {
+    private void dottedPanelMouseClicked(java.awt.event.MouseEvent evt, JFileChooser fileChooser, int index) {
     File fetchSelectedFile = handleDottedPanelClick(fileChooser, index);
     if (fetchSelectedFile != null) {
         progressBar.setVisible(true);
-        simulateFileUpload(fetchSelectedFile, pictureHolder);
+        simulateFileUpload(fetchSelectedFile);
     }
 }
     
@@ -170,15 +166,12 @@ public class UploadCatalogue extends javax.swing.JPanel {
     private void initComponents() {
 
         dottedPanelImg1 = new application.customer.design.DottedPanel();
-        image1 = new application.customer.design.PictureHolder();
-        uploadImg1 = new javax.swing.JLabel();
         supportedFile = new javax.swing.JLabel();
+        uploadImg1 = new javax.swing.JLabel();
         dottedPanelImg2 = new application.customer.design.DottedPanel();
-        image2 = new application.customer.design.PictureHolder();
         uploadImg2 = new javax.swing.JLabel();
         img2Label = new javax.swing.JLabel();
         dottedPanelImg3 = new application.customer.design.DottedPanel();
-        image3 = new application.customer.design.PictureHolder();
         UploadImg3 = new javax.swing.JLabel();
         img3Label = new javax.swing.JLabel();
         ImageHeaderLabel = new javax.swing.JLabel();
@@ -205,55 +198,33 @@ public class UploadCatalogue extends javax.swing.JPanel {
             }
         });
 
-        image1.setOpaque(true);
-
-        uploadImg1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Vector (6).png"))); // NOI18N
-
         supportedFile.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         supportedFile.setText("Supported File: .png, .jpg, .jpeg, .gif");
 
-        image1.setLayer(uploadImg1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        image1.setLayer(supportedFile, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout image1Layout = new javax.swing.GroupLayout(image1);
-        image1.setLayout(image1Layout);
-        image1Layout.setHorizontalGroup(
-            image1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(image1Layout.createSequentialGroup()
-                .addGroup(image1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(image1Layout.createSequentialGroup()
-                        .addGap(146, 146, 146)
-                        .addComponent(uploadImg1))
-                    .addGroup(image1Layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(supportedFile)))
-                .addContainerGap(48, Short.MAX_VALUE))
-        );
-        image1Layout.setVerticalGroup(
-            image1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(image1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(uploadImg1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(supportedFile, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
+        uploadImg1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Vector (6).png"))); // NOI18N
 
         javax.swing.GroupLayout dottedPanelImg1Layout = new javax.swing.GroupLayout(dottedPanelImg1);
         dottedPanelImg1.setLayout(dottedPanelImg1Layout);
         dottedPanelImg1Layout.setHorizontalGroup(
             dottedPanelImg1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dottedPanelImg1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(image1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE)
+                .addGroup(dottedPanelImg1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dottedPanelImg1Layout.createSequentialGroup()
+                        .addComponent(uploadImg1)
+                        .addGap(147, 147, 147))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dottedPanelImg1Layout.createSequentialGroup()
+                        .addComponent(supportedFile)
+                        .addGap(55, 55, 55))))
         );
         dottedPanelImg1Layout.setVerticalGroup(
             dottedPanelImg1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dottedPanelImg1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(image1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGap(47, 47, 47)
+                .addComponent(uploadImg1)
+                .addGap(18, 18, 18)
+                .addComponent(supportedFile, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 38, Short.MAX_VALUE))
         );
 
         dottedPanelImg2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -262,55 +233,33 @@ public class UploadCatalogue extends javax.swing.JPanel {
             }
         });
 
-        image2.setOpaque(true);
-
         uploadImg2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Vector (6).png"))); // NOI18N
 
         img2Label.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         img2Label.setText("Image 2");
-
-        image2.setLayer(uploadImg2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        image2.setLayer(img2Label, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout image2Layout = new javax.swing.GroupLayout(image2);
-        image2.setLayout(image2Layout);
-        image2Layout.setHorizontalGroup(
-            image2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(image2Layout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
-                .addGroup(image2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, image2Layout.createSequentialGroup()
-                        .addComponent(uploadImg2)
-                        .addGap(59, 59, 59))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, image2Layout.createSequentialGroup()
-                        .addComponent(img2Label)
-                        .addGap(48, 48, 48))))
-        );
-        image2Layout.setVerticalGroup(
-            image2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(image2Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(uploadImg2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(img2Label)
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
 
         javax.swing.GroupLayout dottedPanelImg2Layout = new javax.swing.GroupLayout(dottedPanelImg2);
         dottedPanelImg2.setLayout(dottedPanelImg2Layout);
         dottedPanelImg2Layout.setHorizontalGroup(
             dottedPanelImg2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dottedPanelImg2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(image2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE)
+                .addGroup(dottedPanelImg2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dottedPanelImg2Layout.createSequentialGroup()
+                        .addComponent(uploadImg2)
+                        .addGap(65, 65, 65))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dottedPanelImg2Layout.createSequentialGroup()
+                        .addComponent(img2Label)
+                        .addGap(54, 54, 54))))
         );
         dottedPanelImg2Layout.setVerticalGroup(
             dottedPanelImg2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dottedPanelImg2Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(image2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(46, 46, 46)
+                .addComponent(uploadImg2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(img2Label)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         dottedPanelImg3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -319,55 +268,33 @@ public class UploadCatalogue extends javax.swing.JPanel {
             }
         });
 
-        image3.setOpaque(true);
-
         UploadImg3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/customer/image/Vector (6).png"))); // NOI18N
 
         img3Label.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         img3Label.setText("Image 3");
 
-        image3.setLayer(UploadImg3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        image3.setLayer(img3Label, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout image3Layout = new javax.swing.GroupLayout(image3);
-        image3.setLayout(image3Layout);
-        image3Layout.setHorizontalGroup(
-            image3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(image3Layout.createSequentialGroup()
-                .addGroup(image3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(image3Layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(UploadImg3))
-                    .addGroup(image3Layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(img3Label)))
-                .addContainerGap(46, Short.MAX_VALUE))
-        );
-        image3Layout.setVerticalGroup(
-            image3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(image3Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(UploadImg3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(img3Label)
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout dottedPanelImg3Layout = new javax.swing.GroupLayout(dottedPanelImg3);
         dottedPanelImg3.setLayout(dottedPanelImg3Layout);
         dottedPanelImg3Layout.setHorizontalGroup(
             dottedPanelImg3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dottedPanelImg3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(image3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(dottedPanelImg3Layout.createSequentialGroup()
+                .addContainerGap(56, Short.MAX_VALUE)
+                .addGroup(dottedPanelImg3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dottedPanelImg3Layout.createSequentialGroup()
+                        .addComponent(img3Label)
+                        .addGap(53, 53, 53))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dottedPanelImg3Layout.createSequentialGroup()
+                        .addComponent(UploadImg3)
+                        .addGap(64, 64, 64))))
         );
         dottedPanelImg3Layout.setVerticalGroup(
             dottedPanelImg3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dottedPanelImg3Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(image3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dottedPanelImg3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(UploadImg3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(img3Label)
+                .addGap(33, 33, 33))
         );
 
         ImageHeaderLabel.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 15)); // NOI18N
@@ -394,6 +321,8 @@ public class UploadCatalogue extends javax.swing.JPanel {
         priceTagLabel.setText("Price Tag");
 
         priceTagField.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+
+        scrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         productDescriptionField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         scrollPane1.setViewportView(productDescriptionField);
@@ -517,15 +446,15 @@ public class UploadCatalogue extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void dottedPanelImg1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dottedPanelImg1MouseClicked
-        dottedPanelMouseClicked(evt, new JFileChooser(), image1, 0);
+        dottedPanelMouseClicked(evt, new JFileChooser(), 0);
     }//GEN-LAST:event_dottedPanelImg1MouseClicked
 
     private void dottedPanelImg2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dottedPanelImg2MouseClicked
-        dottedPanelMouseClicked(evt, new JFileChooser(), image2, 1);
+        dottedPanelMouseClicked(evt, new JFileChooser(), 1);
     }//GEN-LAST:event_dottedPanelImg2MouseClicked
 
     private void dottedPanelImg3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dottedPanelImg3MouseClicked
-        dottedPanelMouseClicked(evt, new JFileChooser(), image3, 2);
+        dottedPanelMouseClicked(evt, new JFileChooser(), 2);
     }//GEN-LAST:event_dottedPanelImg3MouseClicked
 
     private void uploadBtnClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_uploadBtnClicked
@@ -557,7 +486,7 @@ public class UploadCatalogue extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_uploadBtnClicked
 
-    private void simulateFileUpload(File file, PictureHolder pictureHolder) {
+    private void simulateFileUpload(File file) {
     SwingWorker<Void, Integer> worker = new SwingWorker<Void, Integer>() {
         @Override
         protected Void doInBackground() throws Exception {
@@ -580,14 +509,6 @@ public class UploadCatalogue extends javax.swing.JPanel {
             progressBar.setValue(100);
             progressBar.setValue(0);
             progressBar.setVisible(false);
-            try {
-                BufferedImage image = ImageIO.read(file);
-                ImageIcon icon = new ImageIcon(image);
-                pictureHolder.setImage(icon);
-                pictureHolder.repaint();
-            } catch (IOException ex) {
-                Logger.getLogger(UploadCatalogue.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
     };
     worker.execute();
@@ -602,9 +523,6 @@ public class UploadCatalogue extends javax.swing.JPanel {
     private application.customer.design.DottedPanel dottedPanelImg3;
     private javax.swing.JButton goBackButton;
     private javax.swing.JSeparator hSeparator;
-    private application.customer.design.PictureHolder image1;
-    private application.customer.design.PictureHolder image2;
-    private application.customer.design.PictureHolder image3;
     private javax.swing.JLabel img2Label;
     private javax.swing.JLabel img3Label;
     private javax.swing.JLabel note1;
