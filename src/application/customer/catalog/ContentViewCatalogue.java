@@ -79,6 +79,27 @@ public class ContentViewCatalogue extends javax.swing.JPanel {
         }
     }
 
+    private class ButtonClickListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JButton source = (JButton) e.getSource();
+            
+            item1.setBackground(null);
+            item2.setBackground(null);
+            item3.setBackground(null);
+            item4.setBackground(null);
+            
+            item1.setForeground(Color.BLACK);
+            item2.setForeground(Color.BLACK);
+            item3.setForeground(Color.BLACK);
+            item4.setForeground(Color.BLACK);
+            
+            
+            source.setBackground(Color.decode("#FF5C00"));
+            source.setForeground(Color.WHITE);
+        }
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -93,7 +114,9 @@ public class ContentViewCatalogue extends javax.swing.JPanel {
         productCondition = new javax.swing.JLabel();
         shippingStatus = new javax.swing.JLabel();
 
-        panelRound1.setBackground(new java.awt.Color(244, 244, 244));
+        setOpaque(false);
+
+        panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(8);
         panelRound1.setRoundBottomRight(8);
         panelRound1.setRoundTopLeft(8);
